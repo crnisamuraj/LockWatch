@@ -6,6 +6,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWScrollView : UIScrollView
+@interface LWScrollView : UIScrollView {
+	BOOL isScaledDown;
+	UITapGestureRecognizer* tapped;
+}
 
 @end

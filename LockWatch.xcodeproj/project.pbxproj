@@ -11,6 +11,7 @@
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
 		8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */; };
 		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
+		8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollView.m; sourceTree = "<group>"; };
 		8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollViewContainer.h; sourceTree = "<group>"; };
 		8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
+		8DDCD4CC1E454285000D1BE0 /* LWWatchFacePrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWatchFacePrototype.h; sourceTree = "<group>"; };
+		8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWatchFacePrototype.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
 				8DDCD4C61E45348D000D1BE0 /* LWScrollView.h */,
 				8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */,
+				8DDCD4CC1E454285000D1BE0 /* LWWatchFacePrototype.h */,
+				8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */,
 				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
 				8DD92B451E44796800B93591 /* LockWatch.xm */,
 				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
@@ -207,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */,
 				8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */,
 				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
 				8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */,

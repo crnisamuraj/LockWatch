@@ -13,7 +13,7 @@ ARCHS = x86_64
 include /opt/theos/makefiles/common.mk
 
 TWEAK_NAME = LockWatch
-LockWatch_FILES = LockWatch.xm LWCore.m LWScrollViewContainer.m LWScrollView.m
+LockWatch_FILES = LockWatch.xm LWCore.m LWScrollViewContainer.m LWScrollView.m LWWatchFacePrototype.m
 
 include /opt/theos/makefiles/tweak.mk
 
