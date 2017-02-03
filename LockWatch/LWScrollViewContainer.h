@@ -1,10 +1,8 @@
-//
-//  LWScrollViewContainer.h
-//  LockWatch
-//
-//  Created by Janik Schmidt on 03.02.17.
-//  Copyright © 2017 Janik Schmidt. All rights reserved.
-//
+/*!
+	@file		LWScrollViewContainer.h
+	@abstract	A container for the main scroll view that acts as a mask
+	@copyright	(c) 2015-2017 FESTIVAL Development
+ */
 
 #import <UIKit/UIKit.h>
 
