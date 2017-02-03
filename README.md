@@ -18,6 +18,7 @@ Every watch face is recreated 1:1 and can be configured either by force-touching
 You can help contributing to this project again by adding various localizations (English and German will be included by default). Just fork the "Localization" branch (if that works, I don't know yet), add your Localization if it's not on the list below, and submit a pull request.
 
 ** Completed localizations **
+
 * English 
 * German
 
