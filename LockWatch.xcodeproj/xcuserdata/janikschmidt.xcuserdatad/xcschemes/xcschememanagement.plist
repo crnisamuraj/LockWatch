@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>LockWatch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8DD92B221E4478D900B93591</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DD92B3D1E44790A00B93591</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DD92B561E4479F800B93591</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DD92B631E447A6000B93591</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

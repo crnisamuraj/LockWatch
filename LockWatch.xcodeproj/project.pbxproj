@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
+		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
+		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
+		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8DD92B441E44795D00B93591 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		8DD92B451E44796800B93591 /* LockWatch.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LockWatch.xm; sourceTree = "<group>"; };
+		8DD92B481E44798500B93591 /* .stamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .stamp; sourceTree = "<group>"; };
+		8DD92B4A1E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
+		8DD92B4B1E44798500B93591 /* LockWatch.xm.8c50e618.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LockWatch.xm.8c50e618.o; sourceTree = "<group>"; };
+		8DD92B4C1E44798500B93591 /* LWCore.m.8c50e618.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LWCore.m.8c50e618.o; sourceTree = "<group>"; };
+		8DD92B4E1E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
+		8DD92B4F1E44798500B93591 /* LockWatch.xm.563103cf.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LockWatch.xm.563103cf.o; sourceTree = "<group>"; };
+		8DD92B501E44798500B93591 /* LWCore.m.563103cf.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LWCore.m.563103cf.o; sourceTree = "<group>"; };
+		8DD92B511E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
+		8DD92B7C1E4488C000B93591 /* LockWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockWatch.h; sourceTree = "<group>"; };
+		8DD92B7D1E448A0300B93591 /* LockWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = LockWatch.plist; sourceTree = "<group>"; };
+		8DD92B811E44F1C900B93591 /* Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Build.app; path = "/Users/janikschmidt/Documents/Xcode/LockWatch/build/Debug-iphoneos/Build.app"; sourceTree = "<absolute>"; };
+		8DD92B821E44F24700B93591 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD92B611E447A6000B93591 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8DD92B1A1E4478D900B93591 = {
+			isa = PBXGroup;
+			children = (
+				8DD92B821E44F24700B93591 /* .gitignore */,
+				8DD92B431E44794200B93591 /* README.md */,
+				8DD92B251E4478D900B93591 /* LockWatch */,
+				8DD92B461E44798500B93591 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8DD92B251E4478D900B93591 /* LockWatch */ = {
+			isa = PBXGroup;
+			children = (
+				8DD92B441E44795D00B93591 /* Makefile */,
+				8DD92B411E44791E00B93591 /* LWCore.h */,
+				8DD92B421E44791E00B93591 /* LWCore.m */,
+				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
+				8DD92B451E44796800B93591 /* LockWatch.xm */,
+				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
+			);
+			path = LockWatch;
+			sourceTree = "<group>";
+		};
+		8DD92B461E44798500B93591 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD92B471E44798500B93591 /* debug */,
+			);
+			name = Products;
+			path = LockWatch/.theos/obj;
+			sourceTree = "<group>";
+		};
+		8DD92B471E44798500B93591 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				8DD92B481E44798500B93591 /* .stamp */,
+				8DD92B491E44798500B93591 /* arm64 */,
+				8DD92B4D1E44798500B93591 /* armv7 */,
+				8DD92B511E44798500B93591 /* LockWatch.dylib */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
+		8DD92B491E44798500B93591 /* arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				8DD92B4A1E44798500B93591 /* LockWatch.dylib */,
+				8DD92B4B1E44798500B93591 /* LockWatch.xm.8c50e618.o */,
+				8DD92B4C1E44798500B93591 /* LWCore.m.8c50e618.o */,
+			);
+			path = arm64;
+			sourceTree = "<group>";
+		};
+		8DD92B4D1E44798500B93591 /* armv7 */ = {
+			isa = PBXGroup;
+			children = (
+				8DD92B4E1E44798500B93591 /* LockWatch.dylib */,
+				8DD92B4F1E44798500B93591 /* LockWatch.xm.563103cf.o */,
+				8DD92B501E44798500B93591 /* LWCore.m.563103cf.o */,
+			);
+			path = armv7;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		8DD92B3D1E44790A00B93591 /* LockWatch */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "LockWatch" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/janikschmidt/Documents/Xcode/LockWatch/LockWatch;
+			dependencies = (
+			);
+			name = LockWatch;
+			passBuildSettingsInEnvironment = 0;
+			productName = LockWatch;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		8DD92B631E447A6000B93591 /* Build */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD92B781E447A6000B93591 /* Build configuration list for PBXNativeTarget "Build" */;
+			buildPhases = (
+				8DD92B601E447A6000B93591 /* Sources */,
+				8DD92B611E447A6000B93591 /* Frameworks */,
+				8DD92B621E447A6000B93591 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Build;
+			productName = Build;
+			productReference = 8DD92B811E44F1C900B93591 /* Build.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DD92B1B1E4478D900B93591 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Janik Schmidt";
+				TargetAttributes = {
+					8DD92B3D1E44790A00B93591 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					8DD92B631E447A6000B93591 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8DD92B1E1E4478D900B93591 /* Build configuration list for PBXProject "LockWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DD92B1A1E4478D900B93591;
+			productRefGroup = 8DD92B1A1E4478D900B93591;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD92B3D1E44790A00B93591 /* LockWatch */,
+				8DD92B631E447A6000B93591 /* Build */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DD92B621E447A6000B93591 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD92B601E447A6000B93591 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8DD92B381E4478D900B93591 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DD92B391E4478D900B93591 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DD92B3F1E44790A00B93591 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8DD92B401E44790A00B93591 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8DD92B791E447A6000B93591 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Build/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.Build;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8DD92B7A1E447A6000B93591 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Build/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.Build;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DD92B1E1E4478D900B93591 /* Build configuration list for PBXProject "LockWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD92B381E4478D900B93591 /* Debug */,
+				8DD92B391E4478D900B93591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "LockWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD92B3F1E44790A00B93591 /* Debug */,
+				8DD92B401E44790A00B93591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD92B781E447A6000B93591 /* Build configuration list for PBXNativeTarget "Build" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD92B791E447A6000B93591 /* Debug */,
+				8DD92B7A1E447A6000B93591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DD92B1B1E4478D900B93591 /* Project object */;
+}
