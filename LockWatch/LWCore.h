@@ -6,10 +6,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LWScrollViewContainer;
+
 @interface LWCore : NSObject {
 	BOOL isUpdatingTime;
 	NSTimer* timeUpdateTimer;
 	
+	LWScrollViewContainer* mainScrollView;
 	id currentWatchFace;
 	BOOL isInSelection;
 }

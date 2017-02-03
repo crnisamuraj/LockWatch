@@ -1,7 +1,7 @@
 #import "LockWatch.h"
 
 LWCore* lockWatchCore;
-
+SBDashBoardMainPageViewController* mainPage;
 
 %hook SpringBoard
 
@@ -12,9 +12,28 @@ LWCore* lockWatchCore;
 	
 	SBLockScreenManager* lsManager = [%c(SBLockScreenManager) sharedInstance];
 	SBDashBoardViewController* dashBoard = [lsManager lockScreenViewController];
-	SBDashBoardMainPageViewController* mainPage = [dashBoard mainPageViewController];
+	mainPage = [dashBoard mainPageViewController];
 	
 	[[mainPage view] insertSubview:lockWatchCore.interfaceView atIndex:0];
+	[[mainPage isolatingViewController].view setHidden:YES];
+}
+
+%end
+
+%hook SBFLockScreenDateView
+
+- (void)layoutSubviews {
+	[[mainPage isolatingViewController].view setHidden:YES];
+	%orig;
+}
+
+%end
+
+%hook SBDashBoardViewController
+
+-(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
+	[[mainPage isolatingViewController].view setHidden:YES];
+	%orig(arg1);
 }
 
 %end

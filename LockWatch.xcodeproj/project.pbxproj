@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
+		8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */; };
+		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,12 @@
 		8DD92B511E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
 		8DD92B7C1E4488C000B93591 /* LockWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockWatch.h; sourceTree = "<group>"; };
 		8DD92B7D1E448A0300B93591 /* LockWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = LockWatch.plist; sourceTree = "<group>"; };
-		8DD92B811E44F1C900B93591 /* Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Build.app; path = "/Users/janikschmidt/Documents/Xcode/LockWatch/build/Debug-iphoneos/Build.app"; sourceTree = "<absolute>"; };
 		8DD92B821E44F24700B93591 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8DDCD4C51E44F4BE000D1BE0 /* Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Build.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DDCD4C61E45348D000D1BE0 /* LWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollView.h; sourceTree = "<group>"; };
+		8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollView.m; sourceTree = "<group>"; };
+		8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollViewContainer.h; sourceTree = "<group>"; };
+		8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 				8DD92B431E44794200B93591 /* README.md */,
 				8DD92B251E4478D900B93591 /* LockWatch */,
 				8DD92B461E44798500B93591 /* Products */,
+				8DDCD4C51E44F4BE000D1BE0 /* Build.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +65,10 @@
 				8DD92B441E44795D00B93591 /* Makefile */,
 				8DD92B411E44791E00B93591 /* LWCore.h */,
 				8DD92B421E44791E00B93591 /* LWCore.m */,
+				8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */,
+				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
+				8DDCD4C61E45348D000D1BE0 /* LWScrollView.h */,
+				8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */,
 				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
 				8DD92B451E44796800B93591 /* LockWatch.xm */,
 				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
@@ -139,7 +150,7 @@
 			);
 			name = Build;
 			productName = Build;
-			productReference = 8DD92B811E44F1C900B93591 /* Build.app */;
+			productReference = 8DDCD4C51E44F4BE000D1BE0 /* Build.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +207,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */,
 				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
+				8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
