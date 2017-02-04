@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D52869E1E45ED7800BC56E1 /* _UIBackdropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _UIBackdropView.h; sourceTree = "<group>"; };
 		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
 		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
 		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -55,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D52869C1E45E88900BC56E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D52869E1E45ED7800BC56E1 /* _UIBackdropView.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8DD92B1A1E4478D900B93591 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +78,7 @@
 		8DD92B251E4478D900B93591 /* LockWatch */ = {
 			isa = PBXGroup;
 			children = (
+				8D52869C1E45E88900BC56E1 /* Supporting Files */,
 				8DD92B441E44795D00B93591 /* Makefile */,
 				8DD92B411E44791E00B93591 /* LWCore.h */,
 				8DD92B421E44791E00B93591 /* LWCore.m */,

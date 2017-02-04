@@ -7,8 +7,8 @@ export PACKAGE_VERSION = 0.0.1-beta1
 TARGET = iphone:latest
 ARCHS = armv7 arm64
 
-#TARGET = simulator:clang
-#ARCHS = x86_64
+TARGET = simulator:clang
+ARCHS = x86_64
 
 include /opt/theos/makefiles/common.mk
 

@@ -5,6 +5,7 @@
  */
 
 #import "LWWatchFacePrototype.h"
+#import <objc/runtime.h>
 
 @implementation LWWatchFacePrototype
 
@@ -12,8 +13,13 @@
 	self = [super initWithFrame:frame];
 	
 	if (self) {
-		[self setBackgroundColor:[UIColor blueColor]];
-		[self setUserInteractionEnabled:NO];
+		_UIBackdropView* contentView = [[_UIBackdropView alloc] initWithStyle:0];
+		[contentView setBlurRadius:30.0];
+		[contentView setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:0.45]];
+		[self addSubview:contentView];
+		
+		[self setClipsToBounds:YES];
+		[self.layer setCornerRadius:12.0];
 	}
 	
 	return self;

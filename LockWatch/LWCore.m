@@ -28,7 +28,7 @@ static LWCore* sharedInstance;
 		float screenW = [[UIScreen mainScreen] bounds].size.width;
 		float screenH = [[UIScreen mainScreen] bounds].size.height;
 		self.interfaceView = [[LWInterfaceView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
-		[self.interfaceView setBackgroundColor:[UIColor greenColor]];
+		//[self.interfaceView setBackgroundColor:[UIColor greenColor]];
 		
 		self->mainScrollView = [[LWScrollViewContainer alloc] initWithFrame:CGRectMake(screenW/2 - 312/2, 0, 312, 390)];
 		[self.interfaceView addSubview:self->mainScrollView];

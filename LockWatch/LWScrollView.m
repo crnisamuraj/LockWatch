@@ -27,7 +27,7 @@ static LWScrollView* sharedInstance;
 		sharedInstance = self;
 		int testingCount = 6;
 		
-		[self setBackgroundColor:[UIColor magentaColor]];
+		//[self setBackgroundColor:[UIColor magentaColor]];
 		
 		for (int i=0; i<testingCount; i++) {
 			LWWatchFacePrototype* testView = [[LWWatchFacePrototype alloc] initWithFrame:CGRectMake(312*i + 30*i, 0, 312, 390)];
@@ -42,6 +42,8 @@ static LWScrollView* sharedInstance;
 		self->tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
 		[self addGestureRecognizer:self->tapped];
 		[self->tapped setEnabled:NO];
+		
+		[self setShowsHorizontalScrollIndicator:NO];
 	}
 	
 	return self;

@@ -5,6 +5,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "_UIBackdropView.h"
 
 @interface LWWatchFacePrototype : UIView
 

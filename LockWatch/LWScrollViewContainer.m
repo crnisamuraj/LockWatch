@@ -14,7 +14,7 @@
 	
 	if (self) {
 		self->scrollView = [[LWScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width + watchFaceSpacing, frame.size.height)];
-		[self setBackgroundColor:[UIColor magentaColor]];
+		//[self setBackgroundColor:[UIColor magentaColor]];
 		[self setClipsToBounds:YES];
 		[self addSubview:self->scrollView];
 	}
