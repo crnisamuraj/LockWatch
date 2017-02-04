@@ -91,13 +91,21 @@ static LWScrollView* sharedInstance;
 
 	[self setTransform:CGAffineTransformMakeScale(scale, scale)];
 	
-	if (normalizedForce > 0.9) {
+	if (normalizedForce >= 1.0) {
 		//[self scaleDown];
 		[[LWCore sharedInstance] setIsInSelection:YES];
 	}
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	if (self->isScaledDown) {
+		return;
+	}
+	
+	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 	if (self->isScaledDown) {
 		return;
 	}

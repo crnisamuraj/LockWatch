@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D52869E1E45ED7800BC56E1 /* _UIBackdropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _UIBackdropView.h; sourceTree = "<group>"; };
+		8D52869F1E4633FA00BC56E1 /* NCMaterialView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
 		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
 		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
 		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		8D52869C1E45E88900BC56E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8D52869E1E45ED7800BC56E1 /* _UIBackdropView.h */,
+				8D52869F1E4633FA00BC56E1 /* NCMaterialView.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
