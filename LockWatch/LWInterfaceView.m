@@ -1,10 +1,8 @@
-//
-//  LWInterfaceView.m
-//  LockWatch
-//
-//  Created by Janik Schmidt on 04.02.17.
-//  Copyright © 2017 Janik Schmidt. All rights reserved.
-//
+/*!
+	@file		LWInterfaceView.m
+	@abstract	The actual view container for all LockWatch views
+	@copyright	(c) 2015-2017 FESTIVAL Development
+ */
 
 #import "LWInterfaceView.h"
 

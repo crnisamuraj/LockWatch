@@ -1,3 +1,4 @@
+#import "substrate.h"
 #import "LWCore.h"
 
 @interface SBDashBoardMainPageViewController : UIViewController
@@ -7,13 +8,25 @@
 @interface SBLockScreenDateViewController : UIViewController
 @end
 
+@interface SBPagedScrollView : UIScrollView
+@end
+
+@interface SBDashBoardScrollGestureController : NSObject {
+	SBPagedScrollView* _scrollView;
+}
+
+- (SBPagedScrollView*)scrollView;
+@end
+
 @interface SBDashBoardViewController : NSObject {
 	SBDashBoardMainPageViewController* _mainPageViewController;
 	SBLockScreenDateViewController* _dateViewController;
+	SBDashBoardScrollGestureController* _scrollGestureController;
 }
 
 - (SBDashBoardMainPageViewController*)mainPageViewController;
 - (SBLockScreenDateViewController*)dateViewController;
+- (SBDashBoardScrollGestureController*)scrollGestureController;
 @end
 
 @interface SBLockScreenManager : NSObject {

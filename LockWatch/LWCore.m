@@ -68,9 +68,9 @@ static LWCore* sharedInstance;
 
 - (void)setIsInSelection:(BOOL)selection {
 	self->isInSelection = selection;
+	[[[[[objc_getClass("SBLockScreenManager") sharedInstance] lockScreenViewController] scrollGestureController] scrollView] setScrollEnabled:!selection];
 	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:(selection?-1:self.defaultDimInterval) mode:1];
-	//[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 	
 	if (selection) {
 		[[LWScrollView sharedInstance] scaleDown];

@@ -37,6 +37,20 @@ SBDashBoardMainPageViewController* mainPage;
 	%orig(arg1);
 }
 
+%new
+- (SBDashBoardScrollGestureController*)scrollGestureController {
+	return MSHookIvar<SBDashBoardScrollGestureController*>(self,"_scrollGestureController");
+}
+
+%end
+
+%hook SBDashBoardScrollGestureController
+
+%new
+- (SBPagedScrollView*)scrollView {
+	return MSHookIvar<SBPagedScrollView*>(self,"_scrollView");
+}
+
 %end
 
 %hook SBBacklightController
