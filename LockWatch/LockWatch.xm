@@ -1,4 +1,5 @@
 #import "LockWatch.h"
+#import "LWInterfaceView.h"
 
 LWCore* lockWatchCore;
 SBDashBoardMainPageViewController* mainPage;
@@ -34,6 +35,15 @@ SBDashBoardMainPageViewController* mainPage;
 -(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
 	[[mainPage isolatingViewController].view setHidden:YES];
 	%orig(arg1);
+}
+
+%end
+
+%hook SBBacklightController
+
+- (double)defaultLockScreenDimInterval {
+	lockWatchCore.defaultDimInterval = %orig;
+	return %orig;
 }
 
 %end

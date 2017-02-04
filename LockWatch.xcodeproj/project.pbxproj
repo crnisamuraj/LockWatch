@@ -12,6 +12,7 @@
 		8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */; };
 		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
 		8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */; };
+		8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,9 @@
 		8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
 		8DDCD4CC1E454285000D1BE0 /* LWWatchFacePrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWatchFacePrototype.h; sourceTree = "<group>"; };
 		8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWatchFacePrototype.m; sourceTree = "<group>"; };
+		8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInterfaceView.h; sourceTree = "<group>"; };
+		8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWInterfaceView.m; sourceTree = "<group>"; };
+		8DDCD4D21E45CE05000D1BE0 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				8DD92B441E44795D00B93591 /* Makefile */,
 				8DD92B411E44791E00B93591 /* LWCore.h */,
 				8DD92B421E44791E00B93591 /* LWCore.m */,
+				8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */,
+				8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */,
 				8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */,
 				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
 				8DDCD4C61E45348D000D1BE0 /* LWScrollView.h */,
@@ -77,6 +83,7 @@
 				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
 				8DD92B451E44796800B93591 /* LockWatch.xm */,
 				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
+				8DDCD4D21E45CE05000D1BE0 /* control */,
 			);
 			path = LockWatch;
 			sourceTree = "<group>";
@@ -124,17 +131,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		8DD92B3D1E44790A00B93591 /* LockWatch */ = {
+		8DD92B3D1E44790A00B93591 /* Device */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = 8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "LockWatch" */;
+			buildArgumentsString = do;
+			buildConfigurationList = 8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "Device" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = /Users/janikschmidt/Documents/Xcode/LockWatch/LockWatch;
 			dependencies = (
 			);
-			name = LockWatch;
+			name = Device;
+			passBuildSettingsInEnvironment = 0;
+			productName = LockWatch;
+		};
+		8DDCD4D71E45D02F000D1BE0 /* Simulator */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = 8DDCD4D81E45D02F000D1BE0 /* Build configuration list for PBXLegacyTarget "Simulator" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/janikschmidt/Documents/Xcode/LockWatch/LockWatch;
+			dependencies = (
+			);
+			name = Simulator;
 			passBuildSettingsInEnvironment = 0;
 			productName = LockWatch;
 		};
@@ -190,7 +211,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD92B3D1E44790A00B93591 /* LockWatch */,
+				8DDCD4D71E45D02F000D1BE0 /* Simulator */,
+				8DD92B3D1E44790A00B93591 /* Device */,
 				8DD92B631E447A6000B93591 /* Build */,
 			);
 		};
@@ -212,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */,
 				8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */,
 				8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */,
 				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
@@ -357,6 +380,29 @@
 			};
 			name = Release;
 		};
+		8DDCD4D91E45D02F000D1BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8DDCD4DA1E45D02F000D1BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -369,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "LockWatch" */ = {
+		8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "Device" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DD92B3F1E44790A00B93591 /* Debug */,
@@ -383,6 +429,15 @@
 			buildConfigurations = (
 				8DD92B791E447A6000B93591 /* Debug */,
 				8DD92B7A1E447A6000B93591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DDCD4D81E45D02F000D1BE0 /* Build configuration list for PBXLegacyTarget "Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DDCD4D91E45D02F000D1BE0 /* Debug */,
+				8DDCD4DA1E45D02F000D1BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

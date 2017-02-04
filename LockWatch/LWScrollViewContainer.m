@@ -22,4 +22,15 @@
 	return self;
 }
 
+- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
+	UIView * scrv = [[self subviews] objectAtIndex:0];
+	
+	UIView *superView = [super hitTest:point withEvent:event];
+	if (superView == self) {
+		return scrv;
+	}
+	
+	return superView;
+}
+
 @end

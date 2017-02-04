@@ -6,14 +6,25 @@
 
 #import "LWScrollView.h"
 #import "LWWatchFacePrototype.h"
+#import "LWCore.h"
+
+#import <AudioToolbox/AudioServices.h>
+
 #define scaleDownFactor (188.0/312.0)
 
 @implementation LWScrollView
+
+static LWScrollView* sharedInstance;
+
++ (id)sharedInstance {
+	return sharedInstance;
+}
 
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	
 	if (self) {
+		sharedInstance = self;
 		int testingCount = 6;
 		
 		[self setBackgroundColor:[UIColor magentaColor]];
@@ -28,7 +39,7 @@
 		[self setClipsToBounds:YES];
 		[self setScrollEnabled:NO];
 		
-		self->tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scaleUp:)];
+		self->tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
 		[self addGestureRecognizer:self->tapped];
 		[self->tapped setEnabled:NO];
 	}
@@ -36,18 +47,28 @@
 	return self;
 }
 
-- (void)scaleUp:(UITapGestureRecognizer*)sender {
+- (void)tapped:(UITapGestureRecognizer*)sender {
+	[[LWCore sharedInstance] setIsInSelection:NO];
+}
+
+- (void)scaleUp {
 	[self->tapped setEnabled:NO];
 	self->isScaledDown = NO;
 	[self setClipsToBounds:YES];
+	[[self superview] setClipsToBounds:YES];
+	
 	[self setScrollEnabled:NO];
 	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 }
 
 - (void)scaleDown {
+	AudioServicesPlaySystemSound(1000 + 500 + 20);
+	
 	[self->tapped setEnabled:YES];
 	self->isScaledDown = YES;
 	[self setClipsToBounds:NO];
+	[[self superview] setClipsToBounds:NO];
+	
 	[self setScrollEnabled:YES];
 	[self setTransform:CGAffineTransformMakeScale(scaleDownFactor, scaleDownFactor)];
 }
@@ -69,7 +90,8 @@
 	[self setTransform:CGAffineTransformMakeScale(scale, scale)];
 	
 	if (normalizedForce > 0.9) {
-		[self scaleDown];
+		//[self scaleDown];
+		[[LWCore sharedInstance] setIsInSelection:YES];
 	}
 }
 

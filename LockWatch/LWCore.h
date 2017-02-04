@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWScrollViewContainer;
+@class LWInterfaceView, LWScrollViewContainer;
 
 @interface LWCore : NSObject {
 	BOOL isUpdatingTime;
@@ -20,7 +20,8 @@
 /**
  The main view for LockWatch
  */
-@property (nonatomic, strong) UIView* interfaceView;
+@property (nonatomic, strong) LWInterfaceView* interfaceView;
+@property (nonatomic) double defaultDimInterval;
 
 /**
  The global core instance

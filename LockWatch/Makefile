@@ -4,16 +4,17 @@ export GO_EASY_ON_ME = 1
 
 export PACKAGE_VERSION = 0.0.1-beta1
 
-#TARGET = iphone:latest
-#ARCHS = armv7 arm64
+TARGET = iphone:latest
+ARCHS = armv7 arm64
 
-TARGET = simulator:clang
-ARCHS = x86_64
+#TARGET = simulator:clang
+#ARCHS = x86_64
 
 include /opt/theos/makefiles/common.mk
 
 TWEAK_NAME = LockWatch
-LockWatch_FILES = LockWatch.xm LWCore.m LWScrollViewContainer.m LWScrollView.m LWWatchFacePrototype.m
+LockWatch_FILES = LockWatch.xm LWCore.m LWInterfaceView.m LWScrollViewContainer.m LWScrollView.m LWWatchFacePrototype.m
+LockWatch_FRAMEWORKS += AudioToolbox
 
 include /opt/theos/makefiles/tweak.mk
 

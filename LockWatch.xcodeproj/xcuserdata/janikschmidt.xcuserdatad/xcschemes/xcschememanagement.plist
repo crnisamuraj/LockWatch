@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>LockWatch.xcscheme</key>
+		<key>Device.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Simulator.xcscheme</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -30,6 +35,16 @@
 			<true/>
 		</dict>
 		<key>8DD92B631E447A6000B93591</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DDCD4D31E45D017000D1BE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DDCD4D71E45D02F000D1BE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

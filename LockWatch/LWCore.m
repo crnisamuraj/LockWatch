@@ -5,11 +5,15 @@
  */
 
 #import "LWCore.h"
+#import "LockWatch.h"
 #import "LWScrollViewContainer.h"
+#import "LWInterfaceView.h"
+#import "LWScrollView.h"
+#import <objc/runtime.h>
 
 @implementation LWCore
 
-id sharedInstance;
+static LWCore* sharedInstance;
 
 + (id)sharedInstance {
 	return sharedInstance;
@@ -23,7 +27,7 @@ id sharedInstance;
 		
 		float screenW = [[UIScreen mainScreen] bounds].size.width;
 		float screenH = [[UIScreen mainScreen] bounds].size.height;
-		self.interfaceView = [[UIView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+		self.interfaceView = [[LWInterfaceView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
 		[self.interfaceView setBackgroundColor:[UIColor greenColor]];
 		
 		self->mainScrollView = [[LWScrollViewContainer alloc] initWithFrame:CGRectMake(screenW/2 - 312/2, 0, 312, 390)];
@@ -64,6 +68,16 @@ id sharedInstance;
 
 - (void)setIsInSelection:(BOOL)selection {
 	self->isInSelection = selection;
+	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:(selection?-1:self.defaultDimInterval) mode:1];
+	//[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	
+	if (selection) {
+		[[LWScrollView sharedInstance] scaleDown];
+	} else {
+		[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+		[[LWScrollView sharedInstance] scaleUp];
+	}
 }
 - (BOOL)isInSelection {
 	return self->isInSelection;

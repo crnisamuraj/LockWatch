@@ -11,4 +11,9 @@
 	UITapGestureRecognizer* tapped;
 }
 
++ (id)sharedInstance;
+
+- (void)scaleUp;
+- (void)scaleDown;
+
 @end

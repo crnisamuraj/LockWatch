@@ -26,3 +26,10 @@
 
 @interface SBFLockScreenDateView : UIView
 @end
+
+@interface SBBacklightController : NSObject
++ (id)sharedInstance;
+- (void)resetLockScreenIdleTimer;
+- (void)_resetLockScreenIdleTimerWithDuration:(double)arg1 mode:(int)arg2 ;
+- (void)setIdleTimerDisabled:(BOOL)arg1 forReason:(id)arg2 ;
+@end
