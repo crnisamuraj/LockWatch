@@ -34,7 +34,7 @@ Compiling is recommended using the iOS 10.2 SDK
 To build LockWatch, you have two targets: "Simulator" and "Device".
 
 "Simulator" is made for use with simject to test LockWatch inside the iOS Simulator. For more information on simject, visit https://github.com/angelXwind/simject. This target also requires LockWatchBase.framework. Build it using the "LockWatchBase" target and copy it to to project directory and 
-    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/
+`/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/`
 
 
 "Device" builds LockWatch for a physical device connected via USB. As yalu102 makes SSH only listen on localhost, you need to set up SSH via USB for this (http://iphonedevwiki.net/index.php/SSH_Over_USB).
