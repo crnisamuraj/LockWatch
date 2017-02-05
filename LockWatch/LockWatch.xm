@@ -4,6 +4,9 @@
 LWCore* lockWatchCore;
 SBDashBoardMainPageViewController* mainPage;
 
+BOOL hasNotifications;
+BOOL mediaControlsVisible;
+
 %hook SpringBoard
 
 - (void)applicationDidFinishLaunching:(id)arg1 {
@@ -16,7 +19,8 @@ SBDashBoardMainPageViewController* mainPage;
 	mainPage = [dashBoard mainPageViewController];
 	
 	[[mainPage view] insertSubview:lockWatchCore.interfaceView atIndex:0];
-	[[mainPage isolatingViewController].view setHidden:YES];
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
 }
 
 %end
@@ -24,7 +28,8 @@ SBDashBoardMainPageViewController* mainPage;
 %hook SBFLockScreenDateView
 
 - (void)layoutSubviews {
-	[[mainPage isolatingViewController].view setHidden:YES];
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
 	%orig;
 }
 
@@ -33,7 +38,9 @@ SBDashBoardMainPageViewController* mainPage;
 %hook SBDashBoardViewController
 
 -(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
-	[[mainPage isolatingViewController].view setHidden:YES];
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	
 	%orig(arg1);
 }
 
@@ -58,6 +65,33 @@ SBDashBoardMainPageViewController* mainPage;
 - (double)defaultLockScreenDimInterval {
 	lockWatchCore.defaultDimInterval = %orig;
 	return %orig;
+}
+
+%end
+
+
+// Fix for invisible notifications/media controls (temporary)
+
+%hook SBDashBoardNotificationListViewController
+
+-(void)_setListHasContent:(BOOL)arg1 {
+	%orig(arg1);
+	
+	hasNotifications = arg1;
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+}
+
+%end
+
+%hook SBDashBoardMediaArtworkViewController
+
+-(void)willTransitionToPresented:(BOOL)arg1 {
+	%orig(arg1);
+	
+	mediaControlsVisible = arg1;
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
 }
 
 %end
