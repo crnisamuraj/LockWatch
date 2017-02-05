@@ -11,6 +11,7 @@
 #import <AudioToolbox/AudioServices.h>
 
 #define scaleDownFactor (188.0/312.0)
+#define spacing 75
 
 @implementation LWScrollView
 
@@ -27,17 +28,21 @@ static LWScrollView* sharedInstance;
 		sharedInstance = self;
 		int testingCount = 6;
 		
-		//[self setBackgroundColor:[UIColor magentaColor]];
+		self->watchFaceViews = [[NSMutableArray alloc] init];
 		
 		for (int i=0; i<testingCount; i++) {
-			LWWatchFacePrototype* testView = [[LWWatchFacePrototype alloc] initWithFrame:CGRectMake(312*i + 30*i, 0, 312, 390)];
+			LWWatchFacePrototype* testView = [[LWWatchFacePrototype alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
 			[self addSubview:testView];
+			[self->watchFaceViews addObject:testView];
 		}
 		
-		[self setContentSize:CGSizeMake((testingCount*312)+(testingCount*30), 390)];
+		[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:0]];
+		[self resetAlpha];
+		
+		[self setContentSize:CGSizeMake((testingCount*312)+(testingCount*spacing), 390)];
 		[self setPagingEnabled:YES];
-		[self setClipsToBounds:YES];
 		[self setScrollEnabled:NO];
+		[self setClipsToBounds:NO];
 		
 		self->tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
 		[self addGestureRecognizer:self->tapped];
@@ -49,18 +54,14 @@ static LWScrollView* sharedInstance;
 	return self;
 }
 
-- (void)tapped:(UITapGestureRecognizer*)sender {
-	[[LWCore sharedInstance] setIsInSelection:NO];
-}
-
 - (void)scaleUp {
+	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
 	[self->tapped setEnabled:NO];
 	self->isScaledDown = NO;
-	[self setClipsToBounds:YES];
-	[[self superview] setClipsToBounds:YES];
 	
 	[self setScrollEnabled:NO];
 	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	[self resetAlpha];
 }
 
 - (void)scaleDown {
@@ -68,11 +69,35 @@ static LWScrollView* sharedInstance;
 	
 	[self->tapped setEnabled:YES];
 	self->isScaledDown = YES;
-	[self setClipsToBounds:NO];
 	[[self superview] setClipsToBounds:NO];
 	
 	[self setScrollEnabled:YES];
 	[self setTransform:CGAffineTransformMakeScale(scaleDownFactor, scaleDownFactor)];
+}
+
+- (NSArray*)watchFaceViews {
+	return self->watchFaceViews;
+}
+
+- (void)tapped:(UITapGestureRecognizer*)sender {
+	[[LWCore sharedInstance] setIsInSelection:NO];
+}
+
+- (int)getCurrentPage {
+	CGFloat width = self.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1);
+	CGFloat page = ceilf(self.contentOffset.x / width);
+	
+	return (int)page;
+}
+
+- (void)resetAlpha {
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
+			[proto setAlpha:0.0];
+		} else {
+			[[proto backgroundView] setAlpha:0.0];
+		}
+	}
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -90,6 +115,13 @@ static LWScrollView* sharedInstance;
 	}
 
 	[self setTransform:CGAffineTransformMakeScale(scale, scale)];
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
+			[proto setAlpha:normalizedForce];
+		} else {
+			[[proto backgroundView] setAlpha:normalizedForce];
+		}
+	}
 	
 	if (normalizedForce >= 1.0) {
 		//[self scaleDown];
@@ -103,6 +135,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	[self resetAlpha];
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -111,6 +144,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	[self resetAlpha];
 }
 
 @end

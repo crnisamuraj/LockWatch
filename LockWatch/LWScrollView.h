@@ -9,11 +9,27 @@
 @interface LWScrollView : UIScrollView {
 	BOOL isScaledDown;
 	UITapGestureRecognizer* tapped;
+	NSMutableArray* watchFaceViews;
 }
 
 + (id)sharedInstance;
 
+/**
+ Leave selection mode
+ */
 - (void)scaleUp;
+
+/**
+ Enter selection mode
+ */
 - (void)scaleDown;
+
+
+/**
+ Return every loaded watch face view
+
+ @return Loaded watch face views
+ */
+- (NSArray*)watchFaceViews;
 
 @end

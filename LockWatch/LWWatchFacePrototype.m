@@ -6,6 +6,7 @@
 
 #import "LWWatchFacePrototype.h"
 #import <objc/runtime.h>
+#import <LockWatchBase/LockWatchBase.h>
 #import "NCMaterialView.h"
 
 @implementation LWWatchFacePrototype
@@ -14,16 +15,24 @@
 	self = [super initWithFrame:frame];
 	
 	if (self) {
-		NCMaterialView* contentView = [objc_getClass("NCMaterialView") materialViewWithStyleOptions:2];
-		[contentView setFrame:CGRectMake(0, 0, 312, 390)];
-		[contentView setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:0.45]];
-		[self addSubview:contentView];
+		self->backgroundView = [objc_getClass("NCMaterialView") materialViewWithStyleOptions:2];
+		[self->backgroundView setFrame:CGRectMake(-18, -18, 348, 426)];
+		[self->backgroundView setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:0.45]];
+		[self->backgroundView.layer setCornerRadius:15.0];
+		[self->backgroundView setClipsToBounds:YES];
+		[self addSubview:self->backgroundView];
 		
-		[self setClipsToBounds:YES];
-		[self.layer setCornerRadius:15.0];
+		UIView* testView = [Indicators indicatorsForSimpleWithDetail:1];
+		[self addSubview:testView];
+		
+		[self setClipsToBounds:NO];
 	}
 	
 	return self;
+}
+
+- (NCMaterialView*)backgroundView {
+	return self->backgroundView;
 }
 
 @end

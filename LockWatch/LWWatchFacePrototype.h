@@ -6,6 +6,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWWatchFacePrototype : UIView
+@class NCMaterialView;
+
+@interface LWWatchFacePrototype : UIView {
+	NCMaterialView* backgroundView;
+	UIView* contentView;
+}
+
+- (NCMaterialView*)backgroundView;
 
 @end

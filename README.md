@@ -19,8 +19,8 @@ You can help contributing to this project again by adding various localizations 
 
 **Completed localizations**
 
-* English 
-* German
+* ~~English~~ (Not yet) 
+* ~~German~~ (Not yet)
 
 ## Plugins
 Just like the previous version of LockWatch, this tweak is extensible. In fact, the stock watch faces are just plugins. There will be a plugin API and a template to create your own watch faces.
@@ -28,7 +28,15 @@ Just like the previous version of LockWatch, this tweak is extensible. In fact, 
 ## Compatibility
 This version of LockWatch will only be compatible with iOS 10 at first, with iOS 9 (and maybe iOS 8) compatibility being added at a later point.
 
-Compiling requires iOS 10.2 SDK
+Compiling is recommended using the iOS 10.2 SDK
 
-## Info
-This project contains an additional "Single View Application" target called "Build". It is required to allow Code Completion in a project using only an External Build System. It is not possible to build this target, so leave it at its place.
+## Building LockWatch
+To build LockWatch, you have two targets: "Simulator" and "Device".
+
+"Simulator" is made for use with simject to test LockWatch inside the iOS Simulator. For more information on simject, visit https://github.com/angelXwind/simject. This target also requires LockWatchBase.framework. Build it using the "LockWatchBase" target and copy it to to project directory and 
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/
+
+
+"Device" builds LockWatch for a physical device connected via USB. As yalu102 makes SSH only listen on localhost, you need to set up SSH via USB for this (http://iphonedevwiki.net/index.php/SSH_Over_USB).
+
+Building also requires the correct targets and architectures set for either Simulator or Device. Have a look at the makefile and (un-)comment the targets and architectures you need.

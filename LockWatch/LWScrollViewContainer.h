@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define watchFaceSpacing 30
+#define watchFaceSpacing 75
 
 @class LWScrollView;
 

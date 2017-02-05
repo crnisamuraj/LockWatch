@@ -11,6 +11,18 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>LockWatchBase Release.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>LockWatchBase.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Simulator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -19,6 +31,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8D5286A41E46846100BC56E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D5286B51E46956400BC56E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D5286CB1E472DE100BC56E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8DD92B221E4478D900B93591</key>
 		<dict>
 			<key>primary</key>
