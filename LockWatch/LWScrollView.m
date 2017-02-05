@@ -7,6 +7,8 @@
 #import "LWScrollView.h"
 #import "LWWatchFacePrototype.h"
 #import "LWCore.h"
+#import "CAKeyframeAnimation+AHEasing.h"
+#import "NCMaterialView.h"
 
 #import <AudioToolbox/AudioServices.h>
 
@@ -60,7 +62,17 @@ static LWScrollView* sharedInstance;
 	self->isScaledDown = NO;
 	
 	[self setScrollEnabled:NO];
-	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	//[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	CAAnimation* scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"
+														  function:QuinticEaseOut
+														 fromValue:scaleDownFactor
+														   toValue:1.0];
+	scale.duration = 0.3;
+	scale.removedOnCompletion = NO;
+	scale.fillMode = kCAFillModeForwards;
+	scale.beginTime = CACurrentMediaTime();
+	[self.layer addAnimation:scale forKey:@"scale"];
+	
 	[self resetAlpha];
 }
 
@@ -92,10 +104,20 @@ static LWScrollView* sharedInstance;
 
 - (void)resetAlpha {
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
+															  function:QuinticEaseOut
+															 fromValue:1.0
+															   toValue:0.0];
+		opacity.duration = 0.3;
+		opacity.removedOnCompletion = NO;
+		opacity.fillMode = kCAFillModeForwards;
+		opacity.beginTime = CACurrentMediaTime();
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
-			[proto setAlpha:0.0];
+			//[proto setAlpha:0.0];
+			[proto.layer addAnimation:opacity forKey:@"opacity"];
 		} else {
-			[[proto backgroundView] setAlpha:0.0];
+			//[[proto backgroundView] setAlpha:0.0];
+			[[proto backgroundView].layer addAnimation:opacity forKey:@"opacity"];
 		}
 	}
 }
@@ -116,11 +138,14 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 
+	[self.layer removeAllAnimations];
 	[self setTransform:CGAffineTransformMakeScale(scale, scale)];
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
+			[proto.layer removeAllAnimations];
 			[proto setAlpha:normalizedForce];
 		} else {
+			[[proto backgroundView].layer removeAllAnimations];
 			[[proto backgroundView] setAlpha:normalizedForce];
 		}
 	}
