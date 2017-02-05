@@ -73,7 +73,10 @@ static LWScrollView* sharedInstance;
 	scale.beginTime = CACurrentMediaTime();
 	[self.layer addAnimation:scale forKey:@"scale"];
 	
-	[self resetAlpha];
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		[proto fadeOutWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
+	}
+	//[self resetAlpha];
 }
 
 - (void)scaleDown {
@@ -104,21 +107,25 @@ static LWScrollView* sharedInstance;
 
 - (void)resetAlpha {
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
-		CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
-															  function:QuinticEaseOut
-															 fromValue:1.0
-															   toValue:0.0];
-		opacity.duration = 0.3;
-		opacity.removedOnCompletion = NO;
-		opacity.fillMode = kCAFillModeForwards;
-		opacity.beginTime = CACurrentMediaTime();
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
-			//[proto setAlpha:0.0];
-			[proto.layer addAnimation:opacity forKey:@"opacity"];
+			[proto setAlpha:0.0];
 		} else {
-			//[[proto backgroundView] setAlpha:0.0];
-			[[proto backgroundView].layer addAnimation:opacity forKey:@"opacity"];
+			[[proto backgroundView] setAlpha:0.0];
 		}
+	}
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	[super touchesBegan:touches withEvent:event];
+	
+	if (self->isScaledDown) {
+		return;
+	}
+	
+	[self resetAlpha];
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		[proto.layer removeAllAnimations];
+		[[proto backgroundView].layer removeAllAnimations];
 	}
 }
 
@@ -142,10 +149,8 @@ static LWScrollView* sharedInstance;
 	[self setTransform:CGAffineTransformMakeScale(scale, scale)];
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
-			[proto.layer removeAllAnimations];
 			[proto setAlpha:normalizedForce];
 		} else {
-			[[proto backgroundView].layer removeAllAnimations];
 			[[proto backgroundView] setAlpha:normalizedForce];
 		}
 	}
@@ -157,6 +162,8 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	[super touchesEnded:touches withEvent:event];
+	
 	if (self->isScaledDown) {
 		return;
 	}
@@ -166,6 +173,8 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	[super touchesCancelled:touches withEvent:event];
+	
 	if (self->isScaledDown) {
 		return;
 	}

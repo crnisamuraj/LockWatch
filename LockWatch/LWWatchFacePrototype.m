@@ -8,6 +8,7 @@
 #import <objc/runtime.h>
 #import <LockWatchBase/LockWatchBase.h>
 #import "NCMaterialView.h"
+#import "CAKeyframeAnimation+AHEasing.h"
 
 @implementation LWWatchFacePrototype
 
@@ -33,6 +34,46 @@
 
 - (NCMaterialView*)backgroundView {
 	return self->backgroundView;
+}
+
+- (void)fadeInWithContent:(BOOL)contentFade {
+	[self.layer removeAllAnimations];
+	[self->backgroundView.layer removeAllAnimations];
+	
+	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
+															function:QuinticEaseOut
+														   fromValue:0.0
+															 toValue:1.0];
+	opacity.duration = 0.3;
+	opacity.removedOnCompletion = NO;
+	opacity.fillMode = kCAFillModeForwards;
+	opacity.beginTime = CACurrentMediaTime();
+	
+	if (contentFade) {
+		[self.layer addAnimation:opacity forKey:@"opacity"];
+	} else {
+		[self->backgroundView.layer addAnimation:opacity forKey:@"opacity"];
+	}
+}
+
+- (void)fadeOutWithContent:(BOOL)contentFade {
+	[self.layer removeAllAnimations];
+	[self->backgroundView.layer removeAllAnimations];
+	
+	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
+															function:QuinticEaseOut
+														   fromValue:1.0
+															 toValue:0.0];
+	opacity.duration = 0.3;
+	opacity.removedOnCompletion = NO;
+	opacity.fillMode = kCAFillModeForwards;
+	opacity.beginTime = CACurrentMediaTime();
+	
+	if (contentFade) {
+		[self.layer addAnimation:opacity forKey:@"opacity"];
+	} else {
+		[self->backgroundView.layer addAnimation:opacity forKey:@"opacity"];
+	}
 }
 
 @end

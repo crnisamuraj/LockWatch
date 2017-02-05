@@ -14,5 +14,7 @@
 }
 
 - (NCMaterialView*)backgroundView;
+- (void)fadeInWithContent:(BOOL)contentFade;
+- (void)fadeOutWithContent:(BOOL)contentFade;
 
 @end
