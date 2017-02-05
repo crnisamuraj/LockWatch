@@ -107,10 +107,12 @@ static LWScrollView* sharedInstance;
 	
 	CGFloat maximumPossibleForce = touch.maximumPossibleForce;
 	CGFloat force = touch.force;
-	CGFloat normalizedForce = force/maximumPossibleForce;
+	//CGFloat normalizedForce = force/maximumPossibleForce;
+	CGFloat normalizedForce = MIN(MAX((force/maximumPossibleForce)-0.25, 0.0) / 0.4, 1.0);
+	
 	CGFloat scale = 1.0 - ((1.0 - scaleDownFactor) * normalizedForce);
 	
-	if (self->isScaledDown || normalizedForce < 0.1) {
+	if (self->isScaledDown) {
 		return;
 	}
 
