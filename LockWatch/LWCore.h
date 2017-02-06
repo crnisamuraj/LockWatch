@@ -15,6 +15,9 @@
 	LWScrollViewContainer* mainScrollView;
 	id currentWatchFace;
 	BOOL isInSelection;
+	
+	CGRect minimizedFrame;
+	BOOL isInMinimizedView;
 }
 
 /**
@@ -71,4 +74,6 @@
  */
 - (BOOL)isInSelection;
 
+- (void)setFrameForMinimizedView:(CGRect)frame;
+- (void)setIsInMinimizedView:(BOOL)isMinimized;
 @end

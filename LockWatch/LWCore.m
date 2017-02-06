@@ -83,4 +83,45 @@ static LWCore* sharedInstance;
 	return self->isInSelection;
 }
 
+- (void)setFrameForMinimizedView:(CGRect)frame {
+	self->minimizedFrame = frame;
+}
+
+- (void)setIsInMinimizedView:(BOOL)isMinimized {
+	if (isMinimized == self->isInMinimizedView) {
+		return;
+	}
+	
+	self->isInMinimizedView = isMinimized;
+	[self.interfaceView setUserInteractionEnabled:!isMinimized];
+	
+	float screenW = [[UIScreen mainScreen] bounds].size.width;
+	float screenH = [[UIScreen mainScreen] bounds].size.height;
+	
+	if (self->isInSelection) {
+		[self setIsInSelection:NO];
+	}
+	
+	if (isMinimized) {
+		CGRect labelFrame = self->minimizedFrame;
+		CGRect oldFrame = CGRectMake(0, screenH/2 - 390/2, screenW, 390);
+		CGFloat scale = labelFrame.size.height / 312.0;
+		
+		CGRect newFrame = CGRectMake(((labelFrame.size.width/2) - ((oldFrame.size.width*scale)/2)) + labelFrame.origin.x,
+									 ((labelFrame.size.height/2) - ((oldFrame.size.height*scale)/2)) + labelFrame.origin.y,
+									 oldFrame.size.width*scale,
+									 oldFrame.size.height*scale);
+		
+		[UIView animateWithDuration:0.2 animations:^{
+			self.interfaceView.transform = CGAffineTransformMakeScale(scale, scale);
+			self.interfaceView.frame = newFrame;
+		}];
+	} else {
+		[UIView animateWithDuration:0.2 animations:^{
+			self.interfaceView.transform = CGAffineTransformMakeScale(1, 1);
+			self.interfaceView.frame = CGRectMake(0, screenH/2 - 390/2, screenW, 390);
+		}];
+	}
+}
+
 @end

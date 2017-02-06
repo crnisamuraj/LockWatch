@@ -7,6 +7,13 @@ SBDashBoardMainPageViewController* mainPage;
 BOOL hasNotifications;
 BOOL mediaControlsVisible;
 
+static void setLockWatchVisibility() {
+	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
+	
+	[lockWatchCore.interfaceView setHidden:mediaControlsVisible];
+	[lockWatchCore setIsInMinimizedView:(hasNotifications && !mediaControlsVisible)];
+}
+
 %hook SpringBoard
 
 - (void)applicationDidFinishLaunching:(id)arg1 {
@@ -19,8 +26,7 @@ BOOL mediaControlsVisible;
 	mainPage = [dashBoard mainPageViewController];
 	
 	[[mainPage view] insertSubview:lockWatchCore.interfaceView atIndex:0];
-	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
-	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	setLockWatchVisibility();
 }
 
 %end
@@ -28,8 +34,13 @@ BOOL mediaControlsVisible;
 %hook SBFLockScreenDateView
 
 - (void)layoutSubviews {
-	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
-	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	// Disabling this as long as watch faces don't work
+	//[MSHookIvar<UILabel *>(self,"_timeLabel") removeFromSuperview];
+	//[MSHookIvar<UILabel *>(self,"_dateSubtitleView") removeFromSuperview];
+	
+	[lockWatchCore setFrameForMinimizedView:self.frame];
+	setLockWatchVisibility();
+	
 	%orig;
 }
 
@@ -38,8 +49,7 @@ BOOL mediaControlsVisible;
 %hook SBDashBoardViewController
 
 -(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
-	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
-	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	setLockWatchVisibility();
 	
 	%orig(arg1);
 }
@@ -78,8 +88,7 @@ BOOL mediaControlsVisible;
 	%orig(arg1);
 	
 	hasNotifications = arg1;
-	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
-	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	setLockWatchVisibility();
 }
 
 %end
@@ -90,8 +99,7 @@ BOOL mediaControlsVisible;
 	%orig(arg1);
 	
 	mediaControlsVisible = arg1;
-	[[mainPage isolatingViewController].view setHidden:(!hasNotifications && !mediaControlsVisible)];
-	[lockWatchCore.interfaceView setHidden:(hasNotifications || mediaControlsVisible)];
+	setLockWatchVisibility();
 }
 
 %end

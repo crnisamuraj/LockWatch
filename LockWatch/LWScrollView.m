@@ -57,7 +57,12 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)scaleUp {
-	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
+	if (!self->isScaledDown) {
+		return;
+	}
+	
+	//[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
+	
 	[self->tapped setEnabled:NO];
 	self->isScaledDown = NO;
 	
@@ -80,6 +85,10 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)scaleDown {
+	if (self->isScaledDown) {
+		return;
+	}
+	
 	AudioServicesPlaySystemSound(1000 + 500 + 20);
 	
 	[self->tapped setEnabled:YES];
