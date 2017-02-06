@@ -14,6 +14,7 @@
 }
 
 - (NCMaterialView*)backgroundView;
+- (void)setLevelOfDetail:(int)detail;
 - (void)fadeInWithContent:(BOOL)contentFade;
 - (void)fadeOutWithContent:(BOOL)contentFade;
 

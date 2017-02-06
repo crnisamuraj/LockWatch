@@ -28,13 +28,14 @@ static LWScrollView* sharedInstance;
 	
 	if (self) {
 		sharedInstance = self;
-		int testingCount = 6;
+		int testingCount = 3;
 		
 		self->watchFaceViews = [[NSMutableArray alloc] init];
 		
 		for (int i=0; i<testingCount; i++) {
 			LWWatchFacePrototype* testView = [[LWWatchFacePrototype alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
 			[self addSubview:testView];
+			[testView setLevelOfDetail:i];
 			[self->watchFaceViews addObject:testView];
 		}
 		
@@ -87,6 +88,17 @@ static LWScrollView* sharedInstance;
 	opacity.fillMode = kCAFillModeForwards;
 	opacity.beginTime = CACurrentMediaTime();
 	[self.customizeButton.layer addAnimation:opacity forKey:@"opacity"];
+	
+	CAAnimation* transform = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.y"
+															function:QuinticEaseOut
+														   fromValue:-self.customizeButton.frame.size.height
+															 toValue:0.0];
+	transform.duration = 0.3;
+	transform.removedOnCompletion = NO;
+	transform.fillMode = kCAFillModeForwards;
+	transform.beginTime = CACurrentMediaTime();
+	[self.customizeButton.layer addAnimation:transform forKey:@"transform"];
+	
 	
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		[proto fadeOutWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
@@ -178,6 +190,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self.customizeButton setAlpha:normalizedForce];
+	[self.customizeButton.layer setTransform:CATransform3DTranslate(CATransform3DIdentity, 0, -(self.customizeButton.frame.size.height*normalizedForce), 0)];
 	
 	if (normalizedForce >= 1.0) {
 		[[LWCore sharedInstance] setIsInSelection:YES];

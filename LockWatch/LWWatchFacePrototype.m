@@ -23,8 +23,8 @@
 		[self->backgroundView setClipsToBounds:YES];
 		[self addSubview:self->backgroundView];
 		
-		UIView* testView = [Indicators indicatorsForSimpleWithDetail:1];
-		[self addSubview:testView];
+		self->contentView = [Indicators indicatorsForSimpleWithDetail:0];
+		[self addSubview:self->contentView];
 		
 		[self setClipsToBounds:NO];
 	}
@@ -34,6 +34,12 @@
 
 - (NCMaterialView*)backgroundView {
 	return self->backgroundView;
+}
+
+- (void)setLevelOfDetail:(int)detail {
+	[self->contentView removeFromSuperview];
+	self->contentView = [Indicators indicatorsForSimpleWithDetail:detail];
+	[self addSubview:self->contentView];
 }
 
 - (void)fadeInWithContent:(BOOL)contentFade {
@@ -74,6 +80,11 @@
 	} else {
 		[self->backgroundView.layer addAnimation:opacity forKey:@"opacity"];
 	}
+}
+
+- (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+{
+	return min + arc4random_uniform(max - min + 1);
 }
 
 @end

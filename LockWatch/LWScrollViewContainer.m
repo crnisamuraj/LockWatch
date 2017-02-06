@@ -16,11 +16,11 @@
 	
 	if (self) {
 		self->scrollView = [[LWScrollView alloc] initWithFrame:CGRectMake(-watchFaceSpacing/2, 0, frame.size.width + watchFaceSpacing, frame.size.height)];
-		//[self setBackgroundColor:[UIColor magentaColor]];
 		[self setClipsToBounds:NO];
 		[self addSubview:self->scrollView];
 		
-		WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height - 56, 205, 56) withTitle:@"Customize"];
+		WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height, 205, 56) withTitle:@"Customize"];
+		
 		[self addSubview:customizeButton];
 		[self->scrollView setCustomizeButton:customizeButton];
 	}

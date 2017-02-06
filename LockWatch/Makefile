@@ -9,8 +9,8 @@ TARGET = iphone:latest
 ARCHS = armv7 arm64
 
 # Build for the simulator
-TARGET = simulator:clang
-ARCHS = x86_64
+#TARGET = simulator:clang
+#ARCHS = x86_64
 
 include /opt/theos/makefiles/common.mk
 

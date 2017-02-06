@@ -11,13 +11,6 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>LockWatchBase Release.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
 		<key>LockWatchBase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,6 +35,11 @@
 			<true/>
 		</dict>
 		<key>8D5286CB1E472DE100BC56E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D9A71771E48A1E10093A283</key>
 		<dict>
 			<key>primary</key>
 			<true/>
