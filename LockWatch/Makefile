@@ -21,6 +21,9 @@ LockWatch_FILES = LockWatch.xm easing.c CAKeyframeAnimation+AHEasing.m LWCore.m 
 
 include /opt/theos/makefiles/tweak.mk
 
+before-all::
+	@rm -Rf /var/folders/gf/5ygq87ms78s4pvpvs8rdrm500000gn/C/org.llvm.clang.*/
+
 # Copy the compiled dylib to simject's directory
 # You don't need to comment this when building for a device,
 # only when you don't use simject at all

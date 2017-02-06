@@ -7,6 +7,8 @@
 #import "LWScrollViewContainer.h"
 #import "LWScrollView.h"
 
+#import <LockWatchBase/WatchButton.h>
+
 @implementation LWScrollViewContainer
 
 - (id)initWithFrame:(CGRect)frame {
@@ -17,6 +19,10 @@
 		//[self setBackgroundColor:[UIColor magentaColor]];
 		[self setClipsToBounds:NO];
 		[self addSubview:self->scrollView];
+		
+		WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height - 56, 205, 56) withTitle:@"Customize"];
+		[self addSubview:customizeButton];
+		[self->scrollView setCustomizeButton:customizeButton];
 	}
 	
 	return self;

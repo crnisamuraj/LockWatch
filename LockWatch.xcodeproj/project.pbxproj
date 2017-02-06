@@ -27,6 +27,9 @@
 		8D5286C41E46957400BC56E1 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D5286C31E46957400BC56E1 /* Entitlements.plist */; };
 		8D5286C71E46990300BC56E1 /* Indicators.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5286C51E46990300BC56E1 /* Indicators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D5286C81E46990300BC56E1 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5286C61E46990300BC56E1 /* Indicators.m */; };
+		8D5286D61E487BE200BC56E1 /* WatchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5286D41E487BE200BC56E1 /* WatchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D5286D71E487BE200BC56E1 /* WatchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5286D51E487BE200BC56E1 /* WatchButton.m */; };
+		8D5286D91E487C0000BC56E1 /* NCMaterialView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5286D81E487C0000BC56E1 /* NCMaterialView.h */; };
 		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
 		8DDCD4C81E45348D000D1BE0 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4C71E45348D000D1BE0 /* LWScrollView.m */; };
@@ -72,6 +75,9 @@
 		8D5286D11E47DCB500BC56E1 /* easing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
 		8D5286D21E47DCB500BC56E1 /* easing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
 		8D5286D31E47DCB500BC56E1 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
+		8D5286D41E487BE200BC56E1 /* WatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchButton.h; sourceTree = "<group>"; };
+		8D5286D51E487BE200BC56E1 /* WatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchButton.m; sourceTree = "<group>"; };
+		8D5286D81E487C0000BC56E1 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
 		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
 		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
 		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -134,14 +140,25 @@
 		8D5286B71E46956400BC56E1 /* LockWatchBase */ = {
 			isa = PBXGroup;
 			children = (
+				8D5286DA1E487C0700BC56E1 /* Supporting Files */,
 				8D5286B81E46956400BC56E1 /* LockWatchBase.h */,
-				8D5286CA1E47258F00BC56E1 /* _UIBackdropView.h */,
 				8D5286C51E46990300BC56E1 /* Indicators.h */,
 				8D5286C61E46990300BC56E1 /* Indicators.m */,
+				8D5286D41E487BE200BC56E1 /* WatchButton.h */,
+				8D5286D51E487BE200BC56E1 /* WatchButton.m */,
 				8D5286B91E46956400BC56E1 /* Info.plist */,
 				8D5286C31E46957400BC56E1 /* Entitlements.plist */,
 			);
 			path = LockWatchBase;
+			sourceTree = "<group>";
+		};
+		8D5286DA1E487C0700BC56E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D5286CA1E47258F00BC56E1 /* _UIBackdropView.h */,
+				8D5286D81E487C0000BC56E1 /* NCMaterialView.h */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8DD92B1A1E4478D900B93591 = {
@@ -227,6 +244,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D5286D61E487BE200BC56E1 /* WatchButton.h in Headers */,
+				8D5286D91E487C0000BC56E1 /* NCMaterialView.h in Headers */,
 				8D5286C71E46990300BC56E1 /* Indicators.h in Headers */,
 				8D5286BA1E46956400BC56E1 /* LockWatchBase.h in Headers */,
 			);
@@ -393,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5286C81E46990300BC56E1 /* Indicators.m in Sources */,
+				8D5286D71E487BE200BC56E1 /* WatchButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +453,7 @@
 				INFOPLIST_FILE = LockWatchBase/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.LockWatchBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

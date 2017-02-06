@@ -10,7 +10,11 @@
 	BOOL isScaledDown;
 	UITapGestureRecognizer* tapped;
 	NSMutableArray* watchFaceViews;
+	
+	UIButton* _customizeButton;
 }
+
+@property (nonatomic, retain) UIButton* customizeButton;
 
 + (id)sharedInstance;
 
@@ -31,5 +35,7 @@
  @return Loaded watch face views
  */
 - (NSArray*)watchFaceViews;
+
+- (void)setCustomizeButton:(UIButton *)customizeButton;
 
 @end

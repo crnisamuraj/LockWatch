@@ -61,13 +61,13 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 	
-	//[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
+	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
 	
 	[self->tapped setEnabled:NO];
 	self->isScaledDown = NO;
 	
 	[self setScrollEnabled:NO];
-	//[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
+	
 	CAAnimation* scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"
 														  function:QuinticEaseOut
 														 fromValue:scaleDownFactor
@@ -78,10 +78,19 @@ static LWScrollView* sharedInstance;
 	scale.beginTime = CACurrentMediaTime();
 	[self.layer addAnimation:scale forKey:@"scale"];
 	
+	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
+														  function:QuinticEaseOut
+														 fromValue:1.0
+														   toValue:0.0];
+	opacity.duration = 0.3;
+	opacity.removedOnCompletion = NO;
+	opacity.fillMode = kCAFillModeForwards;
+	opacity.beginTime = CACurrentMediaTime();
+	[self.customizeButton.layer addAnimation:opacity forKey:@"opacity"];
+	
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		[proto fadeOutWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
 	}
-	//[self resetAlpha];
 }
 
 - (void)scaleDown {
@@ -122,6 +131,10 @@ static LWScrollView* sharedInstance;
 			[[proto backgroundView] setAlpha:0.0];
 		}
 	}
+	
+	if (self.customizeButton) {
+		[self.customizeButton setAlpha:0];
+	}
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -136,6 +149,7 @@ static LWScrollView* sharedInstance;
 		[proto.layer removeAllAnimations];
 		[[proto backgroundView].layer removeAllAnimations];
 	}
+	[self.customizeButton.layer removeAllAnimations];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -145,7 +159,6 @@ static LWScrollView* sharedInstance;
 	
 	CGFloat maximumPossibleForce = touch.maximumPossibleForce;
 	CGFloat force = touch.force;
-	//CGFloat normalizedForce = force/maximumPossibleForce;
 	CGFloat normalizedForce = MIN(MAX((force/maximumPossibleForce)-0.25, 0.0) / 0.4, 1.0);
 	
 	CGFloat scale = 1.0 - ((1.0 - scaleDownFactor) * normalizedForce);
@@ -164,8 +177,9 @@ static LWScrollView* sharedInstance;
 		}
 	}
 	
+	[self.customizeButton setAlpha:normalizedForce];
+	
 	if (normalizedForce >= 1.0) {
-		//[self scaleDown];
 		[[LWCore sharedInstance] setIsInSelection:YES];
 	}
 }
@@ -190,6 +204,11 @@ static LWScrollView* sharedInstance;
 	
 	[self setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 	[self resetAlpha];
+}
+
+- (void)setCustomizeButton:(UIButton *)customizeButton {
+	_customizeButton = customizeButton;
+	self.customizeButton.alpha = 0;
 }
 
 @end
