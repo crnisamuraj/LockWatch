@@ -7,8 +7,6 @@
 #import "LWScrollViewContainer.h"
 #import "LWScrollView.h"
 
-#import <LockWatchBase/WatchButton.h>
-
 @implementation LWScrollViewContainer
 
 - (id)initWithFrame:(CGRect)frame {
@@ -19,16 +17,16 @@
 		[self setClipsToBounds:NO];
 		[self addSubview:self->scrollView];
 		
-		WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height, 205, 56) withTitle:@"Customize"];
+		/*WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height, 205, 56) withTitle:@"Customize"];
 		
 		[self addSubview:customizeButton];
-		[self->scrollView setCustomizeButton:customizeButton];
+		[self->scrollView setCustomizeButton:customizeButton];*/
 	}
 	
 	return self;
 }
 
-- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
+/*- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
 	UIView * scrv = [[self subviews] objectAtIndex:0];
 	
 	UIView *superView = [super hitTest:point withEvent:event];
@@ -37,6 +35,6 @@
 	}
 	
 	return superView;
-}
+}*/
 
 @end

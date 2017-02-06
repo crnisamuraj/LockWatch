@@ -11,6 +11,7 @@
 #import "NCMaterialView.h"
 
 #import <AudioToolbox/AudioServices.h>
+#import <LockWatchBase/WatchButton.h>
 
 #define scaleDownFactor (188.0/312.0)
 #define spacing 75
@@ -39,6 +40,9 @@ static LWScrollView* sharedInstance;
 			[self->watchFaceViews addObject:testView];
 		}
 		
+		self.customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 348/2, 440, 348, 90) withTitle:@"Customize"];
+		[self addSubview:self.customizeButton];
+		
 		[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:0]];
 		[self resetAlpha];
 		
@@ -46,6 +50,7 @@ static LWScrollView* sharedInstance;
 		[self setPagingEnabled:YES];
 		[self setScrollEnabled:NO];
 		[self setClipsToBounds:NO];
+		[self setDelegate:self];
 		
 		self->tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
 		[self addGestureRecognizer:self->tapped];
@@ -88,16 +93,6 @@ static LWScrollView* sharedInstance;
 	opacity.fillMode = kCAFillModeForwards;
 	opacity.beginTime = CACurrentMediaTime();
 	[self.customizeButton.layer addAnimation:opacity forKey:@"opacity"];
-	
-	CAAnimation* transform = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.y"
-															function:QuinticEaseOut
-														   fromValue:-self.customizeButton.frame.size.height
-															 toValue:0.0];
-	transform.duration = 0.3;
-	transform.removedOnCompletion = NO;
-	transform.fillMode = kCAFillModeForwards;
-	transform.beginTime = CACurrentMediaTime();
-	[self.customizeButton.layer addAnimation:transform forKey:@"transform"];
 	
 	
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
@@ -144,9 +139,14 @@ static LWScrollView* sharedInstance;
 		}
 	}
 	
-	if (self.customizeButton) {
-		[self.customizeButton setAlpha:0];
-	}
+	
+	[self.customizeButton setAlpha:0];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	CGRect buttonFrame = self.customizeButton.frame;
+	buttonFrame.origin.x = ((self.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1))/2 - 348/2) + scrollView.contentOffset.x;
+	[self.customizeButton setFrame:buttonFrame];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -190,7 +190,6 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self.customizeButton setAlpha:normalizedForce];
-	[self.customizeButton.layer setTransform:CATransform3DTranslate(CATransform3DIdentity, 0, -(self.customizeButton.frame.size.height*normalizedForce), 0)];
 	
 	if (normalizedForce >= 1.0) {
 		[[LWCore sharedInstance] setIsInSelection:YES];

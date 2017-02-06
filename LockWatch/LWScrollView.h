@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWScrollView : UIScrollView {
+@interface LWScrollView : UIScrollView <UIScrollViewDelegate> {
 	BOOL isScaledDown;
 	UITapGestureRecognizer* tapped;
 	NSMutableArray* watchFaceViews;

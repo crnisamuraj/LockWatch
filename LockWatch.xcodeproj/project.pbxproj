@@ -244,7 +244,7 @@
 		};
 		8DDCD4D71E45D02F000D1BE0 /* Simulator */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-B";
+			buildArgumentsString = "";
 			buildConfigurationList = 8DDCD4D81E45D02F000D1BE0 /* Build configuration list for PBXLegacyTarget "Simulator" */;
 			buildPhases = (
 			);
