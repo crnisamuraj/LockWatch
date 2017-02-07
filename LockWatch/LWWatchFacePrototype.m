@@ -18,7 +18,6 @@
 	if (self) {
 		self->backgroundView = [objc_getClass("NCMaterialView") materialViewWithStyleOptions:2];
 		[self->backgroundView setFrame:CGRectMake(-18, -18, 348, 426)];
-		[self->backgroundView setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:0.45]];
 		[self->backgroundView.layer setCornerRadius:15.0];
 		[self->backgroundView setClipsToBounds:YES];
 		[self addSubview:self->backgroundView];
