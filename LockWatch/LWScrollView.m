@@ -16,6 +16,7 @@
 
 #define scaleDownFactor (188.0/312.0)
 #define spacing 75
+#define deviceIsiPad ([[UIScreen mainScreen] bounds].size.width >= 768)
 
 @implementation LWScrollView
 
@@ -63,6 +64,11 @@ static LWScrollView* sharedInstance;
 		[self.wrapperView addGestureRecognizer:self->tapped];
 		[self->tapped setEnabled:NO];
 		
+		if (![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
+			self->pressed = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressed:)];
+			[self addGestureRecognizer:self->pressed];
+		}
+		
 		self->customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56, 210, 56) withTitle:@"Customize"];
 		[self->customizeButton addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:customizeButton];
@@ -102,7 +108,61 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)tapped:(UITapGestureRecognizer*)sender {
+	if (!self->isScaledDown) {
+		return;
+	}
+	
 	[[LWCore sharedInstance] setIsInSelection:NO];
+}
+
+- (void)pressed:(id)sender {
+	if (self->isScaledDown) {
+		return;
+	}
+	
+	[self.wrapperView.layer removeAllAnimations];
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		[proto.layer removeAllAnimations];
+		[[proto backgroundView].layer removeAllAnimations];
+	}
+	
+	[[LWCore sharedInstance] setIsInSelection:YES];
+	
+	CAAnimation* scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"
+														  function:QuinticEaseOut
+														 fromValue:1.0
+														   toValue:scaleDownFactor];
+	scale.duration = 0.3;
+	scale.removedOnCompletion = NO;
+	scale.fillMode = kCAFillModeForwards;
+	scale.beginTime = CACurrentMediaTime();
+	[self.contentView.layer addAnimation:scale forKey:@"scale"];
+	
+	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
+															function:QuinticEaseOut
+														   fromValue:0.0
+															 toValue:1.0];
+	opacity.duration = 0.3;
+	opacity.removedOnCompletion = NO;
+	opacity.fillMode = kCAFillModeForwards;
+	opacity.beginTime = CACurrentMediaTime();
+	[self->customizeButton.layer addAnimation:opacity forKey:@"opacity"];
+	
+	CAAnimation* translate = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.y"
+															  function:QuinticEaseOut
+															 fromValue:75.0
+															   toValue:0.0];
+	translate.duration = 0.3;
+	translate.removedOnCompletion = NO;
+	translate.fillMode = kCAFillModeForwards;
+	translate.beginTime = CACurrentMediaTime();
+	[self->customizeButton.layer addAnimation:translate forKey:@"translate"];
+	
+	[self->customizeButton setAlpha:1.0];
+	
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		[proto fadeInWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
+	}
 }
 
 - (void)scaleUp {
@@ -111,6 +171,16 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self->tapped setEnabled:NO];
+	if (![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
+		[self->pressed setEnabled:YES];
+	}
+	
+	[self.wrapperView.layer removeAllAnimations];
+	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		[proto.layer removeAllAnimations];
+		[[proto backgroundView].layer removeAllAnimations];
+	}
+	
 	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
 	
 	self->isScaledDown = NO;
@@ -147,8 +217,10 @@ static LWScrollView* sharedInstance;
 	translate.beginTime = CACurrentMediaTime();
 	[self->customizeButton.layer addAnimation:translate forKey:@"translate"];
 	
+	[self->customizeButton setAlpha:1.0];
 	
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+		NSLog(@"[LockWatch] proto %d", proto == [[LWCore sharedInstance] currentWatchFace]);
 		[proto fadeOutWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
 	}
 }
@@ -157,12 +229,16 @@ static LWScrollView* sharedInstance;
 	if (self->isScaledDown) {
 		return;
 	}
-	
+
 	AudioServicesPlaySystemSound(1000 + 500 + 20);
 	
 	self->isScaledDown = YES;
 	
 	[self->tapped setEnabled:YES];
+	if (![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
+		[self->pressed setEnabled:NO];
+	}
+	
 	[self.contentView setScrollEnabled:YES];
 	[self.contentView setTransform:CGAffineTransformMakeScale(scaleDownFactor, scaleDownFactor)];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0)];
@@ -183,6 +259,8 @@ static LWScrollView* sharedInstance;
 		[[proto backgroundView].layer removeAllAnimations];
 	}
 	[self.contentView.layer removeAllAnimations];
+	[self.contentView setTransform:CGAffineTransformMakeScale(1, 1)];
+	
 	[self->customizeButton.layer removeAllAnimations];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
 }
@@ -190,7 +268,7 @@ static LWScrollView* sharedInstance;
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 	[super touchesMoved:touches withEvent:event];
 	
-	if (self->isScaledDown) {
+	if (self->isScaledDown || ![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
 		return;
 	}
 	

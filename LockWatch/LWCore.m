@@ -55,9 +55,9 @@ static LWCore* sharedInstance;
 	self->currentWatchFace = watchFace;
 }
 - (id)currentWatchFace {
-	if (self->isInSelection) {
+	/*if (self->isInSelection) {
 		return nil;
-	}
+	}*/
 	
 	return self->currentWatchFace;
 }

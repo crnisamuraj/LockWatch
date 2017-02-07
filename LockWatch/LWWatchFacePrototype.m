@@ -43,7 +43,10 @@
 }
 
 - (void)fadeInWithContent:(BOOL)contentFade {
+	[self setAlpha:1.0];
 	[self.layer removeAllAnimations];
+	
+	[self.backgroundView setAlpha:1.0];
 	[self->backgroundView.layer removeAllAnimations];
 	
 	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
@@ -63,7 +66,10 @@
 }
 
 - (void)fadeOutWithContent:(BOOL)contentFade {
+	[self setAlpha:1.0];
 	[self.layer removeAllAnimations];
+	
+	[self.backgroundView setAlpha:1.0];
 	[self->backgroundView.layer removeAllAnimations];
 	
 	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"

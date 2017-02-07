@@ -5,18 +5,19 @@
  */
 
 #import "LWInterfaceView.h"
+#import "LWScrollView.h"
 
 @implementation LWInterfaceView
 
-- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
-	UIView * scrv = [[[[self subviews] objectAtIndex:0] subviews] objectAtIndex:0];
+- (id)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
 	
-	UIView *superView = [super hitTest:point withEvent:event];
-	if (superView == self) {
-		return scrv;
+	if (self) {
+		self.scrollView = [[LWScrollView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,390)];
+		[self addSubview:self.scrollView];
 	}
 	
-	return superView;
+	return self;
 }
 
 @end

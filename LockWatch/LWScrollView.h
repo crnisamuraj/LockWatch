@@ -16,6 +16,7 @@
 	UIScrollView* _contentView;
 	WatchButton* customizeButton;
 	
+	UILongPressGestureRecognizer* pressed;
 	UITapGestureRecognizer* tapped;
 }
 
@@ -26,5 +27,11 @@
 
 - (void)scaleUp;
 - (void)scaleDown;
+
+@end
+
+@interface UIDevice (Private)
+
+@property (nonatomic, readonly) BOOL _supportsForceTouch;
 
 @end
