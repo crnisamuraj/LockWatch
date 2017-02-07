@@ -6,36 +6,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWScrollView : UIScrollView <UIScrollViewDelegate> {
+@class LWScrollViewContainer, WatchButton;
+
+@interface LWScrollView : UIView <UIScrollViewDelegate> {
 	BOOL isScaledDown;
-	UITapGestureRecognizer* tapped;
 	NSMutableArray* watchFaceViews;
 	
-	UIButton* _customizeButton;
+	LWScrollViewContainer* _wrapperView;
+	UIScrollView* _contentView;
+	WatchButton* customizeButton;
+	
+	UITapGestureRecognizer* tapped;
 }
 
-@property (nonatomic, retain) UIButton* customizeButton;
+@property (nonatomic, retain) UIScrollView* contentView;
+@property (nonatomic, retain) LWScrollViewContainer* wrapperView;
 
 + (id)sharedInstance;
 
-/**
- Leave selection mode
- */
 - (void)scaleUp;
-
-/**
- Enter selection mode
- */
 - (void)scaleDown;
-
-
-/**
- Return every loaded watch face view
-
- @return Loaded watch face views
- */
-- (NSArray*)watchFaceViews;
-
-- (void)setCustomizeButton:(UIButton *)customizeButton;
 
 @end

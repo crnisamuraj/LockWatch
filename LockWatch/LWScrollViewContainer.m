@@ -7,34 +7,18 @@
 #import "LWScrollViewContainer.h"
 #import "LWScrollView.h"
 
+#define scaleDownFactor (188.0/312.0)
+
 @implementation LWScrollViewContainer
 
-- (id)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:frame];
+- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
+	UIView* view = [super hitTest:point withEvent:event];
 	
-	if (self) {
-		self->scrollView = [[LWScrollView alloc] initWithFrame:CGRectMake(-watchFaceSpacing/2, 0, frame.size.width + watchFaceSpacing, frame.size.height)];
-		[self setClipsToBounds:NO];
-		[self addSubview:self->scrollView];
-		
-		/*WatchButton* customizeButton = [[WatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 205/2, frame.size.height, 205, 56) withTitle:@"Customize"];
-		
-		[self addSubview:customizeButton];
-		[self->scrollView setCustomizeButton:customizeButton];*/
+	if (view == self) {
+		return [[self subviews] objectAtIndex:0];
 	}
 	
-	return self;
+	return view;
 }
-
-/*- (UIView *)hitTest:(CGPoint) point withEvent:(UIEvent *)event {
-	UIView * scrv = [[self subviews] objectAtIndex:0];
-	
-	UIView *superView = [super hitTest:point withEvent:event];
-	if (superView == self) {
-		return scrv;
-	}
-	
-	return superView;
-}*/
 
 @end

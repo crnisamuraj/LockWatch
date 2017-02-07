@@ -6,6 +6,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWInterfaceView : UIView
+@class LWScrollViewContainer, LWScrollView;
+
+@interface LWInterfaceView : UIView <UIScrollViewDelegate> {
+	LWScrollViewContainer* scrollViewContainer;
+	LWScrollView* _scrollView;
+}
+
+@property (nonatomic, retain) LWScrollView* scrollView;
 
 @end

@@ -20,6 +20,16 @@
 	BOOL isInMinimizedView;
 }
 
+/*
+ *--*- LWInterfaceView : UIView
+	|
+	*--*- LWScrollViewContainer : UIView
+	   |
+	   *--*- LWScrollView : UIView <UIScrollViewDelegate>
+		  |
+		  *---- UIScrollView
+*/
+
 /**
  The main view for LockWatch
  */

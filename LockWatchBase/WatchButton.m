@@ -18,7 +18,7 @@
 	if (self) {
 		self->backgroundView = [objc_getClass("NCMaterialView") materialViewWithStyleOptions:2];
 		[self->backgroundView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-		[self->backgroundView.layer setCornerRadius:15.0];
+		[self->backgroundView.layer setCornerRadius:8.0];
 		[self->backgroundView setClipsToBounds:YES];
 		[self addSubview:self->backgroundView];
 		
