@@ -10,6 +10,7 @@
 #import "LWScrollViewContainer.h"
 #import "CAKeyframeAnimation+AHEasing.h"
 #import "NCMaterialView.h"
+#import "LockWatch.h"
 
 #import <LockWatchBase/WatchButton.h>
 #import <AudioToolbox/AudioServices.h>
@@ -263,6 +264,9 @@ static LWScrollView* sharedInstance;
 	
 	[self->customizeButton.layer removeAllAnimations];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
+	
+	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -293,6 +297,9 @@ static LWScrollView* sharedInstance;
 	[self->customizeButton setAlpha:normalizedForce];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75 - (75*normalizedForce))];
 	
+	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
+	
 	if (normalizedForce >= 1.0) {
 		[[LWCore sharedInstance] setIsInSelection:YES];
 	}
@@ -305,6 +312,9 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 	
+	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
+	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
 	[self resetAlpha];
@@ -316,6 +326,9 @@ static LWScrollView* sharedInstance;
 	if (self->isScaledDown) {
 		return;
 	}
+	
+	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
+	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
