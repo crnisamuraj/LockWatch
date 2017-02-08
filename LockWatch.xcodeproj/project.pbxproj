@@ -19,7 +19,6 @@
 		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
 		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
-		8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */; };
 		8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +72,6 @@
 		8DDCD4C51E44F4BE000D1BE0 /* Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Build.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollViewContainer.h; sourceTree = "<group>"; };
 		8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
-		8DDCD4CC1E454285000D1BE0 /* LWWatchFacePrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWatchFacePrototype.h; sourceTree = "<group>"; };
-		8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWatchFacePrototype.m; sourceTree = "<group>"; };
 		8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInterfaceView.h; sourceTree = "<group>"; };
 		8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWInterfaceView.m; sourceTree = "<group>"; };
 		8DDCD4D21E45CE05000D1BE0 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
@@ -160,8 +157,6 @@
 				8DA2C3061E49D570006E9608 /* LWScrollView.m */,
 				8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */,
 				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
-				8DDCD4CC1E454285000D1BE0 /* LWWatchFacePrototype.h */,
-				8DDCD4CD1E454285000D1BE0 /* LWWatchFacePrototype.m */,
 				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
 				8DD92B451E44796800B93591 /* LockWatch.xm */,
 				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
@@ -374,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */,
-				8DDCD4CE1E454285000D1BE0 /* LWWatchFacePrototype.m in Sources */,
 				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
 				8DA2C3071E49D570006E9608 /* LWScrollView.m in Sources */,
 				8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */,
