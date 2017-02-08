@@ -93,6 +93,14 @@ static LWScrollView* sharedInstance;
 	return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	
+	[self.wrapperView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+	[self.contentView setFrame:CGRectMake(frame.size.width/2 - (312+spacing)/2, 0, 312+spacing, 390)];
+	[self->customizeButton setFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56, 210, 56)];
+}
+
 - (void)test:(id)sender {
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured"
 													message:@"Watch faces cannot be customized yet"
@@ -331,7 +339,6 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self.contentView setScrollEnabled:YES];
-	[self.contentView setTransform:CGAffineTransformMakeScale(scaleDownFactor, scaleDownFactor)];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0)];
 	[self.wrapperView setUserInteractionEnabled:YES];
 }

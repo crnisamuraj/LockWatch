@@ -73,6 +73,12 @@ static LWCore* sharedInstance;
 	return self->loadedWatchFaces;
 }
 
+- (void)layoutViews {
+	float screenW = [[UIScreen mainScreen] bounds].size.width;
+	float screenH = [[UIScreen mainScreen] bounds].size.height;
+	[self.interfaceView setFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+}
+
 - (void)startUpdatingTime {
 	self->timeUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeForCurrentWatchFace) userInfo:nil repeats:YES];
 	self->isUpdatingTime = YES;

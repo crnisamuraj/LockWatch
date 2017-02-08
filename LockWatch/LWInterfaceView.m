@@ -20,4 +20,10 @@
 	return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	
+	[self.scrollView setFrame:CGRectMake(0,0,frame.size.width,390)];
+}
+
 @end

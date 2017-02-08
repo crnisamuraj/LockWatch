@@ -46,6 +46,12 @@
  */
 - (NSArray*)loadedWatchFaces;
 
+
+/**
+ Layout any views after interface change (eg. orientation)
+ */
+- (void)layoutViews;
+
 /**
  The global core instance
 

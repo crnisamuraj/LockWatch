@@ -39,6 +39,7 @@ static void setLockWatchVisibility() {
 	//[MSHookIvar<UILabel *>(self,"_dateSubtitleView") removeFromSuperview];
 	
 	[lockWatchCore setFrameForMinimizedView:self.frame];
+	[lockWatchCore layoutViews];
 	setLockWatchVisibility();
 	
 	%orig;
