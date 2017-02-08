@@ -6,13 +6,12 @@
 
 #import "LWScrollView.h"
 #import "LWCore.h"
-#import "LWWatchFacePrototype.h"
 #import "LWScrollViewContainer.h"
 #import "CAKeyframeAnimation+AHEasing.h"
 #import "NCMaterialView.h"
 #import "LockWatch.h"
 
-#import <LockWatchBase/WatchButton.h>
+#import <LockWatchBase/LockWatchBase.h>
 #import <AudioToolbox/AudioServices.h>
 
 #define scaleDownFactor (188.0/312.0)
@@ -41,17 +40,31 @@ static LWScrollView* sharedInstance;
 		
 		self->watchFaceViews = [[NSMutableArray alloc] init];
 		
-		int testingCount = 3;
+		/*int testingCount = 3;
 		for (int i=0; i<testingCount; i++) {
-			LWWatchFacePrototype* prototype = [[LWWatchFacePrototype alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
-			[prototype setLevelOfDetail:i];
-			[self.contentView addSubview:prototype];
-			[self->watchFaceViews addObject:prototype];
+			LWWatchFace* watchFace = [[LWWatchFace alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
+			//[prototype setLevelOfDetail:i];
+			[self.contentView addSubview:watchFace];
+			[self->watchFaceViews addObject:watchFace];
+		}*/
+		for (NSBundle* plugin in [[LWCore sharedInstance] loadedWatchFaces]) {
+			int i = [[[LWCore sharedInstance] loadedWatchFaces] indexOfObject:plugin];
+			LWWatchFace* watchFaceInstance = [[[plugin principalClass] alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
+			
+			if ([plugin localizedInfoDictionary]) {
+				NSLog(@"[LockWatch] localized name: %@", [[plugin localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"]);
+				[watchFaceInstance setTitleLabelText:[[plugin localizedInfoDictionary][@"CFBundleDisplayName"] uppercaseString]];
+			} else {
+				[watchFaceInstance setTitleLabelText:[[plugin infoDictionary][@"CFBundleDisplayName"] uppercaseString]];
+			}
+			
+			[self.contentView addSubview:watchFaceInstance];
+			[self->watchFaceViews addObject:watchFaceInstance];
 		}
 		
 		[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:0]];
 		
-		[self.contentView setContentSize:CGSizeMake((testingCount*312)+(testingCount*spacing), 390)];
+		[self.contentView setContentSize:CGSizeMake(([self->watchFaceViews count]*312)+([self->watchFaceViews count]*spacing), 390)];
 		[self.contentView setPagingEnabled:YES];
 		[self.contentView setScrollEnabled:NO];
 		[self.contentView setClipsToBounds:NO];
@@ -100,11 +113,11 @@ static LWScrollView* sharedInstance;
 	int nextIndex = (page < [self->watchFaceViews count]-1) ? ceil(page) : (int)[self->watchFaceViews count]-1;
 	
 	if (self->scrollDelta != scrollView.contentOffset.x) {
-		LWWatchFacePrototype* next = [self->watchFaceViews objectAtIndex:nextIndex];
+		LWWatchFace* next = [self->watchFaceViews objectAtIndex:nextIndex];
 		
 		if (self->scrollDelta < scrollView.contentOffset.x) {
 			if (scrollView.contentOffset.x+width <= scrollView.contentSize.width && scrollView.contentOffset.x > 0) {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:MAX(nextIndex-1, 0)];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:MAX(nextIndex-1, 0)];
 				
 				[[current layer] removeAllAnimations];
 				[[current.backgroundView layer] removeAllAnimations];
@@ -114,7 +127,7 @@ static LWScrollView* sharedInstance;
 				[current setAlpha:MAX(0.5, pageProgress)];
 				[next setAlpha:MAX(0.5, 1-pageProgress)];
 			} else if (scrollView.contentOffset.x <= 0) {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:page];
 				
 				[self->customizeButton.layer removeAllAnimations];
 				self->customizeButton.alpha = 1+(scrollView.contentOffset.x/width);
@@ -122,7 +135,7 @@ static LWScrollView* sharedInstance;
 				[[current layer] removeAllAnimations];
 				[current setAlpha:MAX(0.5, 1+(scrollView.contentOffset.x/width))];
 			} else {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:page];
 				
 				[self->customizeButton.layer removeAllAnimations];
 				self->customizeButton.alpha = 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width;
@@ -133,9 +146,9 @@ static LWScrollView* sharedInstance;
 		}
 		
 		if (self->scrollDelta > scrollView.contentOffset.x) {
-			LWWatchFacePrototype* prev = [self->watchFaceViews objectAtIndex:prevIndex];
+			LWWatchFace* prev = [self->watchFaceViews objectAtIndex:prevIndex];
 			if (scrollView.contentOffset.x >= 0 && scrollView.contentOffset.x+width <= scrollView.contentSize.width) {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:MIN(prevIndex-1, [self->watchFaceViews count]-1)];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:MIN(prevIndex-1, [self->watchFaceViews count]-1)];
 				
 				[[current layer] removeAllAnimations];
 				[[current.backgroundView layer] removeAllAnimations];
@@ -145,7 +158,7 @@ static LWScrollView* sharedInstance;
 				[current setAlpha:MAX(0.5, pageProgress)];
 				[prev setAlpha:MAX(0.5, 1-pageProgress)];
 			} else if (scrollView.contentOffset.x+width > scrollView.contentSize.width) {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:page];
 				
 				[self->customizeButton.layer removeAllAnimations];
 				self->customizeButton.alpha = 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width;
@@ -153,7 +166,7 @@ static LWScrollView* sharedInstance;
 				[[current layer] removeAllAnimations];
 				[current setAlpha:MAX(0.5, 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width)];
 			} else {
-				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				LWWatchFace* current = [self->watchFaceViews objectAtIndex:page];
 				
 				[self->customizeButton.layer removeAllAnimations];
 				self->customizeButton.alpha = 1+(scrollView.contentOffset.x/width);
@@ -168,7 +181,7 @@ static LWScrollView* sharedInstance;
 }
 
 - (void)resetAlpha {
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
 			[proto setAlpha:0.0];
 		} else {
@@ -200,7 +213,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self.wrapperView.layer removeAllAnimations];
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		[proto.layer removeAllAnimations];
 		[[proto backgroundView].layer removeAllAnimations];
 	}
@@ -239,7 +252,7 @@ static LWScrollView* sharedInstance;
 	
 	[self->customizeButton setAlpha:1.0];
 	
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		[proto fadeInWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
 	}
 }
@@ -255,7 +268,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self.wrapperView.layer removeAllAnimations];
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		[proto.layer removeAllAnimations];
 		[[proto backgroundView].layer removeAllAnimations];
 	}
@@ -298,8 +311,7 @@ static LWScrollView* sharedInstance;
 	
 	[self->customizeButton setAlpha:1.0];
 	
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
-		NSLog(@"[LockWatch] proto %d", proto == [[LWCore sharedInstance] currentWatchFace]);
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		[proto fadeOutWithContent:(proto != [[LWCore sharedInstance] currentWatchFace])];
 	}
 }
@@ -333,7 +345,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self resetAlpha];
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		[proto.layer removeAllAnimations];
 		[[proto backgroundView].layer removeAllAnimations];
 	}
@@ -364,7 +376,7 @@ static LWScrollView* sharedInstance;
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(scale, scale)];
 	
-	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
+	for (LWWatchFace* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
 			[proto setAlpha:normalizedForce/2];
 		} else {

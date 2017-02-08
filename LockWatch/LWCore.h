@@ -9,6 +9,8 @@
 @class LWInterfaceView, LWScrollViewContainer;
 
 @interface LWCore : NSObject {
+	NSMutableArray* loadedWatchFaces;
+
 	BOOL isUpdatingTime;
 	NSTimer* timeUpdateTimer;
 	
@@ -35,6 +37,14 @@
  */
 @property (nonatomic, strong) LWInterfaceView* interfaceView;
 @property (nonatomic) double defaultDimInterval;
+
+
+/**
+ Return every loaded watch face
+
+ @return An array containing the bundles for every loaded watch face
+ */
+- (NSArray*)loadedWatchFaces;
 
 /**
  The global core instance

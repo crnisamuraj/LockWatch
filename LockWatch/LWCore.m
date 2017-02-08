@@ -11,6 +11,8 @@
 #import "LWScrollView.h"
 #import <objc/runtime.h>
 
+#import <LockWatchBase/LockWatchBase.h>
+
 @implementation LWCore
 
 static LWCore* sharedInstance;
@@ -25,12 +27,50 @@ static LWCore* sharedInstance;
 	if (self) {
 		sharedInstance = self;
 		
+		[self loadPlugins];
+		
 		float screenW = [[UIScreen mainScreen] bounds].size.width;
 		float screenH = [[UIScreen mainScreen] bounds].size.height;
 		self.interfaceView = [[LWInterfaceView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
 	}
 
 	return self;
+}
+
+- (void)loadPlugins {
+	NSArray* testPluginNames = [[NSArray alloc] initWithObjects:
+								@"prototype.watchface", nil];
+
+#if TARGET_OS_SIMULATOR
+	NSString* pluginLocation = @"/opt/simject/FESTIVAL/LockWatch/Watch Faces/";
+#else
+	NSString* pluginLocation = @"/var/mobile/Library/FESTIVAL/LockWatch/Watch Faces/";
+#endif
+	NSURL* location = [[NSURL fileURLWithPath:pluginLocation] URLByResolvingSymlinksInPath];
+	
+	NSArray* contents = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:location includingPropertiesForKeys:@[NSFileType] options:(NSDirectoryEnumerationOptions)0 error:nil];
+	if ([contents count] == 0) {
+		NSLog(@"[LockWatch] No watch faces found.");
+		return;
+	}
+	
+	self->loadedWatchFaces = [[NSMutableArray alloc] init];
+	
+	[testPluginNames enumerateObjectsUsingBlock:^(id defaultPlugin, NSUInteger i, BOOL* stop) {
+		NSURL* filePath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", pluginLocation, defaultPlugin]];
+		NSBundle* plugin = [[NSBundle alloc] initWithURL:filePath];
+		
+		if (plugin!= NULL) {
+			NSString* pluginIdentifier = [plugin bundleIdentifier];
+			NSLog(@"[LockWatch] Found watch face: %@", pluginIdentifier);
+			
+			[self->loadedWatchFaces addObject:plugin];
+		}
+	}];
+}
+
+- (NSArray*)loadedWatchFaces {
+	return self->loadedWatchFaces;
 }
 
 - (void)startUpdatingTime {
