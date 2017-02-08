@@ -89,6 +89,84 @@ static LWScrollView* sharedInstance;
 	[alert show];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	CGFloat width = scrollView.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1);
+	CGFloat page = (CGFloat)MAX(MIN([self getCurrentPage], [self->watchFaceViews count]-1), 0);
+	
+	CGFloat pageProgress = (((page) * width) - scrollView.contentOffset.x)/width;
+	pageProgress = (round(pageProgress*100))/100.0;
+	
+	int prevIndex = (page > 0) ? floor(page) : 0;
+	int nextIndex = (page < [self->watchFaceViews count]-1) ? ceil(page) : (int)[self->watchFaceViews count]-1;
+	
+	if (self->scrollDelta != scrollView.contentOffset.x) {
+		LWWatchFacePrototype* next = [self->watchFaceViews objectAtIndex:nextIndex];
+		
+		if (self->scrollDelta < scrollView.contentOffset.x) {
+			if (scrollView.contentOffset.x+width <= scrollView.contentSize.width && scrollView.contentOffset.x > 0) {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:MAX(nextIndex-1, 0)];
+				
+				[[current layer] removeAllAnimations];
+				[[current.backgroundView layer] removeAllAnimations];
+				[[next layer] removeAllAnimations];
+				[[next.backgroundView layer] removeAllAnimations];
+				
+				[current setAlpha:MAX(0.5, pageProgress)];
+				[next setAlpha:MAX(0.5, 1-pageProgress)];
+			} else if (scrollView.contentOffset.x <= 0) {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				
+				[self->customizeButton.layer removeAllAnimations];
+				self->customizeButton.alpha = 1+(scrollView.contentOffset.x/width);
+				
+				[[current layer] removeAllAnimations];
+				[current setAlpha:MAX(0.5, 1+(scrollView.contentOffset.x/width))];
+			} else {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				
+				[self->customizeButton.layer removeAllAnimations];
+				self->customizeButton.alpha = 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width;
+				
+				[[current layer] removeAllAnimations];
+				[current setAlpha:MAX(0.5, 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width)];
+			}
+		}
+		
+		if (self->scrollDelta > scrollView.contentOffset.x) {
+			LWWatchFacePrototype* prev = [self->watchFaceViews objectAtIndex:prevIndex];
+			if (scrollView.contentOffset.x >= 0 && scrollView.contentOffset.x+width <= scrollView.contentSize.width) {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:MIN(prevIndex-1, [self->watchFaceViews count]-1)];
+				
+				[[current layer] removeAllAnimations];
+				[[current.backgroundView layer] removeAllAnimations];
+				[[prev layer] removeAllAnimations];
+				[[prev.backgroundView layer] removeAllAnimations];
+				
+				[current setAlpha:MAX(0.5, pageProgress)];
+				[prev setAlpha:MAX(0.5, 1-pageProgress)];
+			} else if (scrollView.contentOffset.x+width > scrollView.contentSize.width) {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				
+				[self->customizeButton.layer removeAllAnimations];
+				self->customizeButton.alpha = 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width;
+				
+				[[current layer] removeAllAnimations];
+				[current setAlpha:MAX(0.5, 1-((scrollView.contentOffset.x+width)-scrollView.contentSize.width)/width)];
+			} else {
+				LWWatchFacePrototype* current = [self->watchFaceViews objectAtIndex:page];
+				
+				[self->customizeButton.layer removeAllAnimations];
+				self->customizeButton.alpha = 1+(scrollView.contentOffset.x/width);
+				
+				[[current layer] removeAllAnimations];
+				[current setAlpha:MAX(0.5, 1+(scrollView.contentOffset.x/width))];
+			}
+		}
+	}
+	
+	scrollDelta = scrollView.contentOffset.x;
+}
+
 - (void)resetAlpha {
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {

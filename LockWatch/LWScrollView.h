@@ -9,6 +9,8 @@
 @class LWScrollViewContainer, WatchButton;
 
 @interface LWScrollView : UIView <UIScrollViewDelegate> {
+	CGFloat scrollDelta;
+	
 	BOOL isScaledDown;
 	NSMutableArray* watchFaceViews;
 	
