@@ -9,6 +9,7 @@
 @class NCMaterialView;
 
 @interface LWWatchFacePrototype : UIView {
+	UILabel* titleLabel;
 	NCMaterialView* backgroundView;
 	UIView* contentView;
 }

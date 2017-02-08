@@ -10,6 +10,8 @@
 #import "NCMaterialView.h"
 #import "CAKeyframeAnimation+AHEasing.h"
 
+#define scaleUpFactor (312.0/188.0)
+
 @implementation LWWatchFacePrototype
 
 - (id)initWithFrame:(CGRect)frame {
@@ -18,12 +20,22 @@
 	if (self) {
 		self->backgroundView = [objc_getClass("NCMaterialView") materialViewWithStyleOptions:2];
 		[self->backgroundView setFrame:CGRectMake(-18, -18, 348, 426)];
-		[self->backgroundView.layer setCornerRadius:15.0];
-		[self->backgroundView setClipsToBounds:YES];
+		[self->backgroundView setClipsToBounds:NO];
+		[[[self->backgroundView subviews] objectAtIndex:0] setClipsToBounds:YES];
+		[[[self->backgroundView subviews] objectAtIndex:0].layer setCornerRadius:15.0];
+		
 		[self addSubview:self->backgroundView];
 		
 		self->contentView = [Indicators indicatorsForSimpleWithDetail:0];
 		[self addSubview:self->contentView];
+		
+		self->titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -70, 348, 50)];
+		[self->titleLabel setText:[[NSString stringWithFormat:@"Prototype"] uppercaseString]];
+		[self->titleLabel setTextColor:[UIColor whiteColor]];
+		[self->titleLabel setTextAlignment:NSTextAlignmentCenter];
+		[self->titleLabel setFont:[UIFont systemFontOfSize:24.0]];
+		[self->titleLabel setTransform:CGAffineTransformMakeScale(scaleUpFactor, scaleUpFactor)];
+		[self->backgroundView addSubview:self->titleLabel];
 		
 		[self setClipsToBounds:NO];
 	}
