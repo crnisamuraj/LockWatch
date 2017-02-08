@@ -366,7 +366,7 @@ static LWScrollView* sharedInstance;
 	
 	for (LWWatchFacePrototype* proto in self->watchFaceViews) {
 		if (proto != [[LWCore sharedInstance] currentWatchFace]) {
-			[proto setAlpha:normalizedForce];
+			[proto setAlpha:normalizedForce/2];
 		} else {
 			[[proto backgroundView] setAlpha:normalizedForce];
 		}
