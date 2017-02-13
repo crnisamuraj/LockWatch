@@ -62,7 +62,9 @@ static LWScrollView* sharedInstance;
 			[self->watchFaceViews addObject:watchFaceInstance];
 		}
 		
-		[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:0]];
+		if ([self->watchFaceViews count] > 0) {
+			[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:0]];
+		}
 		
 		[self.contentView setContentSize:CGSizeMake(([self->watchFaceViews count]*312)+([self->watchFaceViews count]*spacing), 390)];
 		[self.contentView setPagingEnabled:YES];
