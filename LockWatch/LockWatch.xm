@@ -31,6 +31,17 @@ static void setLockWatchVisibility() {
 
 %end
 
+%hook SBLockScreenManager
+
+- (void)_finishUIUnlockFromSource:(int)arg1 withOptions:(id)arg2{
+	%orig;
+	
+	if ([lockWatchCore isInSelection]) {
+		[lockWatchCore setIsInSelection:NO];
+	}
+}
+%end
+
 %hook SBFLockScreenDateView
 
 - (void)layoutSubviews {
@@ -51,7 +62,12 @@ static void setLockWatchVisibility() {
 
 -(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
 	setLockWatchVisibility();
-	[lockWatchCore updateTimeForCurrentWatchFace];
+	
+	if (![lockWatchCore isInSelection]) {
+		[lockWatchCore updateTimeForCurrentWatchFace];
+	} else {
+		[lockWatchCore setIsInSelection:NO];
+	}
 	
 	%orig(arg1);
 }
@@ -77,6 +93,23 @@ static void setLockWatchVisibility() {
 - (double)defaultLockScreenDimInterval {
 	lockWatchCore.defaultDimInterval = %orig;
 	return %orig;
+}
+
+- (void)_lockScreenDimTimerFired {
+	%log;
+	if ([lockWatchCore isInSelection]) {
+		return;
+	}
+	%orig;
+};
+
+-(void)_startFadeOutAnimationFromLockSource:(int)arg1 {
+	if (arg1 == 11 && [lockWatchCore isInSelection]) {
+		[self resetIdleTimer];
+		return;
+	}
+	
+	%orig;
 }
 
 %end

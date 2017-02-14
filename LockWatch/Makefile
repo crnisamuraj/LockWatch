@@ -1,5 +1,5 @@
-export THEOS_DEVICE_IP=localhost
-export THEOS_DEVICE_PORT=2222
+export THEOS_DEVICE_IP=192.168.178.38
+export THEOS_DEVICE_PORT=22
 export GO_EASY_ON_ME = 1
 
 export PACKAGE_VERSION = 0.0.1-beta1
@@ -9,8 +9,8 @@ TARGET = iphone:latest
 ARCHS = armv7 arm64
 
 # Build for the simulator
-TARGET = simulator:clang
-ARCHS = x86_64
+#TARGET = simulator:clang
+#ARCHS = x86_64
 
 include /opt/theos/makefiles/common.mk
 

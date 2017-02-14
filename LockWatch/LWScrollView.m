@@ -386,8 +386,7 @@ static LWScrollView* sharedInstance;
 	[self->customizeButton setTransform:CGAffineTransformIdentity];
 	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
 	
-	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
-	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
+	[[LWCore sharedInstance] setLockscreenTimeoutEnabled:NO];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -420,8 +419,7 @@ static LWScrollView* sharedInstance;
 	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
 	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, (-75*normalizedForce))];
 	
-	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
-	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
+	[[LWCore sharedInstance] setLockscreenTimeoutEnabled:NO];
 	
 	if (normalizedForce >= 1.0) {
 		[[LWCore sharedInstance] setIsInSelection:YES];
@@ -435,8 +433,7 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 	
-	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
-	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
+	[[LWCore sharedInstance] setLockscreenTimeoutEnabled:YES];
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 	[self->customizeButton setTransform:CGAffineTransformIdentity];
@@ -451,8 +448,7 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 	
-	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
-	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
+	[[LWCore sharedInstance] setLockscreenTimeoutEnabled:YES];
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
 	[self->customizeButton setTransform:CGAffineTransformIdentity];

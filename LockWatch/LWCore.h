@@ -102,6 +102,20 @@
  */
 - (BOOL)isInSelection;
 
+
+/**
+ Sets the frame for the minimized view based on the lockscreen clock container
+
+ @param frame The frame describing the lockscreen clock container
+ */
 - (void)setFrameForMinimizedView:(CGRect)frame;
+
+/**
+ Enables or disables the minimized view
+
+ @param isMinimized A boolean value determining if there are notifications displayed on the lockscreen
+ */
 - (void)setIsInMinimizedView:(BOOL)isMinimized;
+
+- (void)setLockscreenTimeoutEnabled:(BOOL)enabled;
 @end

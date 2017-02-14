@@ -124,13 +124,11 @@ static LWCore* sharedInstance;
 - (void)setIsInSelection:(BOOL)selection {
 	self->isInSelection = selection;
 	[[[[[objc_getClass("SBLockScreenManager") sharedInstance] lockScreenViewController] scrollGestureController] scrollView] setScrollEnabled:!selection];
-	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
-	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:(selection?-1:self.defaultDimInterval) mode:1];
+	[self setLockscreenTimeoutEnabled:!selection];
 	
 	if (selection) {
 		[[LWScrollView sharedInstance] scaleDown];
 	} else {
-		[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 		[[LWScrollView sharedInstance] scaleUp];
 	}
 }
@@ -176,6 +174,12 @@ static LWCore* sharedInstance;
 			self.interfaceView.transform = CGAffineTransformMakeScale(1, 1);
 			self.interfaceView.frame = CGRectMake(0, screenH/2 - 390/2, screenW, 390);
 		}];
+	}
+}
+
+- (void)setLockscreenTimeoutEnabled:(BOOL)enabled {
+	if (enabled) {
+		[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 	}
 }
 
