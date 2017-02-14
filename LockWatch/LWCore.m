@@ -106,7 +106,6 @@ static LWCore* sharedInstance;
 	float Msecond = roundf([MsecondComp nanosecond]/1000000);
 	
 	if (self->currentWatchFace) {
-		NSLog(@"[LockWatch] %f %f %f", Hour, Minute, Second);
 		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond];
 	}
 }

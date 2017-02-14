@@ -74,6 +74,8 @@
  */
 - (BOOL)isUpdatingTime;
 
+- (void)updateTimeForCurrentWatchFace;
+
 /**
  Set the current watch face (nil if in selection mode)
 

@@ -9,6 +9,7 @@
 #import "LWWatchFace.h"
 #import "NCMaterialView.h"
 #import "CAKeyframeAnimation+AHEasing.h"
+#import "LWCore.h"
 
 #import <objc/runtime.h>
 
@@ -174,6 +175,48 @@
 			[self->hourHand setTransform:CGAffineTransformMakeRotation(deg2rad(hourValue*360))];
 		}
 	} completion:nil];
+}
+
+- (void)didStartUpdatingTime {
+	if (self->secondHand) {
+		[self->secondHand.layer removeAllAnimations];
+	}
+	if (self->minuteHand) {
+		[self->minuteHand.layer removeAllAnimations];
+	}
+	if (self->hourHand) {
+		[self->hourHand.layer removeAllAnimations];
+	}
+	
+	NSDate* date = [NSDate date];
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+	NSDateComponents *hourComp = [gregorian components:NSCalendarUnitHour fromDate:date];
+	NSDateComponents *minuteComp = [gregorian components:NSCalendarUnitMinute fromDate:date];
+	NSDateComponents *secondComp = [gregorian components:NSCalendarUnitSecond fromDate:date];
+	NSDateComponents *MsecondComp = [gregorian components:NSCalendarUnitNanosecond fromDate:date];
+	
+	float Hour = ([hourComp hour] >= 12) ? [hourComp hour] - 12 : [hourComp hour];
+	float Minute = [minuteComp minute];
+	float Second = [secondComp second];
+	float Msecond = roundf([MsecondComp nanosecond]/1000000);
+	
+	float secondValue = ((Second/60.0) + ((Msecond/1000) / 60));
+	float minuteValue = ((Minute/60) + secondValue/60);
+	float hourValue = ((Hour/12) + minuteValue/12);
+	
+	[UIView animateWithDuration: 0.25 delay: 0 options: UIViewAnimationOptionCurveLinear animations:^{
+		if (self->secondHand) {
+			[self->secondHand setTransform:CGAffineTransformMakeRotation(deg2rad(secondValue*360))];
+		}
+		if (self->minuteHand) {
+			[self->minuteHand setTransform:CGAffineTransformMakeRotation(deg2rad(minuteValue*360))];
+		}
+		if (self->hourHand) {
+			[self->hourHand setTransform:CGAffineTransformMakeRotation(deg2rad(hourValue*360))];
+		}
+	} completion:^(BOOL finished) {
+		[[LWCore sharedInstance] updateTimeForCurrentWatchFace];
+	}];
 }
 
 @end

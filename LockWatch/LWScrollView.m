@@ -336,6 +336,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[[LWCore sharedInstance] startUpdatingTime];
+	[[[LWCore sharedInstance] currentWatchFace] didStartUpdatingTime];
 }
 
 - (void)scaleDown {
