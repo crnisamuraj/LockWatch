@@ -106,7 +106,7 @@ static LWCore* sharedInstance;
 	float Msecond = roundf([MsecondComp nanosecond]/1000000);
 	
 	if (self->currentWatchFace) {
-		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond];
+		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond animated:YES];
 	}
 }
 

@@ -25,7 +25,7 @@
 - (void)fadeOutWithContent:(BOOL)contentFade;
 
 - (void)prepareForInit;
-- (void)updateTimeWithHour:(CGFloat)Hour minute:(CGFloat)Minute second:(CGFloat)Second msecond:(CGFloat)Msecond;
+- (void)updateTimeWithHour:(CGFloat)Hour minute:(CGFloat)Minute second:(CGFloat)Second msecond:(CGFloat)Msecond animated:(BOOL)animated;
 
 - (void)didStartUpdatingTime;
 - (void)didStopUpdatingTime;

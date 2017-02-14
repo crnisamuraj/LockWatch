@@ -127,7 +127,7 @@ static LWScrollView* sharedInstance;
 	[alert show];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	CGFloat width = scrollView.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1);
 	CGFloat page = (CGFloat)MAX(MIN([self getCurrentPage], [self->watchFaceViews count]-1), 0);
 	
@@ -203,7 +203,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	scrollDelta = scrollView.contentOffset.x;
-}
+}*/
 
 - (void)resetAlpha {
 	for (LWWatchFace* proto in self->watchFaceViews) {
