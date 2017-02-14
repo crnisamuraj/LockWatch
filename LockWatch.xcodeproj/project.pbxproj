@@ -30,6 +30,8 @@
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
 		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
 		8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */; };
+		8DFCA53A1E53BC5D000E1969 /* LWWatchFaceColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFCA5371E53BC53000E1969 /* LWWatchFaceColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DFCA53B1E53BC62000E1969 /* LWWatchFaceColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFCA5381E53BC53000E1969 /* LWWatchFaceColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +96,8 @@
 		8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInterfaceView.h; sourceTree = "<group>"; };
 		8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWInterfaceView.m; sourceTree = "<group>"; };
 		8DDCD4D21E45CE05000D1BE0 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		8DFCA5371E53BC53000E1969 /* LWWatchFaceColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchFaceColor.h; path = LockWatchBase/LWWatchFaceColor.h; sourceTree = "<group>"; };
+		8DFCA5381E53BC53000E1969 /* LWWatchFaceColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchFaceColor.m; path = LockWatchBase/LWWatchFaceColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 			children = (
 				8D9E779F1E53032A00B9A64D /* LWWatchFaceSimple.h */,
 				8D9E77A01E53032A00B9A64D /* LWWatchFaceSimple.m */,
+				8DFCA5371E53BC53000E1969 /* LWWatchFaceColor.h */,
+				8DFCA5381E53BC53000E1969 /* LWWatchFaceColor.m */,
 			);
 			name = "Watch Faces";
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DFCA53A1E53BC5D000E1969 /* LWWatchFaceColor.h in Headers */,
 				8D1B4E641E52643B00E01150 /* LWWatchFace.h in Headers */,
 				8D1B4E3D1E5260F500E01150 /* LockWatchBase.h in Headers */,
 				8D9E77AE1E536F5600B9A64D /* LWCore.h in Headers */,
@@ -406,6 +413,7 @@
 				8D1B4E7E1E526AF200E01150 /* Indicators.m in Sources */,
 				8D1B4E6C1E5264C400E01150 /* easing.c in Sources */,
 				8D1B4E821E526AFE00E01150 /* Hands.m in Sources */,
+				8DFCA53B1E53BC62000E1969 /* LWWatchFaceColor.m in Sources */,
 				8D1B4E6B1E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m in Sources */,
 				8D1B4E651E52643B00E01150 /* LWWatchFace.m in Sources */,
 			);

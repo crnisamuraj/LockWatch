@@ -42,7 +42,8 @@ static LWScrollView* sharedInstance;
 		
 
 		NSArray* hardcodedWatchFaces = [[NSArray alloc] initWithObjects:
-										[LWWatchFaceSimple class], nil];
+										[LWWatchFaceSimple class],
+										[LWWatchFaceColor class], nil];
 		for (Class watchface in hardcodedWatchFaces) {
 			int i = [hardcodedWatchFaces indexOfObject:watchface];
 			

@@ -108,10 +108,52 @@ static CAShapeLayer* makeSimpleIndicatorHourKnobs() {
 }
 
 /* COLOR */
-+ (UIView*)indicatorsForColorWithDetail:(int)detail {
++ (UIView*)indicatorsForColor {
 	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
+	_UIBackdropView *blurView = [[_UIBackdropView alloc] initWithFrame:CGRectZero autosizesToFitSuperview:YES settings:[_UIBackdropViewSettings settingsForStyle:1]];
+	[container addSubview:blurView];
+	
+	[container.layer setCornerRadius:156.0];
+	[container setClipsToBounds:YES];
+	
+	[container.layer addSublayer:makeColorIndicators()];
 	
 	return container;
+}
+
+static CAShapeLayer* makeColorIndicators() {
+	CAShapeLayer* layer = [CAShapeLayer layer];
+	
+	[layer setStrokeColor:[UIColor colorWithRed:0.16 green:0.71 blue:0.98 alpha:1.0].CGColor];
+	[layer setLineWidth:6.0];
+	[layer setLineCap:kCALineCapRound];
+	
+	UIBezierPath* path = [[UIBezierPath alloc] init];
+	for (int i=0; i<60; i++) {
+		CGFloat angle = i * (2*M_PI) / 60;
+		if (i % 5 == 0) {
+			CGFloat innerRadius = 115;
+			CGFloat outerRadius = 153;
+			
+			CGPoint inner = CGPointMake((innerRadius * sin(angle)) + (312/2), (innerRadius * -cos(angle)) + (312/2));
+			CGPoint outer = CGPointMake((outerRadius * sin(angle)) + (312/2), (outerRadius * -cos(angle)) + (312/2));
+			
+			[path moveToPoint:inner];
+			[path addLineToPoint:outer];
+		} else {
+			CGFloat innerRadius = 153;
+			CGFloat outerRadius = 153;
+			
+			CGPoint inner = CGPointMake((innerRadius * sin(angle)) + (312/2), (innerRadius * -cos(angle)) + (312/2));
+			CGPoint outer = CGPointMake((outerRadius * sin(angle)) + (312/2), (outerRadius * -cos(angle)) + (312/2));
+			
+			[path moveToPoint:inner];
+			[path addLineToPoint:outer];
+		}
+	}
+	
+	[layer setPath:path.CGPath];
+	return layer;
 }
 
 /* CHRONOGRAPH */

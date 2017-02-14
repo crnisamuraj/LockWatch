@@ -17,7 +17,7 @@ FOUNDATION_EXPORT const unsigned char LockWatchBaseVersionString[];
 // #import <LockWatchBase/LWWatchFaceNumerals.h>
 // #import <LockWatchBase/LWWatchFaceUtility.h>
 #import <LockWatchBase/LWWatchFaceSimple.h>
-// #import <LockWatchBase/LWWatchFaceColor.h>
+#import <LockWatchBase/LWWatchFaceColor.h>
 // #import <LockWatchBase/LWWatchFaceChronograph.h>
 // #import <LockWatchBase/LWWatchFaceXLarge.h>
 // #import <LockWatchBase/LWWatchFaceWeather.h>

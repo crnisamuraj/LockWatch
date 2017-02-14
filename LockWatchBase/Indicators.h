@@ -12,7 +12,7 @@
 
 + (UIView*)indicatorsForUtilityWithDetail:(int)detail;
 + (UIView*)indicatorsForSimpleWithDetail:(int)detail;
-+ (UIView*)indicatorsForColorWithDetail:(int)detail;
++ (UIView*)indicatorsForColor;
 + (UIView*)indicatorsForChronograph;
 
 @end

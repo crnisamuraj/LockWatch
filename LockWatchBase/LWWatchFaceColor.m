@@ -1,25 +1,25 @@
 //
-//  LWWatchFaceSimple.m
+//  LWWatchFaceColor.m
 //  LockWatch
 //
 //  Created by Janik Schmidt on 14.02.17.
 //  Copyright © 2017 Janik Schmidt. All rights reserved.
 //
 
-#import "LWWatchFaceSimple.h"
+#import "LWWatchFaceColor.h"
 #import "Indicators.h"
 #import "Hands.h"
 
-@implementation LWWatchFaceSimple
+@implementation LWWatchFaceColor
 
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	
 	if (self) {
-		self->contentView = [Indicators indicatorsForSimpleWithDetail:2];
+		self->contentView = [Indicators indicatorsForColor];
 		[self addSubview:self->contentView];
 		
-		[self setTitleLabelText:[@"Simple" uppercaseString]];
+		[self setTitleLabelText:[@"Color" uppercaseString]];
 		
 		self->hourHand = [Hands hourHandWithChronographStyle:NO];
 		[self->hourHand.layer setPosition:CGPointMake(312/2, 312/2)];
