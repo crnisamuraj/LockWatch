@@ -2,16 +2,23 @@
 //  Indicators.m
 //  LockWatch
 //
-//  Created by Janik Schmidt on 05.02.17.
+//  Created by Janik Schmidt on 13.02.17.
 //  Copyright © 2017 Janik Schmidt. All rights reserved.
 //
 
 #import "Indicators.h"
 #import "_UIBackdropView.h"
-#define deg2rad(angle) ((angle) / 180.0 * M_PI)
 
 @implementation Indicators
 
+/* UTILITY */
++ (UIView*)indicatorsForUtilityWithDetail:(int)detail {
+	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
+	
+	return container;
+}
+
+/* SIMPLE */
 + (UIView*)indicatorsForSimpleWithDetail:(int)detail {
 	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
 	_UIBackdropView *blurView = [[_UIBackdropView alloc] initWithFrame:CGRectZero autosizesToFitSuperview:YES settings:[_UIBackdropViewSettings settingsForStyle:1]];
@@ -20,18 +27,22 @@
 	[container.layer setCornerRadius:156.0];
 	[container setClipsToBounds:YES];
 	
-	if (detail == 0) {} else if (detail == 1) {
-		[container.layer addSublayer:makeIndicators(60, NO)];
-	} else if (detail == 2) {
-		[container.layer addSublayer:makeIndicators(120, YES)];
-		[container.layer addSublayer:makeIndicatorHighlights(12)];
-		[container.layer addSublayer:makeIndicatorHourKnobs()];
+	switch (detail) {
+		case 1:
+			[container.layer addSublayer:makeSimpleIndicators(60, NO)];
+			break;
+		case 2:
+			[container.layer addSublayer:makeSimpleIndicators(120, YES)];
+			[container.layer addSublayer:makeSimpleIndicatorHighlights(12)];
+			[container.layer addSublayer:makeSimpleIndicatorHourKnobs()];
+			
+		default: break;
 	}
 	
 	return container;
 }
 
-static CAShapeLayer* makeIndicators(int count, BOOL usesDarkColor) {
+static CAShapeLayer* makeSimpleIndicators(int count, BOOL usesDarkColor) {
 	CAShapeLayer* layer = [CAShapeLayer layer];
 	
 	[layer setStrokeColor:[UIColor colorWithWhite:(usesDarkColor ? 0.35 : 0.48) alpha:1.0].CGColor];
@@ -51,7 +62,7 @@ static CAShapeLayer* makeIndicators(int count, BOOL usesDarkColor) {
 	return layer;
 }
 
-static CAShapeLayer* makeIndicatorHighlights(int count) {
+static CAShapeLayer* makeSimpleIndicatorHighlights(int count) {
 	CAShapeLayer* layer = [CAShapeLayer layer];
 	
 	[layer setStrokeColor:[UIColor colorWithWhite:0.58 alpha:1.0].CGColor];
@@ -71,7 +82,7 @@ static CAShapeLayer* makeIndicatorHighlights(int count) {
 	return layer;
 }
 
-static CAShapeLayer* makeIndicatorHourKnobs() {
+static CAShapeLayer* makeSimpleIndicatorHourKnobs() {
 	CAShapeLayer* layer = [CAShapeLayer layer];
 	
 	[layer setStrokeColor:[UIColor colorWithWhite:0.70 alpha:1.0].CGColor];
@@ -94,6 +105,20 @@ static CAShapeLayer* makeIndicatorHourKnobs() {
 	
 	[layer setPath:path.CGPath];
 	return layer;
+}
+
+/* COLOR */
++ (UIView*)indicatorsForColorWithDetail:(int)detail {
+	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
+	
+	return container;
+}
+
+/* CHRONOGRAPH */
++ (UIView*)indicatorsForChronograph {
+	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
+	
+	return container;
 }
 
 @end

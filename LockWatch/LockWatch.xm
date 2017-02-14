@@ -35,8 +35,8 @@ static void setLockWatchVisibility() {
 
 - (void)layoutSubviews {
 	// Disabling this as long as watch faces don't work
-	//[MSHookIvar<UILabel *>(self,"_timeLabel") removeFromSuperview];
-	//[MSHookIvar<UILabel *>(self,"_dateSubtitleView") removeFromSuperview];
+	[MSHookIvar<UILabel *>(self,"_timeLabel") removeFromSuperview];
+	[MSHookIvar<UILabel *>(self,"_dateSubtitleView") removeFromSuperview];
 	
 	[lockWatchCore setFrameForMinimizedView:self.frame];
 	[lockWatchCore layoutViews];

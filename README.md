@@ -13,6 +13,9 @@ Every watch face is recreated 1:1 and can be configured either by force-touching
 * Color 
 * Chronograph
 * X-Large
+* Weather
+
+**Note:** Due to a severe issue involving code signing, plugins will not be available as long as this issue remains unsolved (see http://stackoverflow.com/questions/42133980/ios-code-signature-invalid-required-code-signature-missing for more information)
 
 ## Localizations
 You can help contributing to this project again by adding various localizations (English and German will be included by default). Just fork the "Localization" branch (if that works, I don't know yet), add your Localization if it's not on the list below, and submit a pull request.

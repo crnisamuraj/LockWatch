@@ -1,22 +1,23 @@
-//
-//  LockWatchBase.h
-//  LockWatchBase
-//
-//  Created by Janik Schmidt on 06.02.17.
-//  Copyright © 2017 Janik Schmidt. All rights reserved.
-//
+/**
+ @framework LockWatchBase
+ @brief Collection of watch face related resources
+ @version 1.0
+*/
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for LockWatchBase.
 FOUNDATION_EXPORT double LockWatchBaseVersionNumber;
-
-//! Project version string for LockWatchBase.
 FOUNDATION_EXPORT const unsigned char LockWatchBaseVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <LockWatchBase/PublicHeader.h>
-
-
 #import <LockWatchBase/LWWatchFace.h>
-#import <LockWatchBase/Indicators.h>
-#import <LockWatchBase/WatchButton.h>
+#import <LockWatchBase/LWWatchButton.h>
+
+// Hardcoded watch faces due to a severe issue involving code signing
+
+// #import <LockWatchBase/LWWatchFaceNumerals.h>
+// #import <LockWatchBase/LWWatchFaceUtility.h>
+#import <LockWatchBase/LWWatchFaceSimple.h>
+// #import <LockWatchBase/LWWatchFaceColor.h>
+// #import <LockWatchBase/LWWatchFaceChronograph.h>
+// #import <LockWatchBase/LWWatchFaceXLarge.h>
+// #import <LockWatchBase/LWWatchFaceWeather.h>

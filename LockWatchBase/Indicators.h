@@ -2,7 +2,7 @@
 //  Indicators.h
 //  LockWatch
 //
-//  Created by Janik Schmidt on 05.02.17.
+//  Created by Janik Schmidt on 13.02.17.
 //  Copyright © 2017 Janik Schmidt. All rights reserved.
 //
 
@@ -10,6 +10,9 @@
 
 @interface Indicators : NSObject
 
++ (UIView*)indicatorsForUtilityWithDetail:(int)detail;
 + (UIView*)indicatorsForSimpleWithDetail:(int)detail;
++ (UIView*)indicatorsForColorWithDetail:(int)detail;
++ (UIView*)indicatorsForChronograph;
 
 @end

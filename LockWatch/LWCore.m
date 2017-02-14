@@ -86,14 +86,28 @@ static LWCore* sharedInstance;
 - (void)stopUpdatingTime {
 	[self->timeUpdateTimer invalidate];
 	self->isUpdatingTime = NO;
+	
+	[self->currentWatchFace didStopUpdatingTime];
 }
 - (BOOL)isUpdatingTime {
 	return self->isUpdatingTime;
 }
 - (void)updateTimeForCurrentWatchFace {
-	NSLog(@"[LockWatch] Updating time");
+	NSDate* date = [NSDate date];
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+	NSDateComponents *hourComp = [gregorian components:NSCalendarUnitHour fromDate:date];
+	NSDateComponents *minuteComp = [gregorian components:NSCalendarUnitMinute fromDate:date];
+	NSDateComponents *secondComp = [gregorian components:NSCalendarUnitSecond fromDate:date];
+	NSDateComponents *MsecondComp = [gregorian components:NSCalendarUnitNanosecond fromDate:date];
+	
+	float Hour = ([hourComp hour] >= 12) ? [hourComp hour] - 12 : [hourComp hour];
+	float Minute = [minuteComp minute];
+	float Second = [secondComp second];
+	float Msecond = roundf([MsecondComp nanosecond]/1000000);
+	
 	if (self->currentWatchFace) {
-		
+		NSLog(@"[LockWatch] %f %f %f", Hour, Minute, Second);
+		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond];
 	}
 }
 

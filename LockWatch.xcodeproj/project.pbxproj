@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D9A717C1E48A1E10093A283 /* LockWatchBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9A717A1E48A1E10093A283 /* LockWatchBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B4E3D1E5260F500E01150 /* LockWatchBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B4E641E52643B00E01150 /* LWWatchFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E621E52643B00E01150 /* LWWatchFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B4E651E52643B00E01150 /* LWWatchFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E631E52643B00E01150 /* LWWatchFace.m */; };
+		8D1B4E6B1E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */; };
+		8D1B4E6C1E5264C400E01150 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E681E5264C400E01150 /* easing.c */; };
+		8D1B4E7E1E526AF200E01150 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E7C1E526AF200E01150 /* Indicators.m */; };
+		8D1B4E821E526AFE00E01150 /* Hands.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E801E526AFE00E01150 /* Hands.m */; };
+		8D1B4E861E526B3000E01150 /* LWWatchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E841E526B3000E01150 /* LWWatchButton.m */; };
+		8D1B4E871E526E5500E01150 /* CAKeyframeAnimation+AHEasing.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */; };
+		8D1B4E881E526E5500E01150 /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E691E5264C400E01150 /* easing.h */; };
+		8D1B4E891E526E5600E01150 /* NCMaterialView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */; };
+		8D1B4E8A1E526E6300E01150 /* LWWatchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E831E526B3000E01150 /* LWWatchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B4E8B1E526E7100E01150 /* Indicators.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E7B1E526AF200E01150 /* Indicators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B4E8C1E526E7100E01150 /* Hands.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E7F1E526AFE00E01150 /* Hands.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D9E77A21E5303ED00B9A64D /* LWWatchFaceSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E77A01E53032A00B9A64D /* LWWatchFaceSimple.m */; };
+		8D9E77A31E5303F100B9A64D /* LWWatchFaceSimple.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9E779F1E53032A00B9A64D /* LWWatchFaceSimple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DA2C3071E49D570006E9608 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2C3061E49D570006E9608 /* LWScrollView.m */; };
-		8DBB103C1E48A30C00133852 /* _UIBackdropView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBB103B1E48A30C00133852 /* _UIBackdropView.h */; };
-		8DBB103F1E48A31400133852 /* Indicators.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBB103D1E48A31400133852 /* Indicators.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DBB10401E48A31400133852 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB103E1E48A31400133852 /* Indicators.m */; };
-		8DBB10431E48A31F00133852 /* WatchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBB10411E48A31F00133852 /* WatchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DBB10441E48A31F00133852 /* WatchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB10421E48A31F00133852 /* WatchButton.m */; };
-		8DBB10461E48A32400133852 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB10451E48A32400133852 /* Entitlements.plist */; };
-		8DBB10481E48A32B00133852 /* NCMaterialView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBB10471E48A32B00133852 /* NCMaterialView.h */; };
 		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
 		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
 		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
@@ -36,23 +44,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8D52869F1E4633FA00BC56E1 /* NCMaterialView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
-		8D5286D01E47DCB500BC56E1 /* CAKeyframeAnimation+AHEasing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+AHEasing.h"; sourceTree = "<group>"; };
-		8D5286D11E47DCB500BC56E1 /* easing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
-		8D5286D21E47DCB500BC56E1 /* easing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
-		8D5286D31E47DCB500BC56E1 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
+		8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LockWatchBase.h; path = LockWatchBase/LockWatchBase.h; sourceTree = "<group>"; };
+		8D1B4E621E52643B00E01150 /* LWWatchFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchFace.h; path = LockWatchBase/LWWatchFace.h; sourceTree = "<group>"; };
+		8D1B4E631E52643B00E01150 /* LWWatchFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchFace.m; path = LockWatchBase/LWWatchFace.m; sourceTree = "<group>"; };
+		8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAKeyframeAnimation+AHEasing.h"; path = "Shared/CAKeyframeAnimation+AHEasing.h"; sourceTree = "<group>"; };
+		8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAKeyframeAnimation+AHEasing.m"; path = "Shared/CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
+		8D1B4E681E5264C400E01150 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = easing.c; path = Shared/easing.c; sourceTree = "<group>"; };
+		8D1B4E691E5264C400E01150 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easing.h; path = Shared/easing.h; sourceTree = "<group>"; };
+		8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCMaterialView.h; path = Shared/NCMaterialView.h; sourceTree = "<group>"; };
+		8D1B4E711E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+AHEasing.h"; sourceTree = "<group>"; };
+		8D1B4E721E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
+		8D1B4E731E5265AF00E01150 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
+		8D1B4E741E5265AF00E01150 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
+		8D1B4E751E5265AF00E01150 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
+		8D1B4E7B1E526AF200E01150 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Indicators.h; path = LockWatchBase/Indicators.h; sourceTree = "<group>"; };
+		8D1B4E7C1E526AF200E01150 /* Indicators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Indicators.m; path = LockWatchBase/Indicators.m; sourceTree = "<group>"; };
+		8D1B4E7F1E526AFE00E01150 /* Hands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hands.h; path = LockWatchBase/Hands.h; sourceTree = "<group>"; };
+		8D1B4E801E526AFE00E01150 /* Hands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hands.m; path = LockWatchBase/Hands.m; sourceTree = "<group>"; };
+		8D1B4E831E526B3000E01150 /* LWWatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchButton.h; path = LockWatchBase/LWWatchButton.h; sourceTree = "<group>"; };
+		8D1B4E841E526B3000E01150 /* LWWatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchButton.m; path = LockWatchBase/LWWatchButton.m; sourceTree = "<group>"; };
 		8D9A71781E48A1E10093A283 /* LockWatchBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockWatchBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D9A717A1E48A1E10093A283 /* LockWatchBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockWatchBase.h; sourceTree = "<group>"; };
-		8D9A717B1E48A1E10093A283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9E779F1E53032A00B9A64D /* LWWatchFaceSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchFaceSimple.h; path = LockWatchBase/LWWatchFaceSimple.h; sourceTree = "<group>"; };
+		8D9E77A01E53032A00B9A64D /* LWWatchFaceSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchFaceSimple.m; path = LockWatchBase/LWWatchFaceSimple.m; sourceTree = "<group>"; };
 		8DA2C3051E49D570006E9608 /* LWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollView.h; sourceTree = "<group>"; };
 		8DA2C3061E49D570006E9608 /* LWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollView.m; sourceTree = "<group>"; };
-		8DBB103B1E48A30C00133852 /* _UIBackdropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UIBackdropView.h; sourceTree = "<group>"; };
-		8DBB103D1E48A31400133852 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
-		8DBB103E1E48A31400133852 /* Indicators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Indicators.m; sourceTree = "<group>"; };
-		8DBB10411E48A31F00133852 /* WatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchButton.h; sourceTree = "<group>"; };
-		8DBB10421E48A31F00133852 /* WatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchButton.m; sourceTree = "<group>"; };
-		8DBB10451E48A32400133852 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		8DBB10471E48A32B00133852 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
 		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
 		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
 		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -95,40 +110,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D1B4E3B1E5260A600E01150 /* LockWatchBase */ = {
+			isa = PBXGroup;
+			children = (
+				8D1B4E6E1E5264CA00E01150 /* Supporting Files */,
+				8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */,
+				8D1B4E7B1E526AF200E01150 /* Indicators.h */,
+				8D1B4E7C1E526AF200E01150 /* Indicators.m */,
+				8D1B4E7F1E526AFE00E01150 /* Hands.h */,
+				8D1B4E801E526AFE00E01150 /* Hands.m */,
+				8D1B4E831E526B3000E01150 /* LWWatchButton.h */,
+				8D1B4E841E526B3000E01150 /* LWWatchButton.m */,
+				8D1B4E621E52643B00E01150 /* LWWatchFace.h */,
+				8D1B4E631E52643B00E01150 /* LWWatchFace.m */,
+				8D9E779E1E53030100B9A64D /* Watch Faces */,
+			);
+			name = LockWatchBase;
+			sourceTree = "<group>";
+		};
+		8D1B4E6E1E5264CA00E01150 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */,
+				8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */,
+				8D1B4E681E5264C400E01150 /* easing.c */,
+				8D1B4E691E5264C400E01150 /* easing.h */,
+				8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8D52869C1E45E88900BC56E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8D5286D01E47DCB500BC56E1 /* CAKeyframeAnimation+AHEasing.h */,
-				8D5286D31E47DCB500BC56E1 /* CAKeyframeAnimation+AHEasing.m */,
-				8D5286D11E47DCB500BC56E1 /* easing.h */,
-				8D5286D21E47DCB500BC56E1 /* easing.c */,
-				8D52869F1E4633FA00BC56E1 /* NCMaterialView.h */,
+				8D1B4E711E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.h */,
+				8D1B4E721E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.m */,
+				8D1B4E731E5265AF00E01150 /* easing.c */,
+				8D1B4E741E5265AF00E01150 /* easing.h */,
+				8D1B4E751E5265AF00E01150 /* NCMaterialView.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8D9A71791E48A1E10093A283 /* LockWatchBase */ = {
+		8D9E779E1E53030100B9A64D /* Watch Faces */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB10491E48EBB500133852 /* Supporting Files */,
-				8DBB103D1E48A31400133852 /* Indicators.h */,
-				8DBB103E1E48A31400133852 /* Indicators.m */,
-				8DBB10411E48A31F00133852 /* WatchButton.h */,
-				8DBB10421E48A31F00133852 /* WatchButton.m */,
-				8D9A717A1E48A1E10093A283 /* LockWatchBase.h */,
-				8DBB10451E48A32400133852 /* Entitlements.plist */,
-				8D9A717B1E48A1E10093A283 /* Info.plist */,
+				8D9E779F1E53032A00B9A64D /* LWWatchFaceSimple.h */,
+				8D9E77A01E53032A00B9A64D /* LWWatchFaceSimple.m */,
 			);
-			path = LockWatchBase;
-			sourceTree = "<group>";
-		};
-		8DBB10491E48EBB500133852 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8DBB103B1E48A30C00133852 /* _UIBackdropView.h */,
-				8DBB10471E48A32B00133852 /* NCMaterialView.h */,
-			);
-			name = "Supporting Files";
+			name = "Watch Faces";
 			sourceTree = "<group>";
 		};
 		8DD92B1A1E4478D900B93591 = {
@@ -137,7 +167,7 @@
 				8DD92B821E44F24700B93591 /* .gitignore */,
 				8DD92B431E44794200B93591 /* README.md */,
 				8DD92B251E4478D900B93591 /* LockWatch */,
-				8D9A71791E48A1E10093A283 /* LockWatchBase */,
+				8D1B4E3B1E5260A600E01150 /* LockWatchBase */,
 				8DD92B461E44798500B93591 /* Products */,
 				8DDCD4C51E44F4BE000D1BE0 /* Build.app */,
 				8D9A71781E48A1E10093A283 /* LockWatchBase.framework */,
@@ -212,11 +242,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB103F1E48A31400133852 /* Indicators.h in Headers */,
-				8DBB10481E48A32B00133852 /* NCMaterialView.h in Headers */,
-				8D9A717C1E48A1E10093A283 /* LockWatchBase.h in Headers */,
-				8DBB10431E48A31F00133852 /* WatchButton.h in Headers */,
-				8DBB103C1E48A30C00133852 /* _UIBackdropView.h in Headers */,
+				8D1B4E641E52643B00E01150 /* LWWatchFace.h in Headers */,
+				8D1B4E3D1E5260F500E01150 /* LockWatchBase.h in Headers */,
+				8D1B4E8A1E526E6300E01150 /* LWWatchButton.h in Headers */,
+				8D1B4E8B1E526E7100E01150 /* Indicators.h in Headers */,
+				8D1B4E8C1E526E7100E01150 /* Hands.h in Headers */,
+				8D9E77A31E5303F100B9A64D /* LWWatchFaceSimple.h in Headers */,
+				8D1B4E871E526E5500E01150 /* CAKeyframeAnimation+AHEasing.h in Headers */,
+				8D1B4E881E526E5500E01150 /* easing.h in Headers */,
+				8D1B4E891E526E5600E01150 /* NCMaterialView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +355,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 8DD92B1A1E4478D900B93591;
 			productRefGroup = 8DD92B1A1E4478D900B93591;
@@ -340,7 +375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB10461E48A32400133852 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +393,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB10401E48A31400133852 /* Indicators.m in Sources */,
-				8DBB10441E48A31F00133852 /* WatchButton.m in Sources */,
+				8D1B4E861E526B3000E01150 /* LWWatchButton.m in Sources */,
+				8D9E77A21E5303ED00B9A64D /* LWWatchFaceSimple.m in Sources */,
+				8D1B4E7E1E526AF200E01150 /* Indicators.m in Sources */,
+				8D1B4E6C1E5264C400E01150 /* easing.c in Sources */,
+				8D1B4E821E526AFE00E01150 /* Hands.m in Sources */,
+				8D1B4E6B1E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m in Sources */,
+				8D1B4E651E52643B00E01150 /* LWWatchFace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +420,7 @@
 		8D9A717E1E48A1E10093A283 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = LockWatchBase/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -393,6 +432,7 @@
 				INFOPLIST_FILE = LockWatchBase/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.LockWatchBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,7 +445,7 @@
 		8D9A717F1E48A1E10093A283 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = LockWatchBase/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -416,6 +456,7 @@
 				INFOPLIST_FILE = LockWatchBase/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.LockWatchBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -428,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -476,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

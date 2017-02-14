@@ -16,6 +16,7 @@ include /opt/theos/makefiles/common.mk
 
 TWEAK_NAME = LockWatch
 LockWatch_LDFLAGS += -F./
+LockWatch_CFLAGS=-I ./include/LockWatchBase -I ./include
 LockWatch_FRAMEWORKS += AudioToolbox LockWatchBase
 LockWatch_FILES = LockWatch.xm easing.c CAKeyframeAnimation+AHEasing.m LWCore.m LWInterfaceView.m LWScrollViewContainer.m LWScrollView.m
 

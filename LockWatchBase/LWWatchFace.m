@@ -2,7 +2,7 @@
 //  LWWatchFace.m
 //  LockWatch
 //
-//  Created by Janik Schmidt on 08.02.17.
+//  Created by Janik Schmidt on 13.02.17.
 //  Copyright © 2017 Janik Schmidt. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 #import <objc/runtime.h>
 
 #define scaleUpFactor (312.0/188.0)
+#define deg2rad(angle) ((angle) / 180.0 * M_PI)
 
 @implementation LWWatchFace
 
@@ -98,6 +99,81 @@
 	} else {
 		[self->backgroundView.layer addAnimation:opacity forKey:@"opacity"];
 	}
+}
+
+- (void)updateTimeWithHour:(CGFloat)Hour minute:(CGFloat)Minute second:(CGFloat)Second msecond:(CGFloat)Msecond {
+	float secondValue = ((Second/60.0) + ((Msecond/1000) / 60));
+	float minuteValue = ((Minute/60) + secondValue/60);
+	float hourValue = ((Hour/12) + minuteValue/12);
+	
+	if (self->secondHand) {
+		[self->secondHand.layer removeAnimationForKey:@"secRot"];
+		[self->secondHand setTransform:CGAffineTransformMakeRotation(deg2rad(secondValue*360))];
+		
+		CABasicAnimation* secondAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+		secondAnim.byValue = [NSNumber numberWithFloat: M_PI * 2.0];
+		secondAnim.duration = 60;
+		secondAnim.cumulative = YES;
+		secondAnim.repeatCount = 1;
+		[self->secondHand.layer addAnimation:secondAnim forKey:@"secRot"];
+	}
+	
+	if (self->minuteHand) {
+		[self->minuteHand.layer removeAnimationForKey:@"minRot"];
+		[self->minuteHand setTransform:CGAffineTransformMakeRotation(deg2rad(minuteValue*360))];
+		
+		CABasicAnimation* minuteAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+		minuteAnim.byValue = [NSNumber numberWithFloat: M_PI * 2.0];
+		minuteAnim.duration = 60 * 60;
+		minuteAnim.cumulative = YES;
+		minuteAnim.repeatCount = 1;
+		[self->minuteHand.layer addAnimation:minuteAnim forKey:@"minRot"];
+	}
+	
+	if (self->hourHand) {
+		[self->hourHand.layer removeAnimationForKey:@"horRot"];
+		[self->hourHand setTransform:CGAffineTransformMakeRotation(deg2rad(hourValue*360))];
+		
+		CABasicAnimation* hourAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+		hourAnim.byValue = [NSNumber numberWithFloat: M_PI * 2.0];
+		hourAnim.duration = 60 * 60 * 12;
+		hourAnim.cumulative = YES;
+		hourAnim.repeatCount = 1;
+		[self->hourHand.layer addAnimation:hourAnim forKey:@"hourRot"];
+	}
+}
+
+- (void)didStopUpdatingTime {
+	if (self->secondHand) {
+		[self->secondHand.layer removeAllAnimations];
+	}
+	if (self->minuteHand) {
+		[self->minuteHand.layer removeAllAnimations];
+	}
+	if (self->hourHand) {
+		[self->hourHand.layer removeAllAnimations];
+	}
+
+	float Hour = 10.0;
+	float Minute = 9.0;
+	float Second = 30.0;
+	float Msecond = 0.0;
+	
+	float secondValue = ((Second/60.0) + ((Msecond/1000) / 60));
+	float minuteValue = ((Minute/60) + secondValue/60);
+	float hourValue = ((Hour/12) + minuteValue/12);
+	
+	[UIView animateWithDuration: 0.25 delay: 0 options: UIViewAnimationOptionCurveLinear animations:^{
+		if (self->secondHand) {
+			[self->secondHand setTransform:CGAffineTransformMakeRotation(deg2rad(secondValue*360))];
+		}
+		if (self->minuteHand) {
+			[self->minuteHand setTransform:CGAffineTransformMakeRotation(deg2rad(minuteValue*360))];
+		}
+		if (self->hourHand) {
+			[self->hourHand setTransform:CGAffineTransformMakeRotation(deg2rad(hourValue*360))];
+		}
+	} completion:nil];
 }
 
 @end

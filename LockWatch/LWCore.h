@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWInterfaceView, LWScrollViewContainer;
+@class LWInterfaceView, LWScrollViewContainer, LWWatchFace;
 
 @interface LWCore : NSObject {
 	NSMutableArray* loadedWatchFaces;
@@ -15,7 +15,7 @@
 	NSTimer* timeUpdateTimer;
 	
 	LWScrollViewContainer* mainScrollView;
-	id currentWatchFace;
+	LWWatchFace* currentWatchFace;
 	BOOL isInSelection;
 	
 	CGRect minimizedFrame;

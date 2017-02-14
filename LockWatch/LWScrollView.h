@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWScrollViewContainer, WatchButton;
+@class LWScrollViewContainer, LWWatchButton;
 
 @interface LWScrollView : UIView <UIScrollViewDelegate> {
 	CGFloat scrollDelta;
@@ -16,7 +16,7 @@
 	
 	LWScrollViewContainer* _wrapperView;
 	UIScrollView* _contentView;
-	WatchButton* customizeButton;
+	LWWatchButton* customizeButton;
 	
 	UILongPressGestureRecognizer* pressed;
 	UITapGestureRecognizer* tapped;
