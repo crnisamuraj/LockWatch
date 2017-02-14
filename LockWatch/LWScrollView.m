@@ -48,6 +48,7 @@ static LWScrollView* sharedInstance;
 			int i = [hardcodedWatchFaces indexOfObject:watchface];
 			
 			LWWatchFace* instance = [[watchface alloc] initWithFrame:CGRectMake(312*i + spacing*i + spacing/2, 0, 312, 390)];
+			[instance prepareForInit];
 			
 			[self.contentView addSubview:instance];
 			[self->watchFaceViews addObject:instance];

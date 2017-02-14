@@ -102,6 +102,10 @@
 	}
 }
 
+- (void)prepareForInit {
+	[self updateTimeWithHour:10.0 minute:9.0 second:30.0 msecond:0.0];
+}
+
 - (void)updateTimeWithHour:(CGFloat)Hour minute:(CGFloat)Minute second:(CGFloat)Second msecond:(CGFloat)Msecond {
 	float secondValue = ((Second/60.0) + ((Msecond/1000) / 60));
 	float minuteValue = ((Minute/60) + secondValue/60);

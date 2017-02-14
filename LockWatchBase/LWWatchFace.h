@@ -23,6 +23,8 @@
 - (NCMaterialView*)backgroundView;
 - (void)fadeInWithContent:(BOOL)contentFade;
 - (void)fadeOutWithContent:(BOOL)contentFade;
+
+- (void)prepareForInit;
 - (void)updateTimeWithHour:(CGFloat)Hour minute:(CGFloat)Minute second:(CGFloat)Second msecond:(CGFloat)Msecond;
 
 - (void)didStartUpdatingTime;
