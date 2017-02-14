@@ -91,7 +91,7 @@ static LWScrollView* sharedInstance;
 			[self addGestureRecognizer:self->pressed];
 		}
 		
-		self->customizeButton = [[LWWatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56, 210, 56) withTitle:@"Customize"];
+		self->customizeButton = [[LWWatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56 + 75, 210, 56) withTitle:@"Customize"];
 		[self->customizeButton addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:customizeButton];
 		
@@ -105,10 +105,14 @@ static LWScrollView* sharedInstance;
 	[super setFrame:frame];
 	
 	[self.wrapperView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-	[self->customizeButton setFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56, 210, 56)];
 	
 	if (![[LWCore sharedInstance] isInSelection]) {
+		
+		[self->customizeButton setFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56 + 75, 210, 56)];
 		//[self.contentView setFrame:CGRectMake(frame.size.width/2 - (312+spacing)/2, 0, 312+spacing, 390)];
+	} else {
+		[self->customizeButton setTransform:CGAffineTransformIdentity];
+		[self->customizeButton setFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56, 210, 56)];
 	}
 }
 
@@ -348,6 +352,8 @@ static LWScrollView* sharedInstance;
 	
 	self->isScaledDown = YES;
 	[[LWCore sharedInstance] stopUpdatingTime];
+	
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
 	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56, 210, 56)];
 	
 	[self->tapped setEnabled:YES];
@@ -377,7 +383,8 @@ static LWScrollView* sharedInstance;
 	[self.contentView setTransform:CGAffineTransformMakeScale(1, 1)];
 	
 	[self->customizeButton.layer removeAllAnimations];
-	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
+	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
 	
 	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
@@ -409,7 +416,9 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self->customizeButton setAlpha:normalizedForce];
-	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75 - (75*normalizedForce))];
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
+	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
+	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, (-75*normalizedForce))];
 	
 	[[objc_getClass("SBBacklightController") sharedInstance] resetLockScreenIdleTimer];
 	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:-1 mode:1];
@@ -430,7 +439,8 @@ static LWScrollView* sharedInstance;
 	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
-	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
+	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
 	[self resetAlpha];
 }
 
@@ -445,7 +455,8 @@ static LWScrollView* sharedInstance;
 	[[objc_getClass("SBBacklightController") sharedInstance] _resetLockScreenIdleTimerWithDuration:[[LWCore sharedInstance] defaultDimInterval] mode:1];
 	
 	[self.contentView setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
-	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 75)];
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
+	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + 75, 210, 56)];
 	[self resetAlpha];
 }
 

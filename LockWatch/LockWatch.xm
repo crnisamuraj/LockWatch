@@ -51,6 +51,7 @@ static void setLockWatchVisibility() {
 
 -(void)startLockScreenFadeInAnimationForSource:(int)arg1 {
 	setLockWatchVisibility();
+	[lockWatchCore updateTimeForCurrentWatchFace];
 	
 	%orig(arg1);
 }
