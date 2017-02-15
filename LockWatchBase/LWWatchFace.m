@@ -225,7 +225,7 @@
 			[self->hourHand setTransform:CGAffineTransformMakeRotation(deg2rad(hourValue*360))];
 		}
 	} completion:^(BOOL finished) {
-		[[LWCore sharedInstance] updateTimeForCurrentWatchFace];
+		//[[LWCore sharedInstance] updateTimeForCurrentWatchFace];
 	}];
 }
 
