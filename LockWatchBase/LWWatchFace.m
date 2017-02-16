@@ -41,6 +41,8 @@
 		[self->titleLabel setTransform:CGAffineTransformMakeScale(scaleUpFactor, scaleUpFactor)];
 		[self->backgroundView addSubview:self->titleLabel];
 		
+		[self->contentView.layer setShouldRasterize:YES];
+		[self->contentView.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
 		[self setClipsToBounds:NO];
 	}
 	

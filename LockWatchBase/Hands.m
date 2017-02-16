@@ -11,54 +11,81 @@
 @implementation Hands
 
 + (UIView*)hourHandWithChronographStyle:(BOOL)chronoStyle {
-	UIView* hourHandBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
-	[hourHandBase setBackgroundColor:[UIColor whiteColor]];
-	[hourHandBase.layer setCornerRadius:8.0];
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
 	
-	UIView* hourHandConnector = [[UIView alloc] initWithFrame:CGRectMake(16/2 - 6/2, -27 + 8, 6, 27)];
-	[hourHandConnector setBackgroundColor:[UIColor whiteColor]];
-	[hourHandBase addSubview:hourHandConnector];
+	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, -152 + 16, 16, 152)];
 	
-	UIView* hourHandMain = [[UIView alloc] initWithFrame:CGRectMake(16/2 - 14/2, -65 - 11, 14, 65)];
-	[hourHandMain setBackgroundColor:[UIColor whiteColor]];
-	[hourHandMain.layer setCornerRadius:7.0];
-	[hourHandBase addSubview:hourHandMain];
+	// Hour hand base
+	CAShapeLayer* layer = [CAShapeLayer layer];
+	[layer setFillColor:[UIColor whiteColor].CGColor];
 	
-	return hourHandBase;
+	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 152-16, 16, 16)];
+	UIBezierPath* connectorPath = [UIBezierPath bezierPathWithRect:CGRectMake(16/2 - 6/2, 152 - 27 - 8, 6, 27)];
+	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(16/2 - 14/2, 152 - 65 - 27, 14, 65) cornerRadius:7.0];
+	
+	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
+	CGPathAddPath(combinedPath, nil, connectorPath.CGPath);
+	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
+	
+	layer.path = combinedPath;
+	[hand.layer addSublayer:layer];
+	[handBase addSubview:hand];
+	
+	return handBase;
 }
 
 + (UIView*)minuteHandWithChronographStyle:(BOOL)chronoStyle {
-	UIView* minuteHandBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
-	[minuteHandBase setBackgroundColor:[UIColor whiteColor]];
-	[minuteHandBase.layer setCornerRadius:8.0];
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
 	
-	UIView* minuteHandConnector = [[UIView alloc] initWithFrame:CGRectMake(16/2 - 6/2, -27 + 8, 6, 27)];
-	[minuteHandConnector setBackgroundColor:[UIColor whiteColor]];
-	[minuteHandBase addSubview:minuteHandConnector];
+	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, -152 + 16, 16, 152)];
 	
-	UIView* minuteHandMain = [[UIView alloc] initWithFrame:CGRectMake(16/2 - 14/2, -125 - 11, 14, 125)];
-	[minuteHandMain setBackgroundColor:[UIColor whiteColor]];
-	[minuteHandMain.layer setCornerRadius:7.0];
-	[minuteHandBase addSubview:minuteHandMain];
+	// Minute hand base
+	CAShapeLayer* layer = [CAShapeLayer layer];
+	[layer setFillColor:[UIColor whiteColor].CGColor];
 	
-	return minuteHandBase;
+	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 152-16, 16, 16)];
+	UIBezierPath* connectorPath = [UIBezierPath bezierPathWithRect:CGRectMake(16/2 - 6/2, 152 - 27 - 8, 6, 27)];
+	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(16/2 - 14/2, 152 - 125 - 27, 14, 125) cornerRadius:7.0];
+	
+	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
+	CGPathAddPath(combinedPath, nil, connectorPath.CGPath);
+	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
+	
+	layer.path = combinedPath;
+	[hand.layer addSublayer:layer];
+	[handBase addSubview:hand];
+	
+	return handBase;
 }
 
 + (UIView*)secondHandWithAccentColor:(UIColor*)accentColor {
-	UIView* secondHandBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
-	[secondHandBase setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0]];
-	[secondHandBase.layer setCornerRadius:6.0];
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
 	
-	UIView* secondHandMain = [[UIView alloc] initWithFrame:CGRectMake(12/2 - 2/2, -180 + 6 + 24, 2, 180)];
-	[secondHandMain setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0]];
-	[secondHandBase addSubview:secondHandMain];
+	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 180)];
 	
-	UIView* secondHandAxis = [[UIView alloc] initWithFrame:CGRectMake(12/2 - 4/2, 12/2 - 4/2, 4, 4)];
-	[secondHandAxis setBackgroundColor:[UIColor blackColor]];
-	[secondHandAxis.layer setCornerRadius:2.0];
-	[secondHandBase addSubview:secondHandAxis];
+	// Second hand base
+	CAShapeLayer* layer = [CAShapeLayer layer];
+	[layer setFillColor:[UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0].CGColor];
 	
-	return secondHandBase;
+	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 12, 12)];
+	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRect:CGRectMake(12/2 - 2/2, -180 + 6 + 24, 2, 180)];
+	
+	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
+	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
+	
+	layer.path = combinedPath;
+	[hand.layer addSublayer:layer];
+	
+	CAShapeLayer* additionalLayer = [CAShapeLayer layer];
+	[additionalLayer setFillColor:[UIColor blackColor].CGColor];
+	
+	UIBezierPath* axisPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(12/2 - 4/2, 12/2 - 4/2, 4, 4)];
+	additionalLayer.path = axisPath.CGPath;
+	[hand.layer addSublayer:additionalLayer];
+	
+	[handBase addSubview:hand];
+	
+	return handBase;
 }
 
 @end
