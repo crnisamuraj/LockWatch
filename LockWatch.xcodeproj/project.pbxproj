@@ -63,6 +63,8 @@
 		8D1B4E801E526AFE00E01150 /* Hands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hands.m; path = LockWatchBase/Hands.m; sourceTree = "<group>"; };
 		8D1B4E831E526B3000E01150 /* LWWatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchButton.h; path = LockWatchBase/LWWatchButton.h; sourceTree = "<group>"; };
 		8D1B4E841E526B3000E01150 /* LWWatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchButton.m; path = LockWatchBase/LWWatchButton.m; sourceTree = "<group>"; };
+		8D608BE51E54B03B00288911 /* LWScrollViewOld.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewOld.m; sourceTree = "<group>"; };
+		8D608BE61E54BEB700288911 /* LWScrollViewOld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScrollViewOld.h; sourceTree = "<group>"; };
 		8D9A71781E48A1E10093A283 /* LockWatchBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockWatchBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9E77AB1E536E3B00B9A64D /* _UIBackdropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = _UIBackdropView.h; path = Shared/_UIBackdropView.h; sourceTree = "<group>"; };
 		8D9E77AD1E536F5600B9A64D /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCore.h; path = LockWatch/LWCore.h; sourceTree = "<group>"; };
@@ -177,6 +179,8 @@
 				8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */,
 				8DA2C3051E49D570006E9608 /* LWScrollView.h */,
 				8DA2C3061E49D570006E9608 /* LWScrollView.m */,
+				8D608BE61E54BEB700288911 /* LWScrollViewOld.h */,
+				8D608BE51E54B03B00288911 /* LWScrollViewOld.m */,
 				8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */,
 				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
 				8DD92B7C1E4488C000B93591 /* LockWatch.h */,

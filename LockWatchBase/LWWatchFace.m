@@ -66,8 +66,8 @@
 	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
 															function:QuinticEaseOut
 														   fromValue:0.0
-															 toValue:1.0 /*(contentFade?0.5:1.0)*/];
-	opacity.duration = 0.3;
+															 toValue:(contentFade?0.5:1.0)];
+	opacity.duration = 0.25;
 	opacity.removedOnCompletion = NO;
 	opacity.fillMode = kCAFillModeForwards;
 	opacity.beginTime = CACurrentMediaTime();
@@ -88,9 +88,9 @@
 	
 	CAAnimation* opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"
 															function:QuinticEaseOut
-														   fromValue:1.0 //(contentFade?0.5:1.0)
+														   fromValue:(contentFade?0.5:1.0)
 															 toValue:0.0];
-	opacity.duration = 0.3;
+	opacity.duration = 0.25;
 	opacity.removedOnCompletion = NO;
 	opacity.fillMode = kCAFillModeForwards;
 	opacity.beginTime = CACurrentMediaTime();
