@@ -152,12 +152,12 @@ static LWScrollView* sharedInstance;
 	CGFloat width = (self.contentView.frame.size.width < (312+spacing) ? self.contentView.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1) : self.contentView.frame.size.width);
 	CGFloat page = ceilf(self.contentView.contentOffset.x / width);
 	
-	return (int)page;
+	return (int)MAX(MIN(page, [self->watchFaceViews count]-1), 0);
 }
 - (void)scrollViewDidScroll:(UIScrollView*)scrollView {
 	CGFloat width = (self.contentView.frame.size.width < (312+spacing) ? self.contentView.frame.size.width / (self->isScaledDown ? scaleDownFactor : 1) : self.contentView.frame.size.width);
 	CGFloat offset = scrollView.contentOffset.x;
-	CGFloat page = (CGFloat)MAX(MIN([self getCurrentPage], [self->watchFaceViews count]-1), 0);
+	CGFloat page = (CGFloat)[self getCurrentPage];
 	
 	CGFloat pageProgress = (((page) * width) - offset)/width;
 	pageProgress = (round(pageProgress*100))/100.0;
@@ -273,8 +273,10 @@ static LWScrollView* sharedInstance;
 	[self->customizeButton.layer addAnimation:opacity forKey:@"opacity"];
 	[self->customizeButton.layer addAnimation:translate forKey:@"translate"];
 	
-	[self->customizeButton setAlpha:alpha];
-	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + newYPos, 210, 56)];
+	//dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self->customizeButton setAlpha:alpha];
+		[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + newYPos, 210, 56)];
+	//});
 }
 
 - (void)tapped:(id)sender {
@@ -314,7 +316,7 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self animateScaleToFactor:1.0 fromFactor:scaleDownFactor duration:0.25];
-	[self animateCustomizeButtonToPosition:56 fromPosition:0 withAlpha:0.0 duration:0.25];
+	[self animateCustomizeButtonToPosition:0 fromPosition:-56 withAlpha:0.0 duration:0.25];
 	
 	for (LWWatchFace* watchface in self->watchFaceViews) {
 		[watchface fadeOutWithContent:(watchface != [[LWCore sharedInstance] currentWatchFace])];
@@ -360,6 +362,7 @@ static LWScrollView* sharedInstance;
 		[[watchface backgroundView].layer removeAllAnimations];
 	}
 	[self.contentView.layer removeAllAnimations];
+	[self->customizeButton.layer removeAllAnimations];
 }
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 	[super touchesMoved:touches withEvent:event];
@@ -378,8 +381,8 @@ static LWScrollView* sharedInstance;
 	self->currentScale = scale;
 	
 	[self.contentView setTransform:CGAffineTransformScale(CGAffineTransformIdentity, scale, scale)];
-	//[self animateScaleToFactor:scale fromFactor:1.0 duration:0.0];
-	//[self animateCustomizeButtonToPosition:56-(56*normalizedForce) fromPosition:56 withAlpha:normalizedForce duration:0.0];
+	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, (-56*normalizedForce))];
+	[self->customizeButton setAlpha:normalizedForce];
 	
 	for (LWWatchFace* watchface in self->watchFaceViews) {
 		if (watchface != [[LWCore sharedInstance] currentWatchFace]) {
