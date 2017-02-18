@@ -9,11 +9,62 @@
 #import "Indicators.h"
 #import "_UIBackdropView.h"
 
+#if TARGET_OS_SIMULATOR
+#define RESOURCE_LOCATION @"/opt/simject/FESTIVAL/LockWatch/Resources"
+#else
+#define RESOURCE_LOCATION @"/var/mobile/Library/FESTIVAL/LockWatch/Resources"
+#endif
+
 @implementation Indicators
 
 /* UTILITY */
 + (UIView*)indicatorsForUtilityWithDetail:(int)detail {
 	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
+	_UIBackdropView *blurView = [[_UIBackdropView alloc] initWithFrame:CGRectZero autosizesToFitSuperview:YES settings:[_UIBackdropViewSettings settingsForStyle:1]];
+	[container addSubview:blurView];
+	
+	[blurView.layer setCornerRadius:156.0];
+	[blurView setClipsToBounds:YES];
+	
+	switch (detail) {
+		case 0: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_1", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+		}; break;
+		case 1: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_1", RESOURCE_LOCATION]]];
+			UIImageView* indicatorDetail = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_2_inner", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorDetail setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+			[container addSubview:indicatorDetail];
+		}; break;
+		case 2: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_1", RESOURCE_LOCATION]]];
+			UIImageView* indicatorDetail = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_3_inner", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorDetail setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+			[container addSubview:indicatorDetail];
+		}; break;
+		case 3: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_4", RESOURCE_LOCATION]]];
+			UIImageView* indicatorDetail = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/utility_detail_3_inner", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorDetail setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+			[container addSubview:indicatorDetail];
+		}; break;
+	}
 	
 	return container;
 }
@@ -24,136 +75,67 @@
 	_UIBackdropView *blurView = [[_UIBackdropView alloc] initWithFrame:CGRectZero autosizesToFitSuperview:YES settings:[_UIBackdropViewSettings settingsForStyle:1]];
 	[container addSubview:blurView];
 	
-	[container.layer setCornerRadius:156.0];
-	[container setClipsToBounds:YES];
+	[blurView.layer setCornerRadius:156.0];
+	[blurView setClipsToBounds:YES];
 	
 	switch (detail) {
-		case 1:
-			[container.layer addSublayer:makeSimpleIndicators(60, NO)];
-			break;
-		case 2:
-			[container.layer addSublayer:makeSimpleIndicators(120, YES)];
-			[container.layer addSublayer:makeSimpleIndicatorHighlights(12)];
-			[container.layer addSublayer:makeSimpleIndicatorHourKnobs()];
+		case 1: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_1", RESOURCE_LOCATION]]];
 			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+		}; break;
+		case 2: {
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_2_base", RESOURCE_LOCATION]]];
+			
+			UIImageView* indicatorInner = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_2_inner", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorInner setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+			[container addSubview:indicatorInner];
+		}; break;
+		case 3: {
+			
+			UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_2_base", RESOURCE_LOCATION]]];
+			
+			UIImageView* indicatorInner = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_2_inner", RESOURCE_LOCATION]]];
+			
+			UIImageView* indicatorOuter = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/simple_detail_3_outer", RESOURCE_LOCATION]]];
+			
+			[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorInner setFrame:CGRectMake(0, 0, 312, 312)];
+			[indicatorOuter setFrame:CGRectMake(0, 0, 312, 312)];
+			
+			[container addSubview:indicatorBase];
+			[container addSubview:indicatorInner];
+			[container addSubview:indicatorOuter];
+		}; break;
 		default: break;
 	}
 	
 	return container;
 }
 
-static CAShapeLayer* makeSimpleIndicators(int count, BOOL usesDarkColor) {
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	
-	[layer setStrokeColor:[UIColor colorWithWhite:(usesDarkColor ? 0.35 : 0.48) alpha:1.0].CGColor];
-	[layer setLineWidth:2.0];
-	
-	UIBezierPath* path = [[UIBezierPath alloc] init];
-	for (int i=0; i<count; i++) {
-		CGFloat angle = i * (2*M_PI) / count;
-		CGPoint inner = CGPointMake((((312/2)-11) * sin(angle)) + (312/2), (((312/2)-11) * -cos(angle)) + (312/2));
-		CGPoint outer = CGPointMake(((312/2) * sin(angle)) + (312/2), ((312/2) * -cos(angle)) + (312/2));
-		
-		[path moveToPoint:inner];
-		[path addLineToPoint:outer];
-	}
-	
-	[layer setPath:path.CGPath];
-	return layer;
-}
-
-static CAShapeLayer* makeSimpleIndicatorHighlights(int count) {
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	
-	[layer setStrokeColor:[UIColor colorWithWhite:0.58 alpha:1.0].CGColor];
-	[layer setLineWidth:2.0];
-	
-	UIBezierPath* path = [[UIBezierPath alloc] init];
-	for (int i=0; i<count; i++) {
-		CGFloat angle = i * (2*M_PI) / count;
-		CGPoint inner = CGPointMake((((312/2)-11) * sin(angle)) + (312/2), (((312/2)-11) * -cos(angle)) + (312/2));
-		CGPoint outer = CGPointMake(((312/2) * sin(angle)) + (312/2), ((312/2) * -cos(angle)) + (312/2));
-		
-		[path moveToPoint:inner];
-		[path addLineToPoint:outer];
-	}
-	
-	[layer setPath:path.CGPath];
-	return layer;
-}
-
-static CAShapeLayer* makeSimpleIndicatorHourKnobs() {
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	
-	[layer setStrokeColor:[UIColor colorWithWhite:0.70 alpha:1.0].CGColor];
-	[layer setLineWidth:8.0];
-	[layer setLineCap:kCALineCapRound];
-	
-	UIBezierPath* path = [[UIBezierPath alloc] init];
-	for (int i=0; i<12; i++) {
-		CGFloat angle = i * (2*M_PI) / 12;
-		
-		CGFloat innerRadius = 131 - 8 - 23;
-		CGFloat outerRadius = 131;
-		
-		CGPoint inner = CGPointMake((innerRadius * sin(angle)) + (312/2), (innerRadius * -cos(angle)) + (312/2));
-		CGPoint outer = CGPointMake((outerRadius * sin(angle)) + (312/2), (outerRadius * -cos(angle)) + (312/2));
-		
-		[path moveToPoint:inner];
-		[path addLineToPoint:outer];
-	}
-	
-	[layer setPath:path.CGPath];
-	return layer;
-}
-
 /* COLOR */
-+ (UIView*)indicatorsForColor {
++ (UIView*)indicatorsForColorWithAccentColor:(UIColor*)accentColor {
 	UIView* container = [[UIView alloc] initWithFrame:CGRectMake(0, 390/2 - 312/2, 312, 312)];
 	_UIBackdropView *blurView = [[_UIBackdropView alloc] initWithFrame:CGRectZero autosizesToFitSuperview:YES settings:[_UIBackdropViewSettings settingsForStyle:1]];
 	[container addSubview:blurView];
 	
-	[container.layer setCornerRadius:156.0];
-	[container setClipsToBounds:YES];
+	[blurView.layer setCornerRadius:156.0];
+	[blurView setClipsToBounds:YES];
 	
-	[container.layer addSublayer:makeColorIndicators()];
+	UIImageView* indicatorBase = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/color", RESOURCE_LOCATION]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+	[indicatorBase setTintColor:accentColor];
+	
+	[indicatorBase setFrame:CGRectMake(0, 0, 312, 312)];
+	
+	[container addSubview:indicatorBase];
 	
 	return container;
-}
-
-static CAShapeLayer* makeColorIndicators() {
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	
-	[layer setStrokeColor:[UIColor colorWithRed:0.16 green:0.71 blue:0.98 alpha:1.0].CGColor];
-	[layer setLineWidth:6.0];
-	[layer setLineCap:kCALineCapRound];
-	
-	UIBezierPath* path = [[UIBezierPath alloc] init];
-	for (int i=0; i<60; i++) {
-		CGFloat angle = i * (2*M_PI) / 60;
-		if (i % 5 == 0) {
-			CGFloat innerRadius = 115;
-			CGFloat outerRadius = 153;
-			
-			CGPoint inner = CGPointMake((innerRadius * sin(angle)) + (312/2), (innerRadius * -cos(angle)) + (312/2));
-			CGPoint outer = CGPointMake((outerRadius * sin(angle)) + (312/2), (outerRadius * -cos(angle)) + (312/2));
-			
-			[path moveToPoint:inner];
-			[path addLineToPoint:outer];
-		} else {
-			CGFloat innerRadius = 153;
-			CGFloat outerRadius = 153;
-			
-			CGPoint inner = CGPointMake((innerRadius * sin(angle)) + (312/2), (innerRadius * -cos(angle)) + (312/2));
-			CGPoint outer = CGPointMake((outerRadius * sin(angle)) + (312/2), (outerRadius * -cos(angle)) + (312/2));
-			
-			[path moveToPoint:inner];
-			[path addLineToPoint:outer];
-		}
-	}
-	
-	[layer setPath:path.CGPath];
-	return layer;
 }
 
 /* CHRONOGRAPH */

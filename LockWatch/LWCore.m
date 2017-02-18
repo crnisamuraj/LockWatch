@@ -51,6 +51,7 @@ static LWCore* sharedInstance;
 
 - (void)loadPlugins {
 	NSArray* stockPluginNames = [[NSArray alloc] initWithObjects:
+								@"Utility.watchface",
 								@"Simple.watchface",
 								@"Color.watchface", nil];
 

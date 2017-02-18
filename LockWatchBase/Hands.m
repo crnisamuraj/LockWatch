@@ -8,82 +8,62 @@
 
 #import "Hands.h"
 
+#if TARGET_OS_SIMULATOR
+#define RESOURCE_LOCATION @"/opt/simject/FESTIVAL/LockWatch/Resources"
+#else
+#define RESOURCE_LOCATION @"/var/mobile/Library/FESTIVAL/LockWatch/Resources"
+#endif
+
 @implementation Hands
 
-+ (UIView*)hourHandWithChronographStyle:(BOOL)chronoStyle {
-	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
++ (UIView*)hourHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle {
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
 	
-	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, -152 + 16, 16, 152)];
+	NSString* filePath = [NSString stringWithFormat:@"%@/hour_hand", RESOURCE_LOCATION];
+	UIImageView* hourHandImage = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:filePath] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+	[hourHandImage setFrame:CGRectMake(0, -91 + 15, 15, 91)];
+	[hourHandImage setTintColor:accentColor];
 	
-	// Hour hand base
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	[layer setFillColor:[UIColor whiteColor].CGColor];
-	
-	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 152-16, 16, 16)];
-	UIBezierPath* connectorPath = [UIBezierPath bezierPathWithRect:CGRectMake(16/2 - 6/2, 152 - 27 - 8, 6, 27)];
-	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(16/2 - 14/2, 152 - 65 - 27, 14, 65) cornerRadius:7.0];
-	
-	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
-	CGPathAddPath(combinedPath, nil, connectorPath.CGPath);
-	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
-	
-	layer.path = combinedPath;
-	[hand.layer addSublayer:layer];
-	[handBase addSubview:hand];
+	[handBase addSubview:hourHandImage];
 	
 	return handBase;
 }
 
-+ (UIView*)minuteHandWithChronographStyle:(BOOL)chronoStyle {
-	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
++ (UIView*)minuteHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle {
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
 	
-	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, -152 + 16, 16, 152)];
+	NSString* filePath = [NSString stringWithFormat:@"%@/minute_hand", RESOURCE_LOCATION];
+	UIImageView* minuteHandImage = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:filePath] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+	[minuteHandImage setFrame:CGRectMake(0, -151 + 15, 15, 151)];
+	[minuteHandImage setTintColor:accentColor];
 	
-	// Minute hand base
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	[layer setFillColor:[UIColor whiteColor].CGColor];
-	
-	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 152-16, 16, 16)];
-	UIBezierPath* connectorPath = [UIBezierPath bezierPathWithRect:CGRectMake(16/2 - 6/2, 152 - 27 - 8, 6, 27)];
-	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(16/2 - 14/2, 152 - 125 - 27, 14, 125) cornerRadius:7.0];
-	
-	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
-	CGPathAddPath(combinedPath, nil, connectorPath.CGPath);
-	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
-	
-	layer.path = combinedPath;
-	[hand.layer addSublayer:layer];
-	[handBase addSubview:hand];
+	[handBase addSubview:minuteHandImage];
 	
 	return handBase;
 }
 
 + (UIView*)secondHandWithAccentColor:(UIColor*)accentColor {
-	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
 	
-	UIView* hand = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 180)];
+	NSString* filePath = [NSString stringWithFormat:@"%@/second_hand", RESOURCE_LOCATION];
+	UIImageView* secondHandImage = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:filePath] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+	[secondHandImage setFrame:CGRectMake(0, -180 + 29, 10, 180)];
+	[secondHandImage setTintColor:accentColor];
 	
-	// Second hand base
-	CAShapeLayer* layer = [CAShapeLayer layer];
-	[layer setFillColor:[UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0].CGColor];
+	[handBase addSubview:secondHandImage];
 	
-	UIBezierPath* basePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 12, 12)];
-	UIBezierPath* mainPath = [UIBezierPath bezierPathWithRect:CGRectMake(12/2 - 2/2, -180 + 6 + 24, 2, 180)];
+	return handBase;
+}
+
++ (UIView*)chronoSecondHand {
+	UIView* handBase = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 6, 6)];
 	
-	CGMutablePathRef combinedPath = CGPathCreateMutableCopy(basePath.CGPath);
-	CGPathAddPath(combinedPath, nil, mainPath.CGPath);
+	NSString* filePath = [NSString stringWithFormat:@"%@/chrono_hand", RESOURCE_LOCATION];
+	UIImageView* secondHandImage = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:filePath] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+	[secondHandImage setFrame:CGRectMake(0, -47 + 6, 6, 47)];
+	[secondHandImage setTintColor:[UIColor whiteColor]];
 	
-	layer.path = combinedPath;
-	[hand.layer addSublayer:layer];
-	
-	CAShapeLayer* additionalLayer = [CAShapeLayer layer];
-	[additionalLayer setFillColor:[UIColor blackColor].CGColor];
-	
-	UIBezierPath* axisPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(12/2 - 4/2, 12/2 - 4/2, 4, 4)];
-	additionalLayer.path = axisPath.CGPath;
-	[hand.layer addSublayer:additionalLayer];
-	
-	[handBase addSubview:hand];
+	[handBase addSubview:secondHandImage];
 	
 	return handBase;
 }
