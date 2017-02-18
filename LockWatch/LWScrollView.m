@@ -7,8 +7,6 @@
 #import "LWScrollView.h"
 #import "LWScrollViewContainer.h"
 #import "LWCore.h"
-#import "NCMaterialView.h"
-#import "CAKeyframeAnimation+AHEasing.h"
 
 #import <LockWatchBase/LockWatchBase.h>
 #import <AudioToolbox/AudioServices.h>
@@ -33,7 +31,7 @@ static LWScrollView* sharedInstance;
 		
 		self.wrapperView = [[LWScrollViewContainer alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 		self.contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(frame.size.width/2 - (312+spacing)/2, 0, 312+spacing, 390)];
-		self->customizeButton = [[LWWatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56 + 56, 210, 56) withTitle:@"Customize"];
+		self->customizeButton = [[LWWatchButton alloc] initWithFrame:CGRectMake(frame.size.width/2 - 210/2, frame.size.height - 56 + 75, 210, 56) withTitle:@"Customize"];
 		
 		[self.wrapperView setUserInteractionEnabled:NO];
 		
@@ -131,7 +129,7 @@ static LWScrollView* sharedInstance;
 	[self.wrapperView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 	
 	[self->customizeButton setFrame:CGRectMake(frame.size.width/2 - 210/2,
-											   frame.size.height - 56 + (self->isScaledDown ?: 56),
+											   frame.size.height - 56 + (self->isScaledDown ?: 75),
 											   210,
 											   56)];
 }
@@ -275,7 +273,7 @@ static LWScrollView* sharedInstance;
 	
 	//dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 		[self->customizeButton setAlpha:alpha];
-		[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + newYPos, 210, 56)];
+		//[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2, self.frame.size.height - 56 + newYPos, 210, 56)];
 	//});
 }
 
@@ -296,7 +294,16 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self animateScaleToFactor:scaleDownFactor fromFactor:1.0 duration:0.25];
-	[self animateCustomizeButtonToPosition:0 fromPosition:56 withAlpha:1.0 duration:0.25];
+	[self animateCustomizeButtonToPosition:-75 fromPosition:0 withAlpha:1.0 duration:0.25];
+	
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self->customizeButton.layer removeAllAnimations];
+		[self->customizeButton setTransform:CGAffineTransformIdentity];
+		[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2,
+												   self.frame.size.height - 56,
+												   210,
+												   56)];
+	});
 }
 
 - (void)scaleUp {
@@ -316,7 +323,11 @@ static LWScrollView* sharedInstance;
 	}
 	
 	[self animateScaleToFactor:1.0 fromFactor:scaleDownFactor duration:0.25];
-	[self animateCustomizeButtonToPosition:0 fromPosition:-56 withAlpha:0.0 duration:0.25];
+	[self animateCustomizeButtonToPosition:0 fromPosition:-75 withAlpha:0.0 duration:0.25];
+	[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2,
+											   self.frame.size.height - 56 + 75,
+											   210,
+											   56)];
 	
 	for (LWWatchFace* watchface in self->watchFaceViews) {
 		[watchface fadeOutWithContent:(watchface != [[LWCore sharedInstance] currentWatchFace])];
@@ -344,6 +355,15 @@ static LWScrollView* sharedInstance;
 	[self.contentView setScrollEnabled:YES];
 	[self.wrapperView setUserInteractionEnabled:YES];
 	
+	if ([[UIDevice currentDevice] _supportsForceTouch] && !deviceIsiPad) {
+		[self->customizeButton.layer removeAllAnimations];
+		[self->customizeButton setTransform:CGAffineTransformIdentity];
+		[self->customizeButton setFrame:CGRectMake(self.frame.size.width/2 - 210/2,
+												   self.frame.size.height - 56,
+												   210,
+												   56)];
+	}
+	
 	[self->tapped setEnabled:YES];
 	if (![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
 		[self->pressed setEnabled:NO];
@@ -356,6 +376,9 @@ static LWScrollView* sharedInstance;
 	if (self->isScaledDown || ![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
 		return;
 	}
+	
+	[self.contentView setTransform:CGAffineTransformIdentity];
+	[self->customizeButton setTransform:CGAffineTransformIdentity];
 	
 	for (LWWatchFace* watchface in self->watchFaceViews) {
 		[watchface.layer removeAllAnimations];
@@ -381,7 +404,7 @@ static LWScrollView* sharedInstance;
 	self->currentScale = scale;
 	
 	[self.contentView setTransform:CGAffineTransformScale(CGAffineTransformIdentity, scale, scale)];
-	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, (-56*normalizedForce))];
+	[self->customizeButton setTransform:CGAffineTransformTranslate(CGAffineTransformIdentity, 0, (-75*normalizedForce))];
 	[self->customizeButton setAlpha:normalizedForce];
 	
 	for (LWWatchFace* watchface in self->watchFaceViews) {

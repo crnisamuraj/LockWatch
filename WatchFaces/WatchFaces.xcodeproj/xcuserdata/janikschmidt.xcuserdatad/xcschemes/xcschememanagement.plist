@@ -4,30 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Build.xcscheme</key>
+		<key>Color.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
 		</dict>
-		<key>Install.xcscheme</key>
+		<key>Simple.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8D13AD2D1E571DEA00F8F981</key>
+		<key>8DF7C6E21E577C7400723C0C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D13AD341E571E8000F8F981</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8DF7C7471E5848B300723C0C</key>
+		<key>8DF7C72F1E58475300723C0C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

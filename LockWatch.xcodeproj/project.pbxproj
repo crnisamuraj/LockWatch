@@ -7,465 +7,444 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D1B4E3D1E5260F500E01150 /* LockWatchBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D1B4E641E52643B00E01150 /* LWWatchFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E621E52643B00E01150 /* LWWatchFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D1B4E651E52643B00E01150 /* LWWatchFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E631E52643B00E01150 /* LWWatchFace.m */; };
-		8D1B4E6B1E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */; };
-		8D1B4E6C1E5264C400E01150 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E681E5264C400E01150 /* easing.c */; };
-		8D1B4E7E1E526AF200E01150 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E7C1E526AF200E01150 /* Indicators.m */; };
-		8D1B4E821E526AFE00E01150 /* Hands.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E801E526AFE00E01150 /* Hands.m */; };
-		8D1B4E861E526B3000E01150 /* LWWatchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B4E841E526B3000E01150 /* LWWatchButton.m */; };
-		8D1B4E871E526E5500E01150 /* CAKeyframeAnimation+AHEasing.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */; };
-		8D1B4E881E526E5500E01150 /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E691E5264C400E01150 /* easing.h */; };
-		8D1B4E891E526E5600E01150 /* NCMaterialView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */; };
-		8D1B4E8A1E526E6300E01150 /* LWWatchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E831E526B3000E01150 /* LWWatchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D1B4E8B1E526E7100E01150 /* Indicators.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E7B1E526AF200E01150 /* Indicators.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D1B4E8C1E526E7100E01150 /* Hands.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B4E7F1E526AFE00E01150 /* Hands.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D9E77AC1E536E7000B9A64D /* _UIBackdropView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9E77AB1E536E3B00B9A64D /* _UIBackdropView.h */; };
-		8D9E77AE1E536F5600B9A64D /* LWCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9E77AD1E536F5600B9A64D /* LWCore.h */; };
-		8DA2C3071E49D570006E9608 /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2C3061E49D570006E9608 /* LWScrollView.m */; };
-		8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD92B421E44791E00B93591 /* LWCore.m */; };
-		8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD92B7D1E448A0300B93591 /* LockWatch.plist */; };
-		8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */; };
-		8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */; };
+		8DF7C6F51E57A8B700723C0C /* LWCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D13AD671E5721F000F8F981 /* LWCore.m */; };
+		8DF7C6F61E57A8BA00723C0C /* LWInterfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D13AD6A1E57224B00F8F981 /* LWInterfaceView.m */; };
+		8DF7C6F71E57A8BD00723C0C /* LWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D13AD6D1E57225D00F8F981 /* LWScrollView.m */; };
+		8DF7C6F81E57A8C000723C0C /* LWScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D13AD741E57240E00F8F981 /* LWScrollViewContainer.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		8D5286C21E46956400BC56E1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		8D13ADA31E572B7300F8F981 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D13AD531E57207900F8F981;
+			remoteInfo = LockWatchBase;
 		};
-/* End PBXCopyFilesBuildPhase section */
+		8D13ADA81E572B8100F8F981 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D13AD521E57207900F8F981;
+			remoteInfo = LockWatchBase;
+		};
+		8D13ADAC1E57691F00F8F981 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D13AD521E57207900F8F981;
+			remoteInfo = LockWatchBase;
+		};
+		8DF7C6F31E57A8B200723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DF7C6E31E577C7400723C0C;
+			remoteInfo = Simple;
+		};
+		8DF7C71A1E57C21500723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7C6E21E577C7400723C0C;
+			remoteInfo = Simple;
+		};
+		8DF7C7401E58481300723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7C72F1E58475300723C0C;
+			remoteInfo = Color;
+		};
+		8DF7C7431E58481400723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DF7C7301E58475300723C0C;
+			remoteInfo = Color;
+		};
+		8DF7C74B1E5848C300723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D13AD521E57207900F8F981;
+			remoteInfo = LockWatchBase;
+		};
+		8DF7C74D1E5848C500723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7C6E21E577C7400723C0C;
+			remoteInfo = Simple;
+		};
+		8DF7C74F1E5848C800723C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7C72F1E58475300723C0C;
+			remoteInfo = Color;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LockWatchBase.h; path = LockWatchBase/LockWatchBase.h; sourceTree = "<group>"; };
-		8D1B4E621E52643B00E01150 /* LWWatchFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchFace.h; path = LockWatchBase/LWWatchFace.h; sourceTree = "<group>"; };
-		8D1B4E631E52643B00E01150 /* LWWatchFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchFace.m; path = LockWatchBase/LWWatchFace.m; sourceTree = "<group>"; };
-		8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAKeyframeAnimation+AHEasing.h"; path = "Shared/CAKeyframeAnimation+AHEasing.h"; sourceTree = "<group>"; };
-		8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAKeyframeAnimation+AHEasing.m"; path = "Shared/CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
-		8D1B4E681E5264C400E01150 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = easing.c; path = Shared/easing.c; sourceTree = "<group>"; };
-		8D1B4E691E5264C400E01150 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easing.h; path = Shared/easing.h; sourceTree = "<group>"; };
-		8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCMaterialView.h; path = Shared/NCMaterialView.h; sourceTree = "<group>"; };
-		8D1B4E711E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+AHEasing.h"; sourceTree = "<group>"; };
-		8D1B4E721E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+AHEasing.m"; sourceTree = "<group>"; };
-		8D1B4E731E5265AF00E01150 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
-		8D1B4E741E5265AF00E01150 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
-		8D1B4E751E5265AF00E01150 /* NCMaterialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMaterialView.h; sourceTree = "<group>"; };
-		8D1B4E7B1E526AF200E01150 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Indicators.h; path = LockWatchBase/Indicators.h; sourceTree = "<group>"; };
-		8D1B4E7C1E526AF200E01150 /* Indicators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Indicators.m; path = LockWatchBase/Indicators.m; sourceTree = "<group>"; };
-		8D1B4E7F1E526AFE00E01150 /* Hands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hands.h; path = LockWatchBase/Hands.h; sourceTree = "<group>"; };
-		8D1B4E801E526AFE00E01150 /* Hands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hands.m; path = LockWatchBase/Hands.m; sourceTree = "<group>"; };
-		8D1B4E831E526B3000E01150 /* LWWatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWatchButton.h; path = LockWatchBase/LWWatchButton.h; sourceTree = "<group>"; };
-		8D1B4E841E526B3000E01150 /* LWWatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWatchButton.m; path = LockWatchBase/LWWatchButton.m; sourceTree = "<group>"; };
-		8D608BE51E54B03B00288911 /* LWScrollViewOld.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewOld.m; sourceTree = "<group>"; };
-		8D608BE61E54BEB700288911 /* LWScrollViewOld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScrollViewOld.h; sourceTree = "<group>"; };
-		8D9A71781E48A1E10093A283 /* LockWatchBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockWatchBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D9E77AB1E536E3B00B9A64D /* _UIBackdropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = _UIBackdropView.h; path = Shared/_UIBackdropView.h; sourceTree = "<group>"; };
-		8D9E77AD1E536F5600B9A64D /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCore.h; path = LockWatch/LWCore.h; sourceTree = "<group>"; };
-		8DA2C3051E49D570006E9608 /* LWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollView.h; sourceTree = "<group>"; };
-		8DA2C3061E49D570006E9608 /* LWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollView.m; sourceTree = "<group>"; };
-		8DD92B411E44791E00B93591 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
-		8DD92B421E44791E00B93591 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
-		8DD92B431E44794200B93591 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8DD92B441E44795D00B93591 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		8DD92B451E44796800B93591 /* LockWatch.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LockWatch.xm; sourceTree = "<group>"; };
-		8DD92B481E44798500B93591 /* .stamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .stamp; sourceTree = "<group>"; };
-		8DD92B4A1E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
-		8DD92B4B1E44798500B93591 /* LockWatch.xm.8c50e618.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LockWatch.xm.8c50e618.o; sourceTree = "<group>"; };
-		8DD92B4C1E44798500B93591 /* LWCore.m.8c50e618.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LWCore.m.8c50e618.o; sourceTree = "<group>"; };
-		8DD92B4E1E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
-		8DD92B4F1E44798500B93591 /* LockWatch.xm.563103cf.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LockWatch.xm.563103cf.o; sourceTree = "<group>"; };
-		8DD92B501E44798500B93591 /* LWCore.m.563103cf.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = LWCore.m.563103cf.o; sourceTree = "<group>"; };
-		8DD92B511E44798500B93591 /* LockWatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = LockWatch.dylib; sourceTree = "<group>"; };
-		8DD92B7C1E4488C000B93591 /* LockWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockWatch.h; sourceTree = "<group>"; };
-		8DD92B7D1E448A0300B93591 /* LockWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = LockWatch.plist; sourceTree = "<group>"; };
-		8DD92B821E44F24700B93591 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		8DDCD4C51E44F4BE000D1BE0 /* Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Build.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollViewContainer.h; sourceTree = "<group>"; };
-		8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
-		8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInterfaceView.h; sourceTree = "<group>"; };
-		8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWInterfaceView.m; sourceTree = "<group>"; };
-		8DDCD4D21E45CE05000D1BE0 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		8D13AD351E571E8000F8F981 /* hiddenapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiddenapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D13AD5C1E57211E00F8F981 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		8D13AD611E57219E00F8F981 /* LockWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = LockWatch.plist; sourceTree = "<group>"; };
+		8D13AD631E5721CA00F8F981 /* LockWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockWatch.h; sourceTree = "<group>"; };
+		8D13AD641E5721CA00F8F981 /* LockWatch.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LockWatch.xm; sourceTree = "<group>"; };
+		8D13AD661E5721F000F8F981 /* LWCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCore.h; sourceTree = "<group>"; };
+		8D13AD671E5721F000F8F981 /* LWCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCore.m; sourceTree = "<group>"; };
+		8D13AD691E57224B00F8F981 /* LWInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInterfaceView.h; sourceTree = "<group>"; };
+		8D13AD6A1E57224B00F8F981 /* LWInterfaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWInterfaceView.m; sourceTree = "<group>"; };
+		8D13AD6C1E57225C00F8F981 /* LWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollView.h; sourceTree = "<group>"; };
+		8D13AD6D1E57225D00F8F981 /* LWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollView.m; sourceTree = "<group>"; };
+		8D13AD731E57240E00F8F981 /* LWScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWScrollViewContainer.h; sourceTree = "<group>"; };
+		8D13AD741E57240E00F8F981 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
+		8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LockWatchBase.xcodeproj; path = LockWatchBase/LockWatchBase.xcodeproj; sourceTree = "<group>"; };
+		8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatchFaces.xcodeproj; path = WatchFaces/WatchFaces.xcodeproj; sourceTree = "<group>"; };
+		8DF7C6FB1E57B06800723C0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		8D9A71741E48A1E10093A283 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DD92B611E447A6000B93591 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		8D1B4E3B1E5260A600E01150 /* LockWatchBase */ = {
+		8D13AD361E571E8000F8F981 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1B4E6E1E5264CA00E01150 /* Supporting Files */,
-				8D1B4E3C1E5260F500E01150 /* LockWatchBase.h */,
-				8D1B4E7B1E526AF200E01150 /* Indicators.h */,
-				8D1B4E7C1E526AF200E01150 /* Indicators.m */,
-				8D1B4E7F1E526AFE00E01150 /* Hands.h */,
-				8D1B4E801E526AFE00E01150 /* Hands.m */,
-				8D1B4E831E526B3000E01150 /* LWWatchButton.h */,
-				8D1B4E841E526B3000E01150 /* LWWatchButton.m */,
-				8D1B4E621E52643B00E01150 /* LWWatchFace.h */,
-				8D1B4E631E52643B00E01150 /* LWWatchFace.m */,
+				8D13AD351E571E8000F8F981 /* hiddenapp.app */,
 			);
-			name = LockWatchBase;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		8D1B4E6E1E5264CA00E01150 /* Supporting Files */ = {
+		8D13AD4D1E571FD000F8F981 /* LockWatch */ = {
 			isa = PBXGroup;
 			children = (
-				8D1B4E661E5264C400E01150 /* CAKeyframeAnimation+AHEasing.h */,
-				8D1B4E671E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m */,
-				8D1B4E681E5264C400E01150 /* easing.c */,
-				8D1B4E691E5264C400E01150 /* easing.h */,
-				8D1B4E6F1E52654B00E01150 /* NCMaterialView.h */,
-				8D9E77AB1E536E3B00B9A64D /* _UIBackdropView.h */,
-				8D9E77AD1E536F5600B9A64D /* LWCore.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8D52869C1E45E88900BC56E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8D1B4E711E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.h */,
-				8D1B4E721E5265AF00E01150 /* CAKeyframeAnimation+AHEasing.m */,
-				8D1B4E731E5265AF00E01150 /* easing.c */,
-				8D1B4E741E5265AF00E01150 /* easing.h */,
-				8D1B4E751E5265AF00E01150 /* NCMaterialView.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8DD92B1A1E4478D900B93591 = {
-			isa = PBXGroup;
-			children = (
-				8DD92B821E44F24700B93591 /* .gitignore */,
-				8DD92B431E44794200B93591 /* README.md */,
-				8DD92B251E4478D900B93591 /* LockWatch */,
-				8D1B4E3B1E5260A600E01150 /* LockWatchBase */,
-				8DD92B461E44798500B93591 /* Products */,
-				8DDCD4C51E44F4BE000D1BE0 /* Build.app */,
-				8D9A71781E48A1E10093A283 /* LockWatchBase.framework */,
-			);
-			sourceTree = "<group>";
-		};
-		8DD92B251E4478D900B93591 /* LockWatch */ = {
-			isa = PBXGroup;
-			children = (
-				8D52869C1E45E88900BC56E1 /* Supporting Files */,
-				8DD92B441E44795D00B93591 /* Makefile */,
-				8DD92B411E44791E00B93591 /* LWCore.h */,
-				8DD92B421E44791E00B93591 /* LWCore.m */,
-				8DDCD4CF1E45CBC9000D1BE0 /* LWInterfaceView.h */,
-				8DDCD4D01E45CBC9000D1BE0 /* LWInterfaceView.m */,
-				8DA2C3051E49D570006E9608 /* LWScrollView.h */,
-				8DA2C3061E49D570006E9608 /* LWScrollView.m */,
-				8D608BE61E54BEB700288911 /* LWScrollViewOld.h */,
-				8D608BE51E54B03B00288911 /* LWScrollViewOld.m */,
-				8DDCD4C91E453A8F000D1BE0 /* LWScrollViewContainer.h */,
-				8DDCD4CA1E453A8F000D1BE0 /* LWScrollViewContainer.m */,
-				8DD92B7C1E4488C000B93591 /* LockWatch.h */,
-				8DD92B451E44796800B93591 /* LockWatch.xm */,
-				8DD92B7D1E448A0300B93591 /* LockWatch.plist */,
-				8DDCD4D21E45CE05000D1BE0 /* control */,
+				8D13AD611E57219E00F8F981 /* LockWatch.plist */,
+				8D13AD5C1E57211E00F8F981 /* Makefile */,
+				8D13AD661E5721F000F8F981 /* LWCore.h */,
+				8D13AD671E5721F000F8F981 /* LWCore.m */,
+				8D13AD691E57224B00F8F981 /* LWInterfaceView.h */,
+				8D13AD6A1E57224B00F8F981 /* LWInterfaceView.m */,
+				8D13AD6C1E57225C00F8F981 /* LWScrollView.h */,
+				8D13AD6D1E57225D00F8F981 /* LWScrollView.m */,
+				8D13AD731E57240E00F8F981 /* LWScrollViewContainer.h */,
+				8D13AD741E57240E00F8F981 /* LWScrollViewContainer.m */,
+				8D13AD631E5721CA00F8F981 /* LockWatch.h */,
+				8D13AD641E5721CA00F8F981 /* LockWatch.xm */,
 			);
 			path = LockWatch;
 			sourceTree = "<group>";
 		};
-		8DD92B461E44798500B93591 /* Products */ = {
+		8D13ADA01E572B7300F8F981 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD92B471E44798500B93591 /* debug */,
+				8D13ADA41E572B7300F8F981 /* LockWatchBase.framework */,
 			);
 			name = Products;
-			path = LockWatch/.theos/obj;
 			sourceTree = "<group>";
 		};
-		8DD92B471E44798500B93591 /* debug */ = {
+		8D13ADA61E572B7D00F8F981 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD92B481E44798500B93591 /* .stamp */,
-				8DD92B491E44798500B93591 /* arm64 */,
-				8DD92B4D1E44798500B93591 /* armv7 */,
-				8DD92B511E44798500B93591 /* LockWatch.dylib */,
+				8DF7C6F41E57A8B200723C0C /* Simple.watchface */,
+				8DF7C7441E58481400723C0C /* Color.watchface */,
 			);
-			path = debug;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		8DD92B491E44798500B93591 /* arm64 */ = {
+		8D53FB281E5700E90042EA2C = {
 			isa = PBXGroup;
 			children = (
-				8DD92B4A1E44798500B93591 /* LockWatch.dylib */,
-				8DD92B4B1E44798500B93591 /* LockWatch.xm.8c50e618.o */,
-				8DD92B4C1E44798500B93591 /* LWCore.m.8c50e618.o */,
+				8DF7C6FB1E57B06800723C0C /* README.md */,
+				8D13AD4D1E571FD000F8F981 /* LockWatch */,
+				8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */,
+				8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */,
+				8D13AD361E571E8000F8F981 /* Products */,
 			);
-			path = arm64;
-			sourceTree = "<group>";
-		};
-		8DD92B4D1E44798500B93591 /* armv7 */ = {
-			isa = PBXGroup;
-			children = (
-				8DD92B4E1E44798500B93591 /* LockWatch.dylib */,
-				8DD92B4F1E44798500B93591 /* LockWatch.xm.563103cf.o */,
-				8DD92B501E44798500B93591 /* LWCore.m.563103cf.o */,
-			);
-			path = armv7;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		8D9A71751E48A1E10093A283 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D1B4E641E52643B00E01150 /* LWWatchFace.h in Headers */,
-				8D1B4E3D1E5260F500E01150 /* LockWatchBase.h in Headers */,
-				8D9E77AE1E536F5600B9A64D /* LWCore.h in Headers */,
-				8D1B4E8A1E526E6300E01150 /* LWWatchButton.h in Headers */,
-				8D9E77AC1E536E7000B9A64D /* _UIBackdropView.h in Headers */,
-				8D1B4E8B1E526E7100E01150 /* Indicators.h in Headers */,
-				8D1B4E8C1E526E7100E01150 /* Hands.h in Headers */,
-				8D1B4E871E526E5500E01150 /* CAKeyframeAnimation+AHEasing.h in Headers */,
-				8D1B4E881E526E5500E01150 /* easing.h in Headers */,
-				8D1B4E891E526E5600E01150 /* NCMaterialView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXLegacyTarget section */
-		8DD92B3D1E44790A00B93591 /* Device */ = {
+		8D13AD2D1E571DEA00F8F981 /* Build */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-B";
+			buildConfigurationList = 8D13AD2E1E571DEA00F8F981 /* Build configuration list for PBXLegacyTarget "Build" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "$(PROJECT_DIR)/$(PROJECT)";
+			dependencies = (
+				8DF7C7411E58481300723C0C /* PBXTargetDependency */,
+				8DF7C71B1E57C21500723C0C /* PBXTargetDependency */,
+				8D13ADA91E572B8100F8F981 /* PBXTargetDependency */,
+			);
+			name = Build;
+			passBuildSettingsInEnvironment = 1;
+			productName = Simulator;
+		};
+		8DF7C7471E5848B300723C0C /* Install */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "do -B";
-			buildConfigurationList = 8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "Device" */;
+			buildConfigurationList = 8DF7C7481E5848B400723C0C /* Build configuration list for PBXLegacyTarget "Install" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/janikschmidt/Documents/Xcode/LockWatch/LockWatch;
+			buildWorkingDirectory = "$(PROJECT_DIR)/$(PROJECT)";
 			dependencies = (
+				8DF7C7501E5848C800723C0C /* PBXTargetDependency */,
+				8DF7C74E1E5848C500723C0C /* PBXTargetDependency */,
+				8DF7C74C1E5848C300723C0C /* PBXTargetDependency */,
 			);
-			name = Device;
-			passBuildSettingsInEnvironment = 0;
-			productName = LockWatch;
-		};
-		8DDCD4D71E45D02F000D1BE0 /* Simulator */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "";
-			buildConfigurationList = 8DDCD4D81E45D02F000D1BE0 /* Build configuration list for PBXLegacyTarget "Simulator" */;
-			buildPhases = (
-			);
-			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/janikschmidt/Documents/Xcode/LockWatch/LockWatch;
-			dependencies = (
-			);
-			name = Simulator;
-			passBuildSettingsInEnvironment = 0;
-			productName = LockWatch;
+			name = Install;
+			passBuildSettingsInEnvironment = 1;
+			productName = Install;
 		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		8D9A71771E48A1E10093A283 /* LockWatchBase */ = {
+		8D13AD341E571E8000F8F981 /* hiddenapp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D9A717D1E48A1E10093A283 /* Build configuration list for PBXNativeTarget "LockWatchBase" */;
+			buildConfigurationList = 8D13AD4A1E571E8100F8F981 /* Build configuration list for PBXNativeTarget "hiddenapp" */;
 			buildPhases = (
-				8D9A71731E48A1E10093A283 /* Sources */,
-				8D9A71741E48A1E10093A283 /* Frameworks */,
-				8D9A71751E48A1E10093A283 /* Headers */,
-				8D9A71761E48A1E10093A283 /* Resources */,
+				8DF7C6F11E57A8B200723C0C /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D13ADAD1E57691F00F8F981 /* PBXTargetDependency */,
 			);
-			name = LockWatchBase;
-			productName = LockWatchBase;
-			productReference = 8D9A71781E48A1E10093A283 /* LockWatchBase.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8DD92B631E447A6000B93591 /* Build */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DD92B781E447A6000B93591 /* Build configuration list for PBXNativeTarget "Build" */;
-			buildPhases = (
-				8DD92B601E447A6000B93591 /* Sources */,
-				8DD92B611E447A6000B93591 /* Frameworks */,
-				8DD92B621E447A6000B93591 /* Resources */,
-				8D5286C21E46956400BC56E1 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Build;
-			productName = Build;
-			productReference = 8DDCD4C51E44F4BE000D1BE0 /* Build.app */;
+			name = hiddenapp;
+			productName = hiddenapp;
+			productReference = 8D13AD351E571E8000F8F981 /* hiddenapp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8DD92B1B1E4478D900B93591 /* Project object */ = {
+		8D53FB291E5700E90042EA2C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Janik Schmidt";
 				TargetAttributes = {
-					8D9A71771E48A1E10093A283 = {
+					8D13AD2D1E571DEA00F8F981 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EDV7C8ZP77;
 						ProvisioningStyle = Automatic;
 					};
-					8DD92B3D1E44790A00B93591 = {
+					8D13AD341E571E8000F8F981 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = EDV7C8ZP77;
 						ProvisioningStyle = Automatic;
 					};
-					8DD92B631E447A6000B93591 = {
+					8DF7C7471E5848B300723C0C = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = EDV7C8ZP77;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 8DD92B1E1E4478D900B93591 /* Build configuration list for PBXProject "LockWatch" */;
+			buildConfigurationList = 8D53FB2C1E5700E90042EA2C /* Build configuration list for PBXProject "LockWatch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				de,
 			);
-			mainGroup = 8DD92B1A1E4478D900B93591;
-			productRefGroup = 8DD92B1A1E4478D900B93591;
+			mainGroup = 8D53FB281E5700E90042EA2C;
+			productRefGroup = 8D13AD361E571E8000F8F981 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8D13ADA01E572B7300F8F981 /* Products */;
+					ProjectRef = 8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */;
+				},
+				{
+					ProductGroup = 8D13ADA61E572B7D00F8F981 /* Products */;
+					ProjectRef = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				8DDCD4D71E45D02F000D1BE0 /* Simulator */,
-				8DD92B3D1E44790A00B93591 /* Device */,
-				8DD92B631E447A6000B93591 /* Build */,
-				8D9A71771E48A1E10093A283 /* LockWatchBase */,
+				8D13AD2D1E571DEA00F8F981 /* Build */,
+				8DF7C7471E5848B300723C0C /* Install */,
+				8D13AD341E571E8000F8F981 /* hiddenapp */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		8D9A71761E48A1E10093A283 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXReferenceProxy section */
+		8D13ADA41E572B7300F8F981 /* LockWatchBase.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LockWatchBase.framework;
+			remoteRef = 8D13ADA31E572B7300F8F981 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8DD92B621E447A6000B93591 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DD92B7E1E448A0300B93591 /* LockWatch.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+		8DF7C6F41E57A8B200723C0C /* Simple.watchface */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Simple.watchface;
+			remoteRef = 8DF7C6F31E57A8B200723C0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-/* End PBXResourcesBuildPhase section */
+		8DF7C7441E58481400723C0C /* Color.watchface */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Color.watchface;
+			remoteRef = 8DF7C7431E58481400723C0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8D9A71731E48A1E10093A283 /* Sources */ = {
+		8DF7C6F11E57A8B200723C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D1B4E861E526B3000E01150 /* LWWatchButton.m in Sources */,
-				8D1B4E7E1E526AF200E01150 /* Indicators.m in Sources */,
-				8D1B4E6C1E5264C400E01150 /* easing.c in Sources */,
-				8D1B4E821E526AFE00E01150 /* Hands.m in Sources */,
-				8D1B4E6B1E5264C400E01150 /* CAKeyframeAnimation+AHEasing.m in Sources */,
-				8D1B4E651E52643B00E01150 /* LWWatchFace.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DD92B601E447A6000B93591 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DDCD4D11E45CBC9000D1BE0 /* LWInterfaceView.m in Sources */,
-				8DD92B7B1E447A7500B93591 /* LWCore.m in Sources */,
-				8DA2C3071E49D570006E9608 /* LWScrollView.m in Sources */,
-				8DDCD4CB1E453A8F000D1BE0 /* LWScrollViewContainer.m in Sources */,
+				8DF7C6F51E57A8B700723C0C /* LWCore.m in Sources */,
+				8DF7C6F71E57A8BD00723C0C /* LWScrollView.m in Sources */,
+				8DF7C6F81E57A8C000723C0C /* LWScrollViewContainer.m in Sources */,
+				8DF7C6F61E57A8BA00723C0C /* LWInterfaceView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8D13ADA91E572B8100F8F981 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LockWatchBase;
+			targetProxy = 8D13ADA81E572B8100F8F981 /* PBXContainerItemProxy */;
+		};
+		8D13ADAD1E57691F00F8F981 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LockWatchBase;
+			targetProxy = 8D13ADAC1E57691F00F8F981 /* PBXContainerItemProxy */;
+		};
+		8DF7C71B1E57C21500723C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Simple;
+			targetProxy = 8DF7C71A1E57C21500723C0C /* PBXContainerItemProxy */;
+		};
+		8DF7C7411E58481300723C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Color;
+			targetProxy = 8DF7C7401E58481300723C0C /* PBXContainerItemProxy */;
+		};
+		8DF7C74C1E5848C300723C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LockWatchBase;
+			targetProxy = 8DF7C74B1E5848C300723C0C /* PBXContainerItemProxy */;
+		};
+		8DF7C74E1E5848C500723C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Simple;
+			targetProxy = 8DF7C74D1E5848C500723C0C /* PBXContainerItemProxy */;
+		};
+		8DF7C7501E5848C800723C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Color;
+			targetProxy = 8DF7C74F1E5848C800723C0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		8D9A717E1E48A1E10093A283 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EDV7C8ZP77;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LockWatchBase/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.LockWatchBase;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8D9A717F1E48A1E10093A283 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EDV7C8ZP77;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LockWatchBase/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.LockWatchBase;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8DD92B381E4478D900B93591 /* Debug */ = {
+		8D13AD2F1E571DEA00F8F981 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8D13AD301E571DEA00F8F981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8D13AD4B1E571E8100F8F981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -486,6 +465,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -502,19 +482,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = hiddenapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.hiddenapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		8DD92B391E4478D900B93591 /* Release */ = {
+		8D13AD4C1E571E8100F8F981 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -535,6 +519,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -545,76 +530,117 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = hiddenapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.hiddenapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8DD92B3F1E44790A00B93591 /* Debug */ = {
+		8D53FB2D1E5700E90042EA2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEBUGGING_SYMBOLS = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
 			};
 			name = Debug;
 		};
-		8DD92B401E44790A00B93591 /* Release */ = {
+		8D53FB2E1E5700E90042EA2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
 			};
 			name = Release;
 		};
-		8DD92B791E447A6000B93591 /* Debug */ = {
+		8DF7C7491E5848B400723C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Build/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.Build;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		8DD92B7A1E447A6000B93591 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Build/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ml.festival.Build;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		8DDCD4D91E45D02F000D1BE0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		8DDCD4DA1E45D02F000D1BE0 /* Release */ = {
+		8DF7C74A1E5848B400723C0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EDV7C8ZP77;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,52 +650,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D9A717D1E48A1E10093A283 /* Build configuration list for PBXNativeTarget "LockWatchBase" */ = {
+		8D13AD2E1E571DEA00F8F981 /* Build configuration list for PBXLegacyTarget "Build" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D9A717E1E48A1E10093A283 /* Debug */,
-				8D9A717F1E48A1E10093A283 /* Release */,
+				8D13AD2F1E571DEA00F8F981 /* Debug */,
+				8D13AD301E571DEA00F8F981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DD92B1E1E4478D900B93591 /* Build configuration list for PBXProject "LockWatch" */ = {
+		8D13AD4A1E571E8100F8F981 /* Build configuration list for PBXNativeTarget "hiddenapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8DD92B381E4478D900B93591 /* Debug */,
-				8DD92B391E4478D900B93591 /* Release */,
+				8D13AD4B1E571E8100F8F981 /* Debug */,
+				8D13AD4C1E571E8100F8F981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DD92B3E1E44790A00B93591 /* Build configuration list for PBXLegacyTarget "Device" */ = {
+		8D53FB2C1E5700E90042EA2C /* Build configuration list for PBXProject "LockWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8DD92B3F1E44790A00B93591 /* Debug */,
-				8DD92B401E44790A00B93591 /* Release */,
+				8D53FB2D1E5700E90042EA2C /* Debug */,
+				8D53FB2E1E5700E90042EA2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DD92B781E447A6000B93591 /* Build configuration list for PBXNativeTarget "Build" */ = {
+		8DF7C7481E5848B400723C0C /* Build configuration list for PBXLegacyTarget "Install" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8DD92B791E447A6000B93591 /* Debug */,
-				8DD92B7A1E447A6000B93591 /* Release */,
+				8DF7C7491E5848B400723C0C /* Debug */,
+				8DF7C74A1E5848B400723C0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DDCD4D81E45D02F000D1BE0 /* Build configuration list for PBXLegacyTarget "Simulator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8DDCD4D91E45D02F000D1BE0 /* Debug */,
-				8DDCD4DA1E45D02F000D1BE0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8DD92B1B1E4478D900B93591 /* Project object */;
+	rootObject = 8D53FB291E5700E90042EA2C /* Project object */;
 }

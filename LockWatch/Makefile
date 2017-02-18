@@ -1,7 +1,7 @@
 # MAKEFILE 2
 
 # Configure your device details here
-export THEOS_DEVICE_IP=192.168.178.38
+export THEOS_DEVICE_IP=192.168.178.98
 export THEOS_DEVICE_PORT=22
 
 # Set the package version
@@ -14,15 +14,14 @@ TARGET = iphone:latest		# Phyiscal devices
 
 # DO NOT EDIT ANYTHING BEYOND THIS POINT
 export GO_EASY_ON_ME = 1
-export FRAMEWORK_PATH=../Build/Products/Debug-$(PLATFORM_NAME)
 
 include /opt/theos/makefiles/common.mk
 
 TWEAK_NAME = LockWatch
-LockWatch_LDFLAGS += -F$(FRAMEWORK_PATH)
-LockWatch_CFLAGS=-I ./include/LockWatchBase -I ./include
+LockWatch_LDFLAGS += -F./
+LockWatch_CFLAGS += -I ./include/LockWatchBase -I ./include
 LockWatch_FRAMEWORKS += AudioToolbox LockWatchBase
-LockWatch_FILES = LockWatch.xm easing.c CAKeyframeAnimation+AHEasing.m LWCore.m LWInterfaceView.m LWScrollViewContainer.m LWScrollView.m
+LockWatch_FILES = LockWatch.xm LWCore.m LWInterfaceView.m LWScrollViewContainer.m LWScrollView.m
 
 include /opt/theos/makefiles/tweak.mk
 

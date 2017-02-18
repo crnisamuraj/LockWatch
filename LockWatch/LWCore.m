@@ -32,9 +32,17 @@ static LWCore* sharedInstance;
 		float screenW = [[UIScreen mainScreen] bounds].size.width;
 		float screenH = [[UIScreen mainScreen] bounds].size.height;
 		self.interfaceView = [[LWInterfaceView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+		
+		if ( [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
+			[[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
+		}
 	}
 
 	return self;
+}
+
+- (void)orientationChanged:(NSNotification *)notification {
+	[self layoutViews];
 }
 
 - (void)loadPlugins {
@@ -77,7 +85,22 @@ static LWCore* sharedInstance;
 - (void)layoutViews {
 	float screenW = [[UIScreen mainScreen] bounds].size.width;
 	float screenH = [[UIScreen mainScreen] bounds].size.height;
-	[self.interfaceView setFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+	
+	if (self->isInMinimizedView) {
+		CGRect labelFrame = [[[[objc_getClass("SBLockScreenManager") sharedInstance] lockScreenViewController] dateViewController] view].frame;
+		CGRect oldFrame = CGRectMake(0, screenH/2 - 390/2, screenW, 390);
+		CGFloat scale = labelFrame.size.height / 312.0;
+		
+		[self.interfaceView setTransform:CGAffineTransformIdentity];
+		[self.interfaceView setFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+		
+		CGAffineTransform transform = CGAffineTransformIdentity;
+		transform = CGAffineTransformTranslate(transform, 0, (labelFrame.origin.y - oldFrame.origin.y) - (390/2) + labelFrame.size.height/2);
+		transform = CGAffineTransformScale(transform, scale, scale);
+		[self.interfaceView setTransform:transform];
+	} else {
+		[self.interfaceView setFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
+	}
 }
 
 - (void)startUpdatingTime {
@@ -157,18 +180,18 @@ static LWCore* sharedInstance;
 	}
 	
 	if (isMinimized) {
-		CGRect labelFrame = self->minimizedFrame;
+		//CGRect labelFrame = self->minimizedFrame;
+		CGRect labelFrame = [[[[objc_getClass("SBLockScreenManager") sharedInstance] lockScreenViewController] dateViewController] view].frame;
 		CGRect oldFrame = CGRectMake(0, screenH/2 - 390/2, screenW, 390);
 		CGFloat scale = labelFrame.size.height / 312.0;
 		
-		CGRect newFrame = CGRectMake(((labelFrame.size.width/2) - ((oldFrame.size.width*scale)/2)) + labelFrame.origin.x,
-									 ((labelFrame.size.height/2) - ((oldFrame.size.height*scale)/2)) + labelFrame.origin.y,
-									 oldFrame.size.width*scale,
-									 oldFrame.size.height*scale);
-		
 		[UIView animateWithDuration:0.2 animations:^{
-			self.interfaceView.transform = CGAffineTransformMakeScale(scale, scale);
-			self.interfaceView.frame = newFrame;
+			CGAffineTransform transform = CGAffineTransformIdentity;
+			transform = CGAffineTransformTranslate(transform, 0, (labelFrame.origin.y - oldFrame.origin.y) - (390/2) + labelFrame.size.height/2);
+			transform = CGAffineTransformScale(transform, scale, scale);
+			
+			self.interfaceView.transform = transform;
+			//[self.interfaceView setFrame:newFrame];
 		}];
 	} else {
 		[UIView animateWithDuration:0.2 animations:^{
