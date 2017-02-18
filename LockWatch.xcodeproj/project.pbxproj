@@ -684,6 +684,7 @@
 				8DF7C74A1E5848B400723C0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

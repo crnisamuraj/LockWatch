@@ -7,26 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D013E761E584D950084078C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D013E741E584D950084078C /* InfoPlist.strings */; };
 		8DF7C6EC1E577D4800723C0C /* LockWatchBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF7C6EB1E577D4800723C0C /* LockWatchBase.framework */; };
 		8DF7C6EF1E577D7B00723C0C /* LWWatchFaceSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7C6EE1E577D7B00723C0C /* LWWatchFaceSimple.m */; };
-		8DF7C7281E58467200723C0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DF7C72A1E58467200723C0C /* InfoPlist.strings */; };
-		8DF7C7391E58478F00723C0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DF7C73B1E58478F00723C0C /* InfoPlist.strings */; };
 		8DF7C73F1E5847E600723C0C /* LWWatchFaceColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7C73E1E5847E600723C0C /* LWWatchFaceColor.m */; };
 		8DF7C7461E58482000723C0C /* LockWatchBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF7C7451E58482000723C0C /* LockWatchBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D013E751E584D950084078C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D013E771E584D9E0084078C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF7C6E31E577C7400723C0C /* Simple.watchface */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Simple.watchface; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF7C6E61E577C7400723C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DF7C6EB1E577D4800723C0C /* LockWatchBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LockWatchBase.framework; path = "../LockWatchBase/Build/Products/Debug-iphonesimulator/LockWatchBase.framework"; sourceTree = "<group>"; };
 		8DF7C6ED1E577D7B00723C0C /* LWWatchFaceSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWatchFaceSimple.h; sourceTree = "<group>"; };
 		8DF7C6EE1E577D7B00723C0C /* LWWatchFaceSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWatchFaceSimple.m; sourceTree = "<group>"; };
-		8DF7C7291E58467200723C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8DF7C72B1E58468700723C0C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF7C7301E58475300723C0C /* Color.watchface */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Color.watchface; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF7C7321E58475300723C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DF7C73A1E58478F00723C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8DF7C73C1E58479200723C0C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF7C73D1E5847E600723C0C /* LWWatchFaceColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWatchFaceColor.h; sourceTree = "<group>"; };
 		8DF7C73E1E5847E600723C0C /* LWWatchFaceColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWatchFaceColor.m; sourceTree = "<group>"; };
 		8DF7C7451E58482000723C0C /* LockWatchBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LockWatchBase.framework; path = "../Build/Products/Debug-iphonesimulator/LockWatchBase.framework"; sourceTree = "<group>"; };
@@ -74,8 +71,8 @@
 		8DF7C6E51E577C7400723C0C /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				8D013E741E584D950084078C /* InfoPlist.strings */,
 				8DF7C6E61E577C7400723C0C /* Info.plist */,
-				8DF7C72A1E58467200723C0C /* InfoPlist.strings */,
 				8DF7C6ED1E577D7B00723C0C /* LWWatchFaceSimple.h */,
 				8DF7C6EE1E577D7B00723C0C /* LWWatchFaceSimple.m */,
 			);
@@ -95,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				8DF7C7321E58475300723C0C /* Info.plist */,
-				8DF7C73B1E58478F00723C0C /* InfoPlist.strings */,
 				8DF7C73D1E5847E600723C0C /* LWWatchFaceColor.h */,
 				8DF7C73E1E5847E600723C0C /* LWWatchFaceColor.m */,
 			);
@@ -185,7 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DF7C7281E58467200723C0C /* InfoPlist.strings in Resources */,
+				8D013E761E584D950084078C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +189,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DF7C7391E58478F00723C0C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,20 +243,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8DF7C72A1E58467200723C0C /* InfoPlist.strings */ = {
+		8D013E741E584D950084078C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8DF7C7291E58467200723C0C /* en */,
-				8DF7C72B1E58468700723C0C /* de */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8DF7C73B1E58478F00723C0C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8DF7C73A1E58478F00723C0C /* en */,
-				8DF7C73C1E58479200723C0C /* de */,
+				8D013E751E584D950084078C /* en */,
+				8D013E771E584D9E0084078C /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -524,6 +510,7 @@
 				8DF7C7351E58475300723C0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
