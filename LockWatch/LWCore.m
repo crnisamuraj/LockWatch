@@ -13,6 +13,8 @@
 
 #import <LockWatchBase/LockWatchBase.h>
 
+#define TESTING 0
+
 @implementation LWCore
 
 static LWCore* sharedInstance;
@@ -34,7 +36,9 @@ static LWCore* sharedInstance;
 		self.interfaceView = [[LWInterfaceView alloc] initWithFrame:CGRectMake(0, screenH/2 - 390/2, screenW, 390)];
 		
 		if ( [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
-			[[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
+			[[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)
+														 name:UIDeviceOrientationDidChangeNotification
+													   object:nil];
 		}
 	}
 
@@ -128,9 +132,16 @@ static LWCore* sharedInstance;
 	float Minute = [minuteComp minute];
 	float Second = [secondComp second];
 	float Msecond = roundf([MsecondComp nanosecond]/1000000);
+
+#if TESTING == 1
+	Hour = 10;
+	Minute = 9;
+	Second = 30;
+	Msecond = 0;
+#endif
 	
 	if (self->currentWatchFace) {
-		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond animated:YES];
+		[self->currentWatchFace updateTimeWithHour:Hour minute:Minute second:Second msecond:Msecond animated:!TESTING];
 	}
 }
 

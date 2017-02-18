@@ -1,7 +1,7 @@
 Package: ml.festival.lockwatch10
 Name: LockWatch Beta (iOS 10)
 Depends: mobilesubstrate, firmware(>=10.0)
-Depiction: https://festival.ml/beta/depiction.php?p=ml.festival.lockwatch10
+Depiction: https://festival.ml/repo/depiction.php?p=ml.festival.lockwatch10
 Version: 0.0.1-beta1
 Architecture: iphoneos-arm
 Description: LockWatch for iOS 10
