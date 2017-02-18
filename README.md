@@ -39,8 +39,6 @@ Compiling is recommended using the iOS 10.2 SDK
 ## Building LockWatch
 LockWatch supports both iOS devices and the iOS Simulator (using simject, more on that here: https://github.com/angelXwind/simject). To build for the Simulator, select the "Build" scheme and any Simulator target. To build for a device, use the "Build" scheme, select "Generic iOS Device" or any connected iOS Device and set the `TARGET` variable in the Makefile to `ìphone:latest` (comments should help you out).
 
-Remember to include the LockWatchBase.framework headers. Copy every .h file from the built framework inside `./LockWatch/LockWatch/LockWatchBase.framework/Headers` to `./LockWatch/LockWatch/include/LockWatchBase/`and you should be good to go.
-
 To install LockWatch to your device, use the "Install" scheme instead of the "Build" scheme. The rest of the settings stays the same for iOS devices. Installing also requires device IP and port to be set. Using SSH over USB is recommended.
 
 To install watch faces, see the "Plugins" section below.

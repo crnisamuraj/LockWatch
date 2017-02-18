@@ -201,7 +201,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -rf $BUILD_ROOT/$CONFIGURATION-$PLATFORM_NAME/$EXECUTABLE_FOLDER_PATH $PROJECT_DIR/../LockWatch";
+			shellScript = "# Copy the framework so the tweak can be linked against it\ncp -rf $BUILD_ROOT/$CONFIGURATION-$PLATFORM_NAME/$EXECUTABLE_FOLDER_PATH $PROJECT_DIR/../LockWatch\n\n# Copy the framework headers to the include folder inside the tweak project\ncp -rf $BUILD_ROOT/$CONFIGURATION-$PLATFORM_NAME/$EXECUTABLE_FOLDER_PATH/Headers/ $PROJECT_DIR/../LockWatch/include/LockWatchBase/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
