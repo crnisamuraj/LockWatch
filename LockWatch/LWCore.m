@@ -50,7 +50,7 @@ static LWCore* sharedInstance;
 }
 
 - (void)loadPlugins {
-	NSArray* testPluginNames = [[NSArray alloc] initWithObjects:
+	NSArray* stockPluginNames = [[NSArray alloc] initWithObjects:
 								@"Simple.watchface",
 								@"Color.watchface", nil];
 
@@ -62,6 +62,7 @@ static LWCore* sharedInstance;
 	NSURL* location = [[NSURL fileURLWithPath:pluginLocation] URLByResolvingSymlinksInPath];
 	
 	NSArray* contents = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:location includingPropertiesForKeys:@[NSFileType] options:(NSDirectoryEnumerationOptions)0 error:nil];
+	
 	if ([contents count] == 0) {
 		NSLog(@"[LockWatch] No watch faces found.");
 		return;
@@ -69,13 +70,34 @@ static LWCore* sharedInstance;
 	
 	self->loadedWatchFaces = [[NSMutableArray alloc] init];
 	
-	[testPluginNames enumerateObjectsUsingBlock:^(id defaultPlugin, NSUInteger i, BOOL* stop) {
+	// Load stock watch faces
+	[stockPluginNames enumerateObjectsUsingBlock:^(NSURL* defaultPlugin, NSUInteger i, BOOL* stop) {
+		if (![[defaultPlugin pathExtension] isEqualToString:@"watchface"] || (int)[stockPluginNames indexOfObject:[defaultPlugin lastPathComponent]] == -1) {
+			return;
+		}
+		
 		NSURL* filePath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", pluginLocation, defaultPlugin]];
 		NSBundle* plugin = [[NSBundle alloc] initWithURL:filePath];
 		
-		if (plugin!= NULL) {
+		if (plugin != NULL) {
 			NSString* pluginIdentifier = [plugin bundleIdentifier];
 			NSLog(@"[LockWatch] Found watch face: %@", pluginIdentifier);
+			
+			[self->loadedWatchFaces addObject:plugin];
+		}
+	}];
+	
+	// Load any other watch face
+	[contents enumerateObjectsUsingBlock:^(NSURL* externalPlugin, NSUInteger i, BOOL* stop) {
+		if (![[externalPlugin pathExtension] isEqualToString:@"watchface"] || (int)[stockPluginNames indexOfObject:[externalPlugin lastPathComponent]] != -1) {
+			return;
+		}
+
+		NSBundle* plugin = [[NSBundle alloc] initWithURL:externalPlugin];
+		
+		if (plugin != NULL) {
+			NSString* pluginIdentifier = [plugin bundleIdentifier];
+			NSLog(@"[LockWatch] Found external watch face: %@", pluginIdentifier);
 			
 			[self->loadedWatchFaces addObject:plugin];
 		}

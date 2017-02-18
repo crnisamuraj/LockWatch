@@ -9,7 +9,7 @@ export PACKAGE_VERSION = 0.0.1-beta1
 
 # Configure the target here
 TARGET = iphone:latest		# Phyiscal devices
-#TARGET = simulator:clang	# Simulator
+TARGET = simulator:clang	# Simulator
 
 
 # DO NOT EDIT ANYTHING BEYOND THIS POINT
