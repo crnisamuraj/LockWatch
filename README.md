@@ -50,11 +50,15 @@ Just like the original, LockWatch can be extended using plugins. These plugins i
 * show your favorite image (maybe you should stick to using a wallpaper for this one)
 
 Watch faces are bundles that are compiled for iOS. Create a new Xcode project and select "Bundle" from the macOS tab. Go to your projects build settings set the base SDK to either "Latest iOS" or any other installed iOS SDK and disable Bitcode (BITCODE_ENABLED). Then, import LockWatchBase.framework. You need to compile the framework yourself.
+
 Create a new class with a unique name and make it a subclass of `LWWatchFace`. You can either choose to create a watch face out of existing templates or something entirely new (documentation will follow.)
+
 **To make it run on your device, you need to codesign it.** Add a new "Run Script Phase" and add the following code:
 `codesign --force --sign - --timestamp=none $CODESIGNING_FOLDER_PATH/$PRODUCT_NAME`
 
 Finally, compile your watch face for either "Generic iOS Device" or any other connected device and copy the build result to
 `/var/mobile/Library/FESTIVAL/LockWatch/Watch Faces/`
+
 (You should see some watch faces already. If not, you're in the wrong place)
+
 Restart SpringBoard, and if everything goes well, you should be able to select your watch face from Selection Mode.
