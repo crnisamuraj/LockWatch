@@ -311,11 +311,11 @@ static LWScrollView* sharedInstance;
 		return;
 	}
 	
+	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
+	
 	self->isScaledDown = NO;
 	[self.contentView setScrollEnabled:NO];
 	[self.wrapperView setUserInteractionEnabled:NO];
-	
-	[[LWCore sharedInstance] setCurrentWatchFace:[self->watchFaceViews objectAtIndex:[self getCurrentPage]]];
 	
 	[self->tapped setEnabled:NO];
 	if (![[UIDevice currentDevice] _supportsForceTouch] || deviceIsiPad) {
