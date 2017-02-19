@@ -144,7 +144,6 @@
 		8D13AD741E57240E00F8F981 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
 		8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LockWatchBase.xcodeproj; path = LockWatchBase/LockWatchBase.xcodeproj; sourceTree = "<group>"; };
 		8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatchFaces.xcodeproj; path = WatchFaces/WatchFaces.xcodeproj; sourceTree = "<group>"; };
-		8D2D9E631E5A2BC6001A6AEB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WatchFaces/Chronograph/Info.plist; sourceTree = "<group>"; };
 		8DF7C6FB1E57B06800723C0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +197,6 @@
 		8D53FB281E5700E90042EA2C = {
 			isa = PBXGroup;
 			children = (
-				8D2D9E631E5A2BC6001A6AEB /* Info.plist */,
 				8DF7C6FB1E57B06800723C0C /* README.md */,
 				8D13AD4D1E571FD000F8F981 /* LockWatch */,
 				8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */,
