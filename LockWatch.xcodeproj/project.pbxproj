@@ -35,6 +35,34 @@
 			remoteGlobalIDString = 8D13AD521E57207900F8F981;
 			remoteInfo = LockWatchBase;
 		};
+		8D2D065A1E599BFF00C427F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D2D064E1E599B2500C427F3;
+			remoteInfo = Chronograph;
+		};
+		8D2D065D1E599BFF00C427F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D2D064F1E599B2500C427F3;
+			remoteInfo = Chronograph;
+		};
+		8D2D9E6C1E5A2CEE001A6AEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D6BAAA81E59101300B03BA8;
+			remoteInfo = Utility;
+		};
+		8D2D9E6E1E5A2CF1001A6AEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D2D064E1E599B2500C427F3;
+			remoteInfo = Chronograph;
+		};
 		8D6BAAB01E59105C00B03BA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */;
@@ -116,6 +144,7 @@
 		8D13AD741E57240E00F8F981 /* LWScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWScrollViewContainer.m; sourceTree = "<group>"; };
 		8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LockWatchBase.xcodeproj; path = LockWatchBase/LockWatchBase.xcodeproj; sourceTree = "<group>"; };
 		8D13ADA51E572B7D00F8F981 /* WatchFaces.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatchFaces.xcodeproj; path = WatchFaces/WatchFaces.xcodeproj; sourceTree = "<group>"; };
+		8D2D9E631E5A2BC6001A6AEB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WatchFaces/Chronograph/Info.plist; sourceTree = "<group>"; };
 		8DF7C6FB1E57B06800723C0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +190,7 @@
 				8D6BAAB41E59105C00B03BA8 /* Utility.watchface */,
 				8DF7C6F41E57A8B200723C0C /* Simple.watchface */,
 				8DF7C7441E58481400723C0C /* Color.watchface */,
+				8D2D065E1E599BFF00C427F3 /* Chronograph.watchface */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +198,7 @@
 		8D53FB281E5700E90042EA2C = {
 			isa = PBXGroup;
 			children = (
+				8D2D9E631E5A2BC6001A6AEB /* Info.plist */,
 				8DF7C6FB1E57B06800723C0C /* README.md */,
 				8D13AD4D1E571FD000F8F981 /* LockWatch */,
 				8D13AD9F1E572B7300F8F981 /* LockWatchBase.xcodeproj */,
@@ -188,6 +219,7 @@
 			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = "$(PROJECT_DIR)/$(PROJECT)";
 			dependencies = (
+				8D2D065B1E599BFF00C427F3 /* PBXTargetDependency */,
 				8D6BAAB11E59105C00B03BA8 /* PBXTargetDependency */,
 				8DF7C7411E58481300723C0C /* PBXTargetDependency */,
 				8DF7C71B1E57C21500723C0C /* PBXTargetDependency */,
@@ -206,6 +238,8 @@
 			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = "$(PROJECT_DIR)/$(PROJECT)";
 			dependencies = (
+				8D2D9E6F1E5A2CF1001A6AEB /* PBXTargetDependency */,
+				8D2D9E6D1E5A2CEE001A6AEB /* PBXTargetDependency */,
 				8DF7C7501E5848C800723C0C /* PBXTargetDependency */,
 				8DF7C74E1E5848C500723C0C /* PBXTargetDependency */,
 				8DF7C74C1E5848C300723C0C /* PBXTargetDependency */,
@@ -296,6 +330,13 @@
 			remoteRef = 8D13ADA31E572B7300F8F981 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8D2D065E1E599BFF00C427F3 /* Chronograph.watchface */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Chronograph.watchface;
+			remoteRef = 8D2D065D1E599BFF00C427F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8D6BAAB41E59105C00B03BA8 /* Utility.watchface */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -343,6 +384,21 @@
 			isa = PBXTargetDependency;
 			name = LockWatchBase;
 			targetProxy = 8D13ADAC1E57691F00F8F981 /* PBXContainerItemProxy */;
+		};
+		8D2D065B1E599BFF00C427F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Chronograph;
+			targetProxy = 8D2D065A1E599BFF00C427F3 /* PBXContainerItemProxy */;
+		};
+		8D2D9E6D1E5A2CEE001A6AEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Utility;
+			targetProxy = 8D2D9E6C1E5A2CEE001A6AEB /* PBXContainerItemProxy */;
+		};
+		8D2D9E6F1E5A2CF1001A6AEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Chronograph;
+			targetProxy = 8D2D9E6E1E5A2CF1001A6AEB /* PBXContainerItemProxy */;
 		};
 		8D6BAAB11E59105C00B03BA8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/Hands.h</key>
 		<data>
-		Sg0ywG2uSAa9oayJKCSp1fQyKnk=
+		lAyvjPrw5psnhah7FNPEctUvLM4=
 		</data>
 		<key>Headers/Indicators.h</key>
 		<data>
-		do3/Tue44S4eDNfXBd/SqRqxwaM=
+		eOUQxVJ4Bz6yzSlkuzM6SZyk4VY=
 		</data>
 		<key>Headers/LWWatchButton.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/LWWatchFace.h</key>
 		<data>
-		eaq5XPRXrh4ShwMSwyfp1NPYLrA=
+		sgay+Eq3K8GyvLcUXR1Pkvs2Lng=
 		</data>
 		<key>Headers/LockWatchBase.h</key>
 		<data>
@@ -62,22 +62,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Sg0ywG2uSAa9oayJKCSp1fQyKnk=
+			lAyvjPrw5psnhah7FNPEctUvLM4=
 			</data>
 			<key>hash2</key>
 			<data>
-			el7phHu89Dhyq0VWkRxDsA9VNFG9NKSm4hEr9mefe3c=
+			HGJH8DYHB/MtJoT7NgqUUqfReCIJkl2iI94Sc5Cf/iU=
 			</data>
 		</dict>
 		<key>Headers/Indicators.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			do3/Tue44S4eDNfXBd/SqRqxwaM=
+			eOUQxVJ4Bz6yzSlkuzM6SZyk4VY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Szbcy2rTIesfRbwTBHilUi3znRXB195UWTiL5vknMSc=
+			zwHFROVoU47E3g9Mw6lhbpYA3RtLEqx5SWYGuKt2z34=
 			</data>
 		</dict>
 		<key>Headers/LWWatchButton.h</key>
@@ -95,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eaq5XPRXrh4ShwMSwyfp1NPYLrA=
+			sgay+Eq3K8GyvLcUXR1Pkvs2Lng=
 			</data>
 			<key>hash2</key>
 			<data>
-			wNvEnCcYHI0Rtg3w5BKaJ7MPUO32AQRxV/UxkbNNdn0=
+			07T+DSOUfEigbjxAhnQOafqzsCAuqSLtB6EMDsc0Weo=
 			</data>
 		</dict>
 		<key>Headers/LockWatchBase.h</key>

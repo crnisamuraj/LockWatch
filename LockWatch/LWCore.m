@@ -53,7 +53,8 @@ static LWCore* sharedInstance;
 	NSArray* stockPluginNames = [[NSArray alloc] initWithObjects:
 								@"Utility.watchface",
 								@"Simple.watchface",
-								@"Color.watchface", nil];
+								@"Color.watchface",
+								@"Chronograph.watchface", nil];
 
 #if TARGET_OS_SIMULATOR
 	NSString* pluginLocation = @"/opt/simject/FESTIVAL/LockWatch/Watch Faces/";

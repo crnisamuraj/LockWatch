@@ -10,8 +10,9 @@
 
 @interface Hands : NSObject
 
-+ (UIView*)hourHandWithChronographStyle:(BOOL)chronoStyle;
-+ (UIView*)minuteHandWithChronographStyle:(BOOL)chronoStyle;
++ (UIView*)hourHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle;
++ (UIView*)minuteHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle;
 + (UIView*)secondHandWithAccentColor:(UIColor*)accentColor;
++ (UIView*)chronoSecondHandWithAccentColor:(UIColor*)accentColor;
 
 @end

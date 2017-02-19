@@ -13,6 +13,6 @@
 + (UIView*)hourHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle;
 + (UIView*)minuteHandWithAccentColor:(UIColor*)accentColor andChronographStyle:(BOOL)chronoStyle;
 + (UIView*)secondHandWithAccentColor:(UIColor*)accentColor;
-+ (UIView*)chronoSecondHand;
++ (UIView*)chronoSecondHandWithAccentColor:(UIColor*)accentColor;
 
 @end
