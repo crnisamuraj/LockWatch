@@ -1,6 +1,6 @@
 framework module LockWatchBase {
   umbrella header "LockWatchBase.h"
-
+  umrella method "LockWatchBase.c"
   export *
   module * { export * }
 }
